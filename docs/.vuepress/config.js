@@ -1,6 +1,5 @@
 module.exports = {
 	base: '/Encaik-Pages/',
-	dest: '../../../',
 	title: 'Encaik个人主页',
 	description: 'Encaik的个人主页',
 	themeConfig: {
