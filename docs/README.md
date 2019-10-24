@@ -1,6 +1,8 @@
 ---
 home: true
+heroImage: /img/test.png
 heroText: Encaik前端博客
+tagline: 希望以后的自己能感谢现在努力的自己!
 features:
 - title: 博文
   details: 记录项目中遇到的问题及有趣的文章
