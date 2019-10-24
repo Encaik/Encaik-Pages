@@ -1,5 +1,5 @@
 module.exports = {
-	base: '/blog/',
+	base: '/',
 	dest: 'docs/.vuepress/blog/',
 	title: 'Encaik个人主页',
 	description: 'Encaik的个人主页',
