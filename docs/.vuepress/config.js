@@ -1,8 +1,8 @@
 module.exports = {
 	base: '/',
 	dest: 'docs/.vuepress/blog/',
-	title: 'Encaik个人主页',
-	description: 'Encaik的个人主页',
+	title: 'Encaik-个人博客',
+	description: 'Encaik-个人博客',
 	themeConfig: {
 		sidebar: 'auto',
 		nav: [
@@ -18,6 +18,7 @@ module.exports = {
 
 			'/note/': [
 				'',
+				'jinyan'
 			],
 		},
 		sidebarDepth: 2,
