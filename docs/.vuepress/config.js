@@ -20,6 +20,9 @@ module.exports = {
 				'',
 				'jinyan'
 			],
+			'/road/': [
+				'',
+			],
 		},
 		sidebarDepth: 2,
 		lastUpdated: '发布日期',
