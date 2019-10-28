@@ -51,6 +51,14 @@ module.exports = {
             ],
             '/repo/': [
                 'wkc',
+                'javaks',
+                'tongji',
+                'tenseflow',
+                'ibf',
+                'dachuang',
+                'todo',
+                'webaudio',
+                'electron',
             ],
             '/road/': [
                 '',
