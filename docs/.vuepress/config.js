@@ -68,5 +68,10 @@ module.exports = {
         },
         sidebarDepth: 2,
         lastUpdated: '发布日期',
-    }
+    },
+    plugins: [
+        ['@vuepress/google-analytics', {
+            ga: 'UA-151184644-1'//你的Google Analytics ID
+        }],
+    ]
 }
