@@ -4,11 +4,10 @@ module.exports = {
     title: 'Encaik-个人博客',
     description: 'Encaik-个人博客',
     head: [
-        ['link', {
-            rel: 'icon',
-            href: '/img/favicon.ico'
-        }]
+        ['link', { rel: 'icon', href: '/img/favicon.ico' }],
+        ['link', { rel: 'manifest', href: '/json/manifest.json' }],
     ],
+    serviceWorker: true,
     themeConfig: {
         sidebar: 'auto',
         nav: [{
