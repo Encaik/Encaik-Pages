@@ -43,6 +43,7 @@ module.exports = {
         sidebar: {
             '/blog/': [
                 '',
+                'vuepress2'
             ],
 
             '/note/': [
