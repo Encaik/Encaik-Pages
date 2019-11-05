@@ -41,7 +41,7 @@ module.exports = {
         ],
         sidebar: {
             '/blog/': [
-                '',
+                'vuepress',
                 'vuepress2',
                 'koa2-learn'
             ],
