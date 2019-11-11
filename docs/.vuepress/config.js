@@ -48,7 +48,8 @@ module.exports = {
 
             '/note/': [
                 '',
-                'jinyan'
+                'jinyan',
+                'lib'
             ],
             '/repo/': [
                 'wkc',
