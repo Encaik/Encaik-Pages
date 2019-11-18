@@ -42,6 +42,8 @@
 - 了解到了VLV，VXG，StreaMedia等web端视频播放器库
 - 了解并学习了impress.js,three.js等库
 
-## 2019年11月11日-至今
+## 2019年11月11日-2019年11月15号
 
 ### [:arrows_counterclockwise:中途接手]人脸识别上课签到点名系统后台
+
+- 提高熟练度
