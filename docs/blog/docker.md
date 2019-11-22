@@ -47,8 +47,8 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 4. 使用以下命令来设置稳定的存储库。要添加 每晚或测试存储库,请在以下命令中的单词后面添加nightly或test（或同时添加）stable。
 
-    :::
-    注意:下面的lsb_release -cs子命令返回Ubuntu发行版的名称,例如xenial。有时,在Linux Mint等发行版中,您可能需要更改$(lsb_release -cs) 为父Ubuntu发行版。例如,如果您使用 Linux Mint Tessa,则可以使用bionic。Docker对未经测试和不受支持的Ubuntu发行版不提供任何保证。
+    :::注意
+    下面的lsb_release -cs子命令返回Ubuntu发行版的名称,例如xenial。有时,在Linux Mint等发行版中,您可能需要更改$(lsb_release -cs) 为父Ubuntu发行版。例如,如果您使用 Linux Mint Tessa,则可以使用bionic。Docker对未经测试和不受支持的Ubuntu发行版不提供任何保证。
     :::
 
     ``` sh
@@ -69,7 +69,7 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
     sudo apt-get install docker-ce docker-ce-cli containerd.io
     ```
 
-    :::
+    ::: 注意
     如果启用了多个Docker存储库,则在未在apt-get installor apt-get update命令中指定版本的情况下进行安装或更新将始终安装可能的最高版本,这可能不适合您的稳定性需求。
     :::
 
@@ -107,8 +107,8 @@ sudo apt-get remove docker docker-engine docker.io containerd runc
 
 1. 去<https://download.docker.com/linux/ubuntu/dists/>选择你的Ubuntu版本,浏览pool/stable/,选择amd64,armhf,arm64,ppc64el,或s390x,并下载.deb文件对于docker引擎。
 
-    :::
-    注意:要安装夜间 软件包,stable请将URL中的单词更改 为nightly。 了解每晚和测试频道。
+    ::: 注意
+    要安装夜间 软件包,stable请将URL中的单词更改 为nightly。 了解每晚和测试频道。
     :::
 
 2. 安装Docker Engine-Community,将下面的路径更改为您下载Docker软件包的路径。
