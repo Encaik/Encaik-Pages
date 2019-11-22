@@ -43,7 +43,9 @@ module.exports = {
             '/blog/': [
                 '',
                 'vuepress2',
-                'koa2-learn'
+                'koa2-learn',
+                'docker',
+                'docker-compose'
             ],
 
             '/note/': [
