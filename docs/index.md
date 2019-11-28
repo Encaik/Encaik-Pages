@@ -5,11 +5,10 @@ heroText: Encaik-前端博客
 tagline: 希望以后的自己能感谢现在努力的自己!
 features:
 - title: 知识整理
- details:
- - [Vuepress搭建博客（一）](blog/index.md)
+ details: 整理在学习中遇到的坑和知识点
 - title: 项目积累
- details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
+ details: 记录开发路上的点点滴滴
 - title: 成果回顾
- details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+ details: 梳理以往个人开发的系统
 footer: Copyright © 2019-Encaik
 ---

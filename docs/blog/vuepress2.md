@@ -1,4 +1,4 @@
-# 学习Vuepress(2)——部署页面
+# Vuepress搭建博客(二)——部署页面
 
 ## 部署博客至Github Pages
 
