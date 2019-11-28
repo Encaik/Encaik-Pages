@@ -9,8 +9,6 @@ features:
 - title: 项目积累
   details: 记录开发路上的点点滴滴
 - title: 成果回顾
-  details:
-    - 梳理以往个人开发的系统
-    - [大创](repo/dachuang.md)
+  details: 梳理以往个人开发的系统
 footer: Copyright © 2019-Encaik
 ---
