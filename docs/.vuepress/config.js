@@ -45,7 +45,8 @@ module.exports = {
                 'vuepress2',
                 'koa2-learn',
                 'docker',
-                'docker-compose'
+                'docker-compose',
+                'react'
             ],
 
             '/note/': [
