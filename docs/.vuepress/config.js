@@ -46,6 +46,7 @@ module.exports = {
                 'koa2-learn',
                 'docker',
                 'docker-compose',
+                'docker-project',
                 'react'
             ],
 
