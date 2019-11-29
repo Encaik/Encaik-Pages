@@ -48,7 +48,8 @@ module.exports = {
                 'docker-compose',
                 'docker-project',
                 'react',
-                'react-native'
+                'react-native',
+                'typescript'
             ],
 
             '/note/': [
