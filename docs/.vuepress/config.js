@@ -47,7 +47,8 @@ module.exports = {
                 'docker',
                 'docker-compose',
                 'docker-project',
-                'react'
+                'react',
+                'react-native'
             ],
 
             '/note/': [

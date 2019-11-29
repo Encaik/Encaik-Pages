@@ -67,9 +67,10 @@
 
 - 学习使用Docker
 - 学习使用Docker-compose
-- 成功部署项目
+- 成功在Ubuntu18.04部署项目
 
 ## 2019年11月26号-至今
 
 - 为通行系统增加功能
-- 学习单元测试及e2e测试
+- 在CentOS7.7部署docker项目
+- 学习react及react-native
