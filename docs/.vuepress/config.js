@@ -49,7 +49,9 @@ module.exports = {
                 'docker-project',
                 'react',
                 'react-native',
-                'typescript'
+                'typescript',
+                'vuetestutils',
+                'vuetestutils2'
             ],
 
             '/note/': [
