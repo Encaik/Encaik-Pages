@@ -15,6 +15,18 @@ module.exports = {
       .assert.containsText("h1", "Welcome to Your Vue.js App")
       .assert.elementCount("img", 1)
       .end();
+  },
+  "Demo test baidu": browser => {
+    browser
+      .url("https://www.baidu.com/")
+      .waitForElementVisible("body")
+      .assert.titleContains("百度一下，你就知道")
+      .assert.visible("#kw")
+      .setValue("#kw", "vue")
+      .assert.visible("input[type=submit]")
+      .click("input[type=submit]")
+      .assert.containsText("#content_left", "Vue.js")
+      .end();
   }
 }
 ```
