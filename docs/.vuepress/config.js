@@ -86,7 +86,7 @@ module.exports = {
   },
   plugins: [
     ['@vuepress/google-analytics', {
-      ga: 'UA-151184644-1'//你的Google Analytics ID
+      ga: 'UA-151184644-1'
     }],
     ['@vuepress/pwa', {
       serviceWorker: true,
