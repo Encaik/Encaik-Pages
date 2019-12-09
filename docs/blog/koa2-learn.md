@@ -1,4 +1,4 @@
-# Koa2学习(1)——学习基本结构
+# Koa2基本学习
 
 ```js
 const Koa = require('koa');
