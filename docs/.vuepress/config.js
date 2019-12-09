@@ -1,86 +1,96 @@
 module.exports = {
-    base: '/',
-    dest: 'docs/.vuepress/blog/',
-    title: 'Encaik-个人博客',
-    description: 'Encaik-个人博客',
-    head: [
-        ['link', { rel: 'icon', href: '/img/favicon.ico' }],
-        ['link', { rel: 'manifest', href: '/json/manifest.json' }],
-    ],
-    serviceWorker: true,
-    themeConfig: {
-        sidebar: 'auto',
-        nav: [{
-            text: '首页',
-            link: '/'
-        },
-        {
-            text: '博文',
-            link: '/blog/'
-        },
-        {
-            text: '杂记',
-            link: '/note/'
-        },
-        {
-            text: '项目',
-            link: '/repo/wkc'
-        },
-        {
-            text: '学习路径',
-            link: '/road/'
-        },
-        {
-            text: 'Github',
-            link: 'https://github.com/Encaik'
-        },
-        {
-            text: '码云',
-            link: 'https://gitee.com/encaik'
-        }
-        ],
-        sidebar: {
-            '/blog/': [
-                '',
-                'vuepress2',
-                'koa2-learn',
-                'docker',
-                'docker-compose',
-                'docker-project',
-                'react',
-                'react-native',
-                'typescript',
-                'vuetestutils',
-                'vuetestutils2'
-            ],
-
-            '/note/': [
-                '',
-                'jinyan',
-                'lib'
-            ],
-            '/repo/': [
-                'wkc',
-                'javaks',
-                'tongji',
-                'tenseflow',
-                'ibf',
-                'dachuang',
-                'todo',
-                'webaudio',
-                'electron',
-            ],
-            '/road/': [
-                '',
-                'road'
-            ],
-        },
-        sidebarDepth: 2,
-        lastUpdated: '发布日期',
+  base: '/',
+  dest: 'docs/.vuepress/blog/',
+  title: 'Encaik-个人博客',
+  description: 'Encaik-个人博客',
+  head: [
+    ['link', { rel: 'icon', href: '/img/favicon.ico' }],
+    ['link', { rel: 'manifest', href: '/json/manifest.json' }],
+    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon-152x152.png' }],
+    ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+  ],
+  serviceWorker: true,
+  themeConfig: {
+    sidebar: 'auto',
+    nav: [{
+      text: '首页',
+      link: '/'
     },
-    plugins: [
-        ['@vuepress/google-analytics', {
-            ga: 'UA-151184644-1'//你的Google Analytics ID
-        }],
-    ]
+    {
+      text: '博文',
+      link: '/blog/'
+    },
+    {
+      text: '杂记',
+      link: '/note/'
+    },
+    {
+      text: '项目',
+      link: '/repo/wkc'
+    },
+    {
+      text: '学习路径',
+      link: '/road/'
+    },
+    {
+      text: 'Github',
+      link: 'https://github.com/Encaik'
+    },
+    {
+      text: '码云',
+      link: 'https://gitee.com/encaik'
+    }
+    ],
+    sidebar: {
+      '/blog/': [
+        '',
+        'koa2-learn',
+        'docker',
+        'docker-compose',
+        'docker-project',
+        'react',
+        'react-native',
+        'typescript',
+        'vuetestutils',
+        'vuetestutils2'
+      ],
+
+      '/note/': [
+        '',
+        'jinyan',
+        'lib'
+      ],
+      '/repo/': [
+        'wkc',
+        'javaks',
+        'tongji',
+        'tenseflow',
+        'ibf',
+        'dachuang',
+        'todo',
+        'webaudio',
+        'electron',
+      ],
+      '/road/': [
+        '',
+        'road'
+      ],
+    },
+    sidebarDepth: 2,
+    lastUpdated: '发布日期',
+  },
+  plugins: [
+    ['@vuepress/google-analytics', {
+      ga: 'UA-151184644-1'//你的Google Analytics ID
+    }],
+    ['@vuepress/pwa', {
+      serviceWorker: true,
+      updatePopup: true
+    }],
+  ]
 }
