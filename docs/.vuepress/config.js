@@ -57,7 +57,8 @@ module.exports = {
         'react-native',
         'typescript',
         'vuetestutils',
-        'vuetestutils2'
+        'vuetestutils2',
+        'egg',
       ],
 
       '/note/': [
