@@ -3,16 +3,16 @@ module.exports = {
   dest: 'docs/.vuepress/blog/',
   title: 'Encaik-个人博客',
   description: 'Encaik-个人博客',
-  head: [fff
+  head: [
     ['link', { rel: 'icon', href: '/img/favicon.ico' }],
     ['link', { rel: 'manifest', href: '/json/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#fff' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['link', { rel: 'apple-touch-icon', href: '/icons/apple-touch-icon-152x152.png' }],
-    ['link', { rel: 'mask-icon', href: '/icons/safari-pinned-tab.svg', color: '#3eaf7c' }],
-    ['meta', { name: 'msapplication-TileImage', content: '/icons/msapplication-icon-144x144.png' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['link', { rel: 'apple-touch-icon', href: '/img/favicon.ico' }],
+    ['link', { rel: 'mask-icon', href: '/img/favicon.ico', color: '#fff' }],
+    ['meta', { name: 'msapplication-TileImage', content: '/img/favicon.ico' }],
+    ['meta', { name: 'msapplication-TileColor', content: '#fff' }]
   ],
   serviceWorker: true,
   themeConfig: {
