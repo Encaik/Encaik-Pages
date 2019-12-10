@@ -67,6 +67,7 @@ module.exports = {
         'lib'
       ],
       '/repo/': [
+        '',
         'wkc',
         'javaks',
         'tongji',
