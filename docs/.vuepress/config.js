@@ -31,7 +31,7 @@ module.exports = {
     },
     {
       text: '项目',
-      link: '/repo/wkc'
+      link: '/repo/'
     },
     {
       text: '学习路径',
