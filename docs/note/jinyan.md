@@ -55,3 +55,15 @@ mounted () {
     this.$set(this.student,"age", 24)
 }
 ```
+
+## Flutter中TextField光标和hintText底边不对齐
+
+原因是：不同文本的baselines不一样，中文hinttext比光标要大，所以baselines更低
+
+解决方法：在TextField中添加style配置baselines
+
+``` dart
+style: TextStyle(
+  textBaseline: TextBaseline.alphabetic
+)
+```
