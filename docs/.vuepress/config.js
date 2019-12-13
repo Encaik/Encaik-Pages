@@ -60,7 +60,8 @@ module.exports = {
         'vuetestutils2',
         'egg',
         'flutter',
-        'tonejs'
+        'tonejs',
+        'vue2'
       ],
 
       '/note/': [
