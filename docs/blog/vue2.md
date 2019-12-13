@@ -211,6 +211,34 @@ if (options.methods) {
 
 构造函数结束，可以看出构造函数是在初始化vue实例，解析实例中的数据。
 
+接下来自己动手试试，首先创建了vue.js当作源码，然后创建main.js当作实例。
+
+``` js
+/* vue.js */
+class Vue {
+  constructor(params) {
+    const el = this._el = params.el;
+    this._data = params.data;
+  }
+}
+
+module.exports = Vue;
+
+/* main.js */
+var Vue = require('./vue.js');
+
+var app = new Vue({
+  el: "#app",
+  data: {
+    name: "enciak"
+  }
+});
+
+console.log(app._el);
+```
+
+运行`node main.js`后得到结果#app，说明没有问题。
+
 ## observer(观察者)
 
 ## vdom
