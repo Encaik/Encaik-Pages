@@ -111,3 +111,110 @@ stage-2：
 - transform-object-reset-spread
 
 而在生产环境则用了es2015-rollup，这是前端模块打包工具，可以让bundle文件最小化，避免引入冗余模块代码，有效减少文件请求大小。
+
+## instance(实例)
+
+先选择这个文件夹是因为这是入口文件导向的第一个文件夹。index.umd.js只是引入indes.js文件，而index.js文件则引入instance文件夹中的index.js文件。
+
+``` js
+import { compile } from '../compiler/index'
+import { observe } from '../observer/index'
+import Watcher from '../observer/watcher'
+import { h, patch } from '../vdom/index'
+import { nextTick, isReserved, getOuterHTML } from '../util/index'
+```
+
+从开头就可以看到这个文件已经引入了其他所有文件夹的入口文件。
+
+``` js
+export default class Component {}
+
+Component.prototype.__h__ = h
+Component.nextTick = nextTick
+```
+
+该文件声明了一个Component类并且暴露接口。
+
+添加了名为__h__的属性，该属性的值由vdom入口文件导出。
+
+给名为nextTick的属性赋值为nextTick，该值由util入口文件导出。
+
+``` js
+/* 源代码 */
+constructor (options) {
+    this.$options = options
+    this._data = options.data
+    const el = this._el = document.querySelector(options.el)
+    const render = compile(getOuterHTML(el))
+    this._el.innerHTML = ''
+    Object.keys(options.data).forEach(key => this._proxy(key))
+    if (options.methods) {
+      Object.keys(options.methods).forEach(key => {
+        this[key] = options.methods[key].bind(this)
+      })
+    }
+    this._ob = observe(options.data)
+    this._watchers = []
+    this._watcher = new Watcher(this, render, this._update)
+    this._update(this._watcher.value)
+  }
+  /* Vue实例 */
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
+  ```
+
+对比中可以看到实例花括号中的内容被构造函数拆解，其中`this.$options = options`把参数对象赋值给了$options。
+
+`this._data = options.data`把data对象赋值给了私有变量_data。
+
+`const el = this._el = document.querySelector(options.el)`把dom中绑定Vue实例元素的标签同时赋值给了私有变量_el和静态常量el。
+
+`const render = compile(getOuterHTML(el))`调用compile方法，并把返回值赋给了render。
+
+`this._el.innerHTML = ''`把绑定Vue元素的标签内部清空。
+
+`Object.keys(options.data).forEach(key => this._proxy(key))`把data中的参数遍历调用了_proxy方法。
+
+::: Tips 注意
+遍历对象有两种方法：
+
+- `Object.keys(obj).forEach((key)=>{})`
+
+此方法只会循环遍历对象中可遍历的属性，而不去搜索原型链。
+
+- `for(let i in obj)`
+
+此方法会搜索原型链并遍历所有属性。因此一般`for···in···`都需要一个`hasOwnProperty`方法来判断便利出的是不是本身的属性。
+
+:::
+
+``` js
+if (options.methods) {
+  Object.keys(options.methods).forEach(key => {
+    this[key] = options.methods[key].bind(this)
+  })
+}
+/* 这一段则是判断vue实例中是否含存在methods对象，如果存在则遍历并绑定this作用域后赋值给实例作为属性。 */
+```
+
+`this._ob = observe(options.data)`把私有变量_ob赋值为方法observe的返回值，该方法参数为data对象。
+
+`this._watchers = []`设置私有变量watchers数组为空。
+
+`this._watcher = new Watcher(this, render, this._update)`设置私有变量watcher为Watcher类的实例，参数为vue实例，render和_update方法。
+
+`this._update(this._watcher.value)`调用私有方法_update，参数为_watcher.value。
+
+构造函数结束，可以看出构造函数是在初始化vue实例，解析实例中的数据。
+
+## observer(观察者)
+
+## vdom
+
+## compiler
+
+## util
