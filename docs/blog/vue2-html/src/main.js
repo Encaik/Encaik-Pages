@@ -1,4 +1,4 @@
-import Vue from './lib/vue.js';
+const Vue = require('./lib/vue.js');
 
 var app = new Vue({
   el: "#app",
@@ -7,3 +7,5 @@ var app = new Vue({
   },
   // render: h => h(App),
 });
+
+console.log(app);
