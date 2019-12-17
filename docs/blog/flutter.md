@@ -1,5 +1,36 @@
 # 学习使用Flutter进行移动端开发
 
+## 资源库
+
+修改Flutter\packages\flutter_tools\gradle\flutter.gradle文件
+
+``` groovy
+/* 原本 */
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+/* 修改后 */
+buildscript {
+    repositories {
+        //修改的地方
+        //google()
+        //jcenter()
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+    }
+}
+```
+
 ## 常用Widget
 
 - 页面

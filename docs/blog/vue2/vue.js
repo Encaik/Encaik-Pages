@@ -1,7 +1,8 @@
 class Vue {
-  constructor(params) {
-    const el = this._el = params.el;
-    this._data = params.data;
+  constructor (options) {
+    this.$options = options;
+    this._data = options.data;
+    const el = this._el = document.querySelector(options.el);
   }
 }
 
