@@ -239,10 +239,92 @@ console.log(app._el);
 
 运行`node main.js`后得到结果#app，说明没有问题。
 
+继续往下需要解析html文件，所以修改文件目录分离vue实例和网页，然后在vue实例中创建node项目并配置webpack等相关文件。
+
+首先初始化node项目:`npm i -y`
+
+然后安装webpack，babel等依赖:
+
+``` sh
+npm install webpack webpack-cli --save-dev
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+npm install --save @babel/polyfill
+npm install --save-dev babel-loader
+```
+
+创建webpack.config.js，因为版本原因，所以需要修改配置文件结构及属性，最终配置文件如下：
+
+``` js
+var path = require('path')
+
+module.exports = {
+  entry: path.resolve(__dirname, './src/index.js'),
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'vue.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use:{
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+创建.babelrc文件，内容如下：
+
+``` js
+{
+  "presets": ["@babel/preset-env"]
+}
+```
+
+最终文件目录结构如下：
+
+``` sh
+VueProject
+    ├─dist
+    │   └─vue.js
+    ├─src
+    │   └─index.js
+    ├─.babelrc
+    ├─package-lock.json
+    ├─package.json
+    └─webpack.config.js
+VueHtmlProject
+    ├─src
+    │   └─index.js
+    ├─index.html
+    ├─package-lock.json
+    ├─package.json
+    └─webpack.config.js
+```
+
+然后在index.html中通过文件引入的方式引入vue.js，并创建实例。在浏览器中打开index.html，控制台中输出了#app的标签，说明没有问题拿到了标签，下一步分析html解析。
+
+## compiler
+
+在vue源码中，构造函数通过`const render = compile(getOuterHTML(el))`拿到了标签，解析并返回了渲染内容。所以打开compiler目录查看结构:
+
+``` sh
+compiler
+    ├─codegen.js
+    ├─html-parser.js
+    ├─index.js
+    └─text-parser.js
+```
+
 ## observer(观察者)
 
 ## vdom
-
-## compiler
 
 ## util
