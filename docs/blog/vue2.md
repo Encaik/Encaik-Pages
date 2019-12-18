@@ -396,7 +396,46 @@ export function compile (html) {
 
 ---
 
-查看
+调用compile需要用到getOuterHTML方法，所以打开index文件查看方法来源。
+
+``` js
+export * from './lang'
+export * from './env'
+export * from './dom'
+export * from './options'
+export * from './component'
+export * from './debug'
+export { defineReactive } from '../observer/index'
+
+```
+
+从名称中可以看出各文件大概的作用，进入dom文件查看是否存在该方法。
+
+### dom
+
+---
+
+在我末尾找到了该方法，内容如下：
+
+``` js
+/**
+ * Get outerHTML of elements, taking care
+ * of SVG elements in IE as well.
+ *
+ * @param {Element} el
+ * @return {String}
+ */
+
+export function getOuterHTML (el) {
+  if (el.outerHTML) {
+    return el.outerHTML
+  } else {
+    var container = document.createElement('div')
+    container.appendChild(el.cloneNode(true))
+    return container.innerHTML
+  }
+}
+```
 
 ## observer(观察者)
 
