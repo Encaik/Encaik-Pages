@@ -98,6 +98,8 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### AST
 
+在计算机科学中，抽象语法树（Abstract Syntax Tree，AST），或简称语法树（Syntax tree），是源代码语法结构的一种抽象表示。它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。
+
 抽象语法树（AST）是代码运行最核心的知识点，是js里最底层的部分，再往下拆解就是转换和编译的知识了。
 
 举个例子：
@@ -139,6 +141,19 @@ FunctionDeclaration {
 ```
 
 这只是最简单的样式，但是实际AST中包含很多信息。而这些标准都可以在[MDN/Parser API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API#Node_objects)以及[The ESTree Spec](https://github.com/estree/estree)中查找到。
+
+如果想看详细的案例，也可以在[AST Explorer](https://astexplorer.net/)中查看。
+
+### parser
+
+parser即解释器，通过解释器就可以将js源码转换为AST结构。
+
+常见的解释器有：
+
+- esprima
+- traceur
+- acorn
+- shift
 
 ## HTML
 
