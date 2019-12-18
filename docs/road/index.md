@@ -25,21 +25,27 @@
 1. Trident (IE内核)
 
     国内很多的双核浏览器的其中一核便是 Trident，美其名曰 "兼容模式"。
+
     代表： IE、傲游、世界之窗浏览器、Avant、腾讯TT、猎豹安全浏览器、360极速浏览器、百度浏览器等。
     Window10 发布后，IE 将其内置浏览器命名为 Edge，Edge 最显著的特点就是新内核 EdgeHTML。
 
 2. Gecko(firefox)
 
-    Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。 可惜这几年已经没落了， 比如 打开速度慢、升级频繁。
+    Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。
+
+    可惜这几年已经没落了， 比如 打开速度慢、升级频繁。
 
 3. webkit(Safari)
 
     Safari 是苹果公司开发的浏览器，所用浏览器内核的名称是大名鼎鼎的 WebKit。
+
     代表浏览器：傲游浏览器3、 Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器。
 
 4. Chromium/Bink(chrome)
 
-    在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。大部分国产浏览器最新版都采用Blink内核。
+    在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。
+
+    大部分国产浏览器最新版都采用Blink内核。
 
 5. Presto (Opera)
 
@@ -86,12 +92,24 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### 浏览器BOM API
 
+### 性能
+
+## 原理
+
+### AST
+
+## HTML
+
+### 盒模型
+
 ## CSS
 
 ### 文章
 
 - [掘金-老姚 你未必知道的49个知识点](https://juejin.im/post/5d3eca78e51d4561cb5dde12)
 - [掘金-老姚 你未必知道的知识点(第二季)](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
+
+### 预编译器
 
 ## JS
 
@@ -107,13 +125,11 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### 执行上下文（EC）
 
-## 基础开发框架
+## 开发框架
 
 ### Vue
 
 ### React
-
-### Angular
 
 ## 跨平台开发
 
@@ -121,12 +137,10 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### Flutter
 
+### Electron
+
 ## UI框架
 
 ### Ant-design
 
 ### element
-
-### Vant
-
-### iview
