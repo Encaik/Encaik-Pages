@@ -98,6 +98,48 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### AST
 
+抽象语法树（AST）是代码运行最核心的知识点，是js里最底层的部分，再往下拆解就是转换和编译的知识了。
+
+举个例子：
+
+``` js
+function add(a, b) {
+    return a + b
+}
+```
+
+这段代码拆解为AST应该是这样：
+
+``` js
+FunctionDeclaration {
+    type: 'FunctionDeclaration',
+    name: 'add'
+    params: [
+      {
+        type: 'identifier',
+        name: 'a',
+      },
+      {
+        type: 'identifier',
+        name: 'b',
+      },
+    ],
+    body: Blockstatement {
+      type: 'BlockStatement',
+      body: ReturnStatement {
+        type: 'ReturnStatement',
+        body: BinaryExpression {
+          left: 'a',
+          operator: '+',
+          right: 'b',
+        }
+      }
+    }
+}
+```
+
+这只是最简单的样式，但是实际AST中包含很多信息。而这些标准都可以在[MDN/Parser API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API#Node_objects)以及[The ESTree Spec](https://github.com/estree/estree)中查找到。
+
 ## HTML
 
 ### 盒模型

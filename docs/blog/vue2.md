@@ -408,6 +408,41 @@ export function compile (html) {
 
 进入codegen文件可以看到有各种方法解析AST，并最终返回一个方法，内容为返回解析后的代码。
 
+#### parse
+
+parse方法内部定义了root，currentParent,stack三个变量，然后调用了HTMLParser方法，并传入参数html和一个对象，最后则返回root。
+
+#### HTMLParser
+
+HTMLParser方法接受了两个参数，一个是html，另一个是handler对象。其中handler作为参数调用了attrForHandler方法。
+
+#### attrForHandler
+
+从文件中找到了该方法，内容如下：
+
+``` js
+function attrForHandler(handler) {
+  var pattern = singleAttrIdentifier.source +
+                '(?:\\s*(' + joinSingleAttrAssigns(handler) + ')' +
+                '\\s*(?:' + singleAttrValues.join('|') + '))?'
+  return new RegExp('^\\s*' + pattern)
+}
+```
+
+可以看到该方法又将handler作为参数调用了joinSingleAttrAssigns方法。
+
+#### joinSingleAttrAssigns
+
+``` js
+function joinSingleAttrAssigns(handler) {
+  return singleAttrAssigns.map(function(assign) {
+    return '(?:' + assign.source + ')'
+  }).join('|')
+}
+```
+
+该方法拿到handler后并未使用，
+
 ## util
 
 ### index
@@ -432,6 +467,8 @@ export { defineReactive } from '../observer/index'
 ### dom
 
 ---
+
+#### outerHTML
 
 在我末尾找到了该方法，内容如下：
 
