@@ -388,7 +388,25 @@ export function compile (html) {
 
 然后创建方法compile并导出，参数名为html，根据之前的代码知道这里是挂载vue实例的标签。
 
-实例调用compile，并传参`getOuterHTML(el)`，此方法由util文件夹中的index导出。
+实例调用compile，并传参`getOuterHTML(el)`，此方法由util文件夹中的index导出，方法返回该标签及其子标签的字符串。
+
+在compile中定义html，赋值为传参字符串去掉空白字符。
+
+`const hit = cache[html]`中，cache应该没有html属性，因此赋值后hit为undefined。
+
+`return hit || (cache[html] = generate(parse(html)))`返回hit或cache[html]，后者则是通过generate方法生成，该方法由同目录下的codegen文件导出。传参则是html调用parse方法，该方法由同目录下的html-parse文件导出。
+
+### html-parser
+
+---
+
+找到方法后通过注释可以知道这个方法把html解析为了AST。
+
+### codegen
+
+---
+
+进入codegen文件可以看到有各种方法解析AST，并最终返回一个方法，内容为返回解析后的代码。
 
 ## util
 
@@ -436,6 +454,8 @@ export function getOuterHTML (el) {
   }
 }
 ```
+
+该方法是为了获取vue挂载的标签本身及内容，因为outerHTML只支持IE浏览器，为了兼容性需要做处理。如果存在outerHTML则返回该标签，如果不存在则创建div并复制节点及其子节点到div下，返回该div的innerHTML。
 
 ## observer(观察者)
 

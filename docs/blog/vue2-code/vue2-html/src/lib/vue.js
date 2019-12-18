@@ -104,7 +104,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"compile\", function() { return compile; });\nfunction compile(html) {}\n;\n\n//# sourceURL=webpack://Vue/./src/compiler/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"compile\", function() { return compile; });\nvar cache = Object.create(null);\nfunction compile(html) {\n  html = html.trim();\n  var hit = cache[html];\n  console.log(hit);\n}\n\n//# sourceURL=webpack://Vue/./src/compiler/index.js?");
 
 /***/ }),
 
@@ -139,7 +139,31 @@ eval("module.exports = __webpack_require__(/*! ./index */ \"./src/index.js\")['d
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\n/* harmony import */ var _compiler_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compiler/index */ \"./src/compiler/index.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n  var render = Object(_compiler_index__WEBPACK_IMPORTED_MODULE_0__[\"compile\"])(getOuterHTML(el));\n};\n\n\n\n//# sourceURL=webpack://Vue/./src/instance/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\n/* harmony import */ var _compiler_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compiler/index */ \"./src/compiler/index.js\");\n/* harmony import */ var _util_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/index */ \"./src/util/index.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n  var render = Object(_compiler_index__WEBPACK_IMPORTED_MODULE_0__[\"compile\"])(Object(_util_index__WEBPACK_IMPORTED_MODULE_1__[\"getOuterHTML\"])(el));\n};\n\n\n\n//# sourceURL=webpack://Vue/./src/instance/index.js?");
+
+/***/ }),
+
+/***/ "./src/util/dom.js":
+/*!*************************!*\
+  !*** ./src/util/dom.js ***!
+  \*************************/
+/*! exports provided: getOuterHTML */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"getOuterHTML\", function() { return getOuterHTML; });\n/**\r\n * Get outerHTML of elements, taking care\r\n * of SVG elements in IE as well.\r\n *\r\n * @param {Element} el\r\n * @return {String}\r\n */\nfunction getOuterHTML(el) {\n  if (el.outerHTML) {\n    return el.outerHTML;\n  } else {\n    var container = document.createElement('div');\n    container.appendChild(el.cloneNode(true));\n    return container.innerHTML;\n  }\n}\n\n//# sourceURL=webpack://Vue/./src/util/dom.js?");
+
+/***/ }),
+
+/***/ "./src/util/index.js":
+/*!***************************!*\
+  !*** ./src/util/index.js ***!
+  \***************************/
+/*! exports provided: getOuterHTML */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dom */ \"./src/util/dom.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"getOuterHTML\", function() { return _dom__WEBPACK_IMPORTED_MODULE_0__[\"getOuterHTML\"]; });\n\n\n\n//# sourceURL=webpack://Vue/./src/util/index.js?");
 
 /***/ })
 
