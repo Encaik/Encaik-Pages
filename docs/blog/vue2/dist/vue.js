@@ -96,6 +96,18 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/compiler/index.js":
+/*!*******************************!*\
+  !*** ./src/compiler/index.js ***!
+  \*******************************/
+/*! exports provided: compile */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"compile\", function() { return compile; });\nfunction compile(html) {}\n;\n\n//# sourceURL=webpack://Vue/./src/compiler/index.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -127,7 +139,7 @@ eval("module.exports = __webpack_require__(/*! ./index */ \"./src/index.js\")['d
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n};\n\n\n\n//# sourceURL=webpack://Vue/./src/instance/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\n/* harmony import */ var _compiler_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../compiler/index */ \"./src/compiler/index.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\n\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n  var render = Object(_compiler_index__WEBPACK_IMPORTED_MODULE_0__[\"compile\"])(getOuterHTML(el));\n};\n\n\n\n//# sourceURL=webpack://Vue/./src/instance/index.js?");
 
 /***/ })
 

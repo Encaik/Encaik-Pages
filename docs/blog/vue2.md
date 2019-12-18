@@ -175,11 +175,14 @@ constructor (options) {
 
 `const render = compile(getOuterHTML(el))`调用compile方法，并把返回值赋给了render。
 
+##### 调用compile
+
 `this._el.innerHTML = ''`把绑定Vue元素的标签内部清空。
 
 `Object.keys(options.data).forEach(key => this._proxy(key))`把data中的参数遍历调用了_proxy方法。
 
 ::: Tips 注意
+
 遍历对象有两种方法：
 
 - `Object.keys(obj).forEach((key)=>{})`
@@ -309,8 +312,10 @@ VueHtmlProject
     └─webpack.config.js
 ```
 
-::: Tips 提示
+::: Tips 注意
+
 在后续使用中发现，index.umd.js是为了让vue以umd模块的形式导出，这样做可以让webpack直接使用，如果以ES6的形式导出，在导入vue时会报错。
+
 :::
 
 然后在index.html中通过文件引入的方式引入vue.js，并创建实例。在浏览器中打开index.html，控制台中输出了#app的标签，说明没有问题拿到了标签，下一步分析html解析。
@@ -326,6 +331,62 @@ compiler
     ├─index.js
     └─text-parser.js
 ```
+
+先查看index.js文件的内容:
+
+``` js
+import { parse } from './html-parser'
+import { generate } from './codegen'
+
+const cache = Object.create(null)
+
+export function compile (html) {
+  html = html.trim()
+  const hit = cache[html]
+  return hit || (cache[html] = generate(parse(html)))
+}
+```
+
+可以看到首先引入了同目录下另外两个文件，然后创建了一个新的对象赋值给cache。
+
+::: Tips 注意
+
+创建一个空对象有以下三个方法：
+
+- {}
+
+``` js
+> var a = {};
+< undefined
+> a.isPrototypeOf
+< ƒ isPrototypeOf() { [native code] }
+```
+
+- Object.create(null)
+
+``` js
+> var b = Object.create(null);
+< undefined
+> b.isPrototypeOf
+< undefined
+```
+
+- new Object()
+
+``` js
+> var c = new Object();
+< undefined
+> c.isPrototypeOf
+< ƒ isPrototypeOf() { [native code] }
+```
+
+根据对比可以明显看出来，`Object.create(null)`创建的是一个绝对空白的对象，甚至都没有构造函数，toString、hasOwnProperty属性。
+
+:::
+
+然后创建方法compile并导出，参数名为html，根据之前的代码知道这里是挂载vue实例的标签。
+
+[实例调用compile](#####调用compile)
 
 ## observer(观察者)
 
