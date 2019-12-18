@@ -112,7 +112,7 @@ stage-2：
 
 而在生产环境则用了es2015-rollup，这是前端模块打包工具，可以让bundle文件最小化，避免引入冗余模块代码，有效减少文件请求大小。
 
-## instance(实例)=>index
+## instance(实例)
 
 先选择这个文件夹是因为这是入口文件导向的第一个文件夹。index.umd.js只是引入indes.js文件，而index.js文件则引入instance文件夹中的index.js文件。
 
@@ -322,6 +322,8 @@ VueHtmlProject
 
 ### index
 
+---
+
 在vue源码中，构造函数通过`const render = compile(getOuterHTML(el))`拿到了标签，解析并返回了渲染内容。所以打开compiler目录查看结构:
 
 ``` sh
@@ -391,6 +393,8 @@ export function compile (html) {
 ## util
 
 ### index
+
+---
 
 查看
 
