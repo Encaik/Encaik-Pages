@@ -175,8 +175,6 @@ constructor (options) {
 
 `const render = compile(getOuterHTML(el))`调用compile方法，并把返回值赋给了render。
 
-##### 调用compile
-
 `this._el.innerHTML = ''`把绑定Vue元素的标签内部清空。
 
 `Object.keys(options.data).forEach(key => this._proxy(key))`把data中的参数遍历调用了_proxy方法。
@@ -386,7 +384,7 @@ export function compile (html) {
 
 然后创建方法compile并导出，参数名为html，根据之前的代码知道这里是挂载vue实例的标签。
 
-[实例调用compile](#####调用compile)
+实例调用compile，并传参`getOuterHTML(el)`，此方法由util文件夹中的index导出。
 
 ## observer(观察者)
 
