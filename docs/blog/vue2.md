@@ -309,6 +309,10 @@ VueHtmlProject
     └─webpack.config.js
 ```
 
+::: Tips 提示
+在后续使用中发现，index.umd.js是为了让vue以umd模块的形式导出，这样做可以让webpack直接使用，如果以ES6的形式导出，在导入vue时会报错。
+:::
+
 然后在index.html中通过文件引入的方式引入vue.js，并创建实例。在浏览器中打开index.html，控制台中输出了#app的标签，说明没有问题拿到了标签，下一步分析html解析。
 
 ## compiler

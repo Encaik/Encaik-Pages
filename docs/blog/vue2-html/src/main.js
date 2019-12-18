@@ -1,4 +1,4 @@
-const Vue = require('./lib/vue.js');
+import Vue from './lib/vue.js';
 
 var app = new Vue({
   el: "#app",

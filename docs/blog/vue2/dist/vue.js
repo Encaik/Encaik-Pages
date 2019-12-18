@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Vue"] = factory();
+	else
+		root["Vue"] = factory();
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -81,7 +91,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.umd.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -94,7 +104,18 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _instance_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instance/index */ \"./src/instance/index.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_instance_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _instance_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instance/index */ \"./src/instance/index.js\");\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_instance_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://Vue/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/index.umd.js":
+/*!**************************!*\
+  !*** ./src/index.umd.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__(/*! ./index */ \"./src/index.js\")['default'];\n\n//# sourceURL=webpack://Vue/./src/index.umd.js?");
 
 /***/ }),
 
@@ -106,8 +127,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ins
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n};\n\n\n\n//# sourceURL=webpack:///./src/instance/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Component; });\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nvar Component = function Component(options) {\n  _classCallCheck(this, Component);\n\n  this.$options = options;\n  this._data = options.data;\n  var el = this._el = document.querySelector(options.el);\n};\n\n\n\n//# sourceURL=webpack://Vue/./src/instance/index.js?");
 
 /***/ })
 
 /******/ });
+});
