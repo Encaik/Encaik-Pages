@@ -94,9 +94,9 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### 性能
 
-## 原理
+## 计算机网络
 
-### AST
+## AST
 
 在计算机科学中，抽象语法树（Abstract Syntax Tree，AST），或简称语法树（Syntax tree），是源代码语法结构的一种抽象表示。它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。
 
@@ -157,7 +157,29 @@ parser即解释器，通过解释器就可以将js源码转换为AST结构。
 
 ## HTML
 
-### 盒模型
+### Web存储
+
+localStorage 和 sessionStorage：
+
+- localStorage
+
+用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。
+
+- sessionStorage
+
+用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
+
+### Web缓存
+
+#### Manifest
+
+### WebSocket
+
+WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。
+
+### Canvas
+
+HTML5 \<canvas> 标签用于绘制图像（通过脚本，通常是 JavaScript）。
 
 ## CSS
 
@@ -166,13 +188,33 @@ parser即解释器，通过解释器就可以将js源码转换为AST结构。
 - [掘金-老姚 你未必知道的49个知识点](https://juejin.im/post/5d3eca78e51d4561cb5dde12)
 - [掘金-老姚 你未必知道的知识点(第二季)](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
-### 预编译器
+### 盒模型
+
+### 布局
+
+### 图像
 
 ## JS
 
 ### 内置类型
 
+值类型(基本类型)：字符串（String）、数字(Number)、布尔(Boolean)、对空（Null）、未定义（Undefined）、Symbol。
+
+引用数据类型：对象(Object)、数组(Array)、函数(Function)。
+
+::: Tips 注意
+
+Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
+
+:::
+
 ### 作用域与闭包
+
+在 JavaScript 中, 对象和函数同样也是变量。
+
+在 JavaScript 中, 作用域为可访问变量，对象，函数的集合。
+
+JavaScript 函数作用域: 作用域在函数内修改。
 
 ### 引用和操作符优先级
 
@@ -196,8 +238,42 @@ parser即解释器，通过解释器就可以将js源码转换为AST结构。
 
 ### Electron
 
+## 服务器端渲染(SSR)
+
+### Nuxt.js
+
+### Next.js
+
 ## UI框架
 
 ### Ant-design
 
 ### element
+
+## runtime
+
+### node.js
+
+## 打包工具
+
+### Webpack
+
+### Rollup
+
+## 转译工具
+
+### Babel
+
+## 语法检查
+
+### ESlint
+
+## 代码格式化
+
+### Prettier
+
+## CSS预编译器
+
+### Less
+
+### Sass
