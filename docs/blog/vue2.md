@@ -322,8 +322,6 @@ VueHtmlProject
 
 ### index
 
----
-
 在vue源码中，构造函数通过`const render = compile(getOuterHTML(el))`拿到了标签，解析并返回了渲染内容。所以打开compiler目录查看结构:
 
 ``` sh
@@ -398,19 +396,9 @@ export function compile (html) {
 
 ### html-parser
 
----
-
-找到方法后通过注释可以知道这个方法把html解析为了AST。
-
-### codegen
-
----
-
-进入codegen文件可以看到有各种方法解析AST，并最终返回一个方法，内容为返回解析后的代码。
-
 #### parse
 
-parse方法内部定义了root，currentParent,stack三个变量，然后调用了HTMLParser方法，并传入参数html和一个对象，最后则返回root。
+找到方法后通过注释可以知道这个方法把html解析为了AST。parse方法内部定义了root，currentParent,stack三个变量，然后调用了HTMLParser方法，并传入参数html和一个对象，最后则返回root。
 
 #### HTMLParser
 
@@ -429,7 +417,9 @@ function attrForHandler(handler) {
 }
 ```
 
-可以看到该方法又将handler作为参数调用了joinSingleAttrAssigns方法。
+可以看到该方法又将handler作为参数调用了joinSingleAttrAssigns方法。拿到方法返回的正则匹配范围后，可以看到还需要转换两个属性，singleAttrIdentifier.source即([^\s"'<>\/=]+)，singleAttrValues.join('|')即"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)。
+
+最后pattren的值是([^\s"'<>\/=]+)(?:\s*((?:=))\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?，然后新建一个RegExp对象，参数为^\s*([^\s"'<>\/=]+)(?:\s*((?:=))\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?。
 
 #### joinSingleAttrAssigns
 
@@ -441,13 +431,17 @@ function joinSingleAttrAssigns(handler) {
 }
 ```
 
-该方法拿到handler后并未使用，
+该方法拿到handler后并未使用，而是用map处理了singleAttrAssigns数组。`singleAttrAssigns = [singleAttrAssign]`根据定义看到数组中只有一个值为singleAttrAssign，`singleAttrAssign = /=/`查看定义得知这是匹配`=`的正则表达式。
+
+因此map最终返回的应该是一个字符串`'(?:=)'`，然后处理了joinSingleAttrAssigns返回一个正则匹配范围`'(?:=)'`。
+
+### codegen
+
+进入codegen文件可以看到有各种方法解析AST，并最终返回一个方法，内容为返回解析后的代码。
 
 ## util
 
 ### index
-
----
 
 调用compile需要用到getOuterHTML方法，所以打开index文件查看方法来源。
 
@@ -465,8 +459,6 @@ export { defineReactive } from '../observer/index'
 从名称中可以看出各文件大概的作用，进入dom文件查看是否存在该方法。
 
 ### dom
-
----
 
 #### outerHTML
 
