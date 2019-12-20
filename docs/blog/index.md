@@ -94,6 +94,8 @@ npm install babel-loader @babel/core @babel/preset-env @babel/polyfill
 }
 ```
 
+1
+
 ## 引入CSS预编译器简化CSS代码
 
 ## 引入ESlint检查代码格式
