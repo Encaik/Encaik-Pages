@@ -202,7 +202,7 @@ HTML5 \<canvas> 标签用于绘制图像（通过脚本，通常是 JavaScript�
 
 引用数据类型：对象(Object)、数组(Array)、函数(Function)。
 
-::: Tips 注意
+::: tip 注意
 
 Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值。
 

@@ -179,7 +179,7 @@ constructor (options) {
 
 `Object.keys(options.data).forEach(key => this._proxy(key))`把data中的参数遍历调用了_proxy方法。
 
-::: Tips 注意
+::: tip 注意
 
 遍历对象有两种方法：
 
@@ -310,7 +310,7 @@ VueHtmlProject
     └─webpack.config.js
 ```
 
-::: Tips 注意
+::: tip 注意
 
 在后续使用中发现，index.umd.js是为了让vue以umd模块的形式导出，这样做可以让webpack直接使用，如果以ES6的形式导出，在导入vue时会报错。
 
@@ -349,7 +349,7 @@ export function compile (html) {
 
 可以看到首先引入了同目录下另外两个文件，然后创建了一个新的对象赋值给cache。
 
-::: Tips 注意
+::: tip 注意
 
 创建一个空对象有以下三个方法：
 
