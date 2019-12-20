@@ -157,6 +157,8 @@ npm i -D style-loader css-loader
 
 ### Less
 
+如果要加入less，则先安装less及其webpack模块。
+
 ``` sh
 npm i -D less less-loader
 ```
