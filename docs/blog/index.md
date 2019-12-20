@@ -82,7 +82,7 @@ plugins: [
 npm install babel-loader @babel/core @babel/preset-env @babel/polyfill
 ```
 
-新建.babelrc，用来管理babel配置。
+新建.babelrc，用来原理babel配置。
 
 ``` json
 {
