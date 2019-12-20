@@ -16,7 +16,6 @@
     "vuepress": "^1.2.0"
   },
   "dependencies": {
-    "serialize-javascript": "^2.1.2",
     "vue": "^2.6.10",
     "vue-server-renderer": "^2.6.11"
   }
