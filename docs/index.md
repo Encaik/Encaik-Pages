@@ -12,3 +12,5 @@ features:
   details: 梳理以往个人开发的系统
 footer: Copyright © 2019-Encaik
 ---
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/966e16d1-397e-45a1-9cdf-469059defbf6/deploy-status)](https://app.netlify.com/sites/encaik/deploys)
