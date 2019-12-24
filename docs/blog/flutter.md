@@ -64,3 +64,33 @@ buildscript {
   - Divider
   - ListTile
   - Card
+
+## 常用依赖
+
+### date_format
+
+时间格式化
+
+### dio
+
+网络请求
+
+### provider
+
+状态管理
+
+### flutter_screenutil
+
+屏幕尺寸及适配
+
+### fluttertoast
+
+轻提示
+
+### path_provider
+
+路径获取
+
+### file_picker
+
+文件选择
