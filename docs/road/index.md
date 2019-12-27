@@ -94,6 +94,8 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ### 性能
 
+![null](/img/road/1.jpg)
+
 ## 计算机网络
 
 ## AST
