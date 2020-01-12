@@ -15,3 +15,15 @@
 | Axios | 前端HTTP框架 | [https://github.com/axios/axios](https://github.com/axios/axios) |
 | Nprogress | 进度条控件 | [https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)   |
 | Moment | 时间管理库 |  |
+
+### 开发进度
+
+#### 2020-1-11至2020-1-12
+
+- 创建前端项目usuams
+- 创建后端项目usuams-server
+
+#### 2020-1-13至2020-1-19
+
+- 创建数据库结构
+- 搭建后端登录、用户模块
