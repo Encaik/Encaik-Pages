@@ -4,17 +4,29 @@
 
 ### 技术选型
 
+#### 开发环境
+
+Node.js
+
 #### 前端技术
 
-| 技术 | 说明 | 官网 |
-|---|---|---|
-| Vue | 前端框架 | [https://vuejs.org/](https://vuejs.org/) |
-| Vue-router | 路由框架 | [https://router.vuejs.org/](https://router.vuejs.org/) |
-| Vuex | 全局状态管理框架 | [https://vuex.vuejs.org/](https://vuex.vuejs.org/) |
-| Ant-design | 前端UI框架 | [https://element.eleme.io/](https://element.eleme.io/)  |
-| Axios | 前端HTTP框架 | [https://github.com/axios/axios](https://github.com/axios/axios) |
-| Nprogress | 进度条控件 | [https://github.com/rstacruz/nprogress](https://github.com/rstacruz/nprogress)   |
-| Moment | 时间管理库 |  |
+| 技术 | 说明 |
+|---|---|
+| Vue | 前端框架 |
+| Vue-router | 路由框架 |
+| Vuex | 全局状态管理框架 |
+| Ant-design | 前端UI框架 |
+| Axios | 前端HTTP框架 |
+| Nprogress | 进度条控件 |
+| Moment | 时间管理库 |
+
+#### 后端技术
+
+| 技术 | 说明 |
+|---|---|
+| Egg | 后端框架 |
+| Mysql | 数据库 |
+| egg-mysql | mysql数据库处理库 |
 
 ### 开发进度
 
@@ -25,5 +37,5 @@
 
 #### 2020-1-13至2020-1-19
 
-- 创建数据库结构
-- 搭建后端登录、用户模块
+- 拟定数据库结构，创建user_type表、user_table表和affair_table表
+- 搭建后端登录模块、用户模块、事务模块
