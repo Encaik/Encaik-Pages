@@ -15,10 +15,12 @@ Node.js
 | Vue | 前端框架 |
 | Vue-router | 路由框架 |
 | Vuex | 全局状态管理框架 |
-| Ant-design | 前端UI框架 |
+| Ant-design-vue | 前端UI框架 |
 | Axios | 前端HTTP框架 |
+| Qs | 格式化Json库 |
 | Nprogress | 进度条控件 |
 | Moment | 时间管理库 |
+| VueLazyload | 图片懒加载库 |
 
 #### 后端技术
 
@@ -39,3 +41,4 @@ Node.js
 
 - 拟定数据库结构，创建user_type表、user_table表和affair_table表
 - 搭建后端登录模块、用户模块、事务模块
+- 搭建前端超级管理员框架，并搭建功能性插件框架
