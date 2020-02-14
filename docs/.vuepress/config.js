@@ -49,6 +49,7 @@ module.exports = {
     sidebar: {
       '/blog/': [
         '',
+        'git',
         'vuepress',
         'koa2-learn',
         'docker',

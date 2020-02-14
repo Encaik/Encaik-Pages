@@ -3,7 +3,13 @@
 ## HEAD
 
 * Doctype `META TAG`
+
+  用于在HTML文件声明文件类型，必须写在最前面
+
 * Charset `META TAG`
+
+  用于声明当前网页所使用的编码方式，常用UTF-8
+
 * Viewport `META TAG`
 * Title `META TAG`
 * Description `META TAG`
