@@ -85,6 +85,7 @@ module.exports = {
       ],
       '/road/': [
         '',
+        'checklist',
         'road'
       ],
     },
