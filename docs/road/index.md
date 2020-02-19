@@ -88,8 +88,6 @@ Windows Phone 8 系统浏览器内核是 Trident。
 标准的事件监听器该如何绑定：
     addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，第三个即用来指定是否在捕获阶段进行处理，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
 
-### 事件循环
-
 ### 浏览器BOM API
 
 ### 性能
@@ -97,6 +95,17 @@ Windows Phone 8 系统浏览器内核是 Trident。
 ![null](/img/road/1.jpg)
 
 ## 计算机网络
+
+### 网络模型
+
+- TCP/IP 四层模型
+- OSI 七层模型
+
+### TCP/UDP
+
+### HTTP/HTTPS
+
+### DNS
 
 ## AST
 
@@ -191,6 +200,11 @@ HTML5 \<canvas> 标签用于绘制图像（通过脚本，通常是 JavaScript�
 - [掘金-老姚 你未必知道的知识点(第二季)](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
 ### 盒模型
+
+盒模型分为IE盒模型和标准盒模型。
+
+1. 标准盒模型：
+2. IE 盒模型：
 
 ### 布局
 
@@ -370,6 +384,14 @@ RegExp 对象属性:
 |match|找到一个或多个正则表达式的匹配。|
 |replace|替换与正则表达式匹配的子串。|
 |split|把字符串分割为字符串数组。|
+
+### 事件循环
+
+队列(Queue):队列 是一种 FIFO(First In, First Out) 的数据结构，它的特点就是 先进先出。
+
+栈(Stack):栈 是一种 LIFO（Last In, First Out）的数据结构，特点即 后进先出。
+
+调用栈(Call Stack):Event Loop 会一直检查 Call Stack 中是否有函数需要执行，如果有，就从栈顶依次执行。同时，如果执行的过程中发现其他函数，继续入栈然后执行。
 
 ## 开发框架
 
