@@ -29,29 +29,205 @@ ECMA为标准制定组织，负责制定JavaScript的工作组是TC39，ECMAscri
 
 #### Let 和 Const
 
+||var|let|const|
+|---|---|---|---|
+|变量提升|√|×|×|
+|全局变量|√|×|×|
+|重复声明|√|×|×|
+|重新赋值|√|√|×|
+|暂时死区|×|√|√|
+|块作用域|×|√|√|
+|只声明不初始化|√|√|×|
+
 #### 类（Class）
+
+```js
+function Person(name, age) {
+    this.name = name
+    this.age = age
+}
+Person.prototype.information = function () {
+    return 'My name is ' + this.name + ', I am ' + this.age
+}
+```
+
+```js
+class Person {
+    constructor(name, age) {
+        this.name = name
+        this.age = age
+    }
+    information() {
+        return 'My name is ' + this.name + ', I am ' + this.age
+    }
+}
+```
 
 #### 箭头函数（Arrow function）
 
+```js
+var list = [1, 2, 3, 4, 5, 6, 7]
+var newList = list.map(function (item) {
+    return item * item
+})
+```
+
+```js
+const list = [1, 2, 3, 4, 5, 6, 7]
+const newList = list.map(item => item * item)
+```
+
 #### 函数参数默认值（Function parameter defaults）
+
+```js
+function config (data) {
+    var data = data || 'data is empty'
+}
+```
+
+```js
+const config = (data = 'data is empty') => {}
+```
 
 #### 模板字符串（Template string）
 
+```js
+var name = 'kris'
+var age = 24
+var info = 'My name is ' + this.name + ', I am ' + this.age
+```
+
+```js
+const name = 'kris'
+const age = 24
+const info = `My name is ${name}, I am ${age}`
+```
+
 #### 解构赋值（Destructuring assignment）
+
+```js
+var a = 10
+var b = 20
+var temp = a
+a = b
+b = temp
+```
+
+```js
+let a = 10
+let b = 20
+[a, b] = [b, a]
+```
 
 #### 模块化（Module）
 
+```js
+// circle.js
+// 输出
+const { PI } = Math
+exports.area = (r) => PI * r ** 2
+exports.circumference = (r) => 2 * PI * r
+
+// index.js
+// 输入
+const circle = require('./circle.js')
+console.log(`半径为 4 的圆的面积是 ${circle.area(4)}`)
+```
+
 #### 扩展操作符（Spread operator）
 
+```js
+function sum(x, y, z) {
+    return x + y + z;
+}
+var list = [5, 6, 7]
+var total = sum.apply(null, list)
+```
+
+```js
+const sum = (x, y, z) => x + y + z
+const list = [5, 6, 7]
+const total = sum(...list)
+```
+
 #### 对象属性简写（Object attribute shorthand）
+
+```js
+var cat = 'Miaow'
+var dog = 'Woof'
+var bird = 'Peet peet'
+
+var someObject = {
+  cat: cat,
+  dog: dog,
+  bird: bird
+}
+```
+
+```js
+let cat = 'Miaow'
+let dog = 'Woof'
+let bird = 'Peet peet'
+
+let someObject = {
+  cat,
+  dog,
+  bird
+}
+
+console.log(someObject)
+
+//{
+//  cat: "Miaow",
+//  dog: "Woof",
+//  bird: "Peet peet"
+//}
+```
 
 #### Promise
 
 #### for...of
 
+```js
+const array1 = ['a', 'b', 'c'];
+
+for (const element of array1) {
+      console.log(element)
+}
+
+// "a"
+// "b"
+// "c"
+```
+
 #### Symbol
 
+```js
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol('foo');
+
+console.log(typeof symbol1); // "symbol"
+console.log(symbol3.toString()); // "Symbol(foo)"
+console.log(Symbol('foo') === Symbol('foo')); // false
+```
+
 #### 迭代器（Iterator）/ 生成器（Generator）
+
+```js
+function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
+    for (let i = start; i < end; i += step) {
+        yield i;
+    }
+}
+var a = makeRangeIterator(1,10,2)
+a.next() // {value: 1, done: false}
+a.next() // {value: 3, done: false}
+a.next() // {value: 5, done: false}
+a.next() // {value: 7, done: false}
+a.next() // {value: 9, done: false}
+a.next() // {value: undefined, done: true}
+```
 
 #### Set/WeakSet
 
