@@ -69,6 +69,7 @@ module.exports = {
 
       '/note/': [
         '',
+        'es',
         'jinyan',
         'lib'
       ],
