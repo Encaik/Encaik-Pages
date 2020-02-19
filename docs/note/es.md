@@ -26,3 +26,109 @@ ECMA为标准制定组织，负责制定JavaScript的工作组是TC39，ECMAscri
 ## 特性
 
 ### es6
+
+#### Let 和 Const
+
+#### 类（Class）
+
+#### 箭头函数（Arrow function）
+
+#### 函数参数默认值（Function parameter defaults）
+
+#### 模板字符串（Template string）
+
+#### 解构赋值（Destructuring assignment）
+
+#### 模块化（Module）
+
+#### 扩展操作符（Spread operator）
+
+#### 对象属性简写（Object attribute shorthand）
+
+#### Promise
+
+#### for...of
+
+#### Symbol
+
+#### 迭代器（Iterator）/ 生成器（Generator）
+
+#### Set/WeakSet
+
+#### Map/WeakMap
+
+#### Proxy/Reflect
+
+#### Regex对象的扩展
+
+#### Math对象的扩展
+
+#### Array对象的扩展
+
+### es7
+
+#### Array.prototype.includes()
+
+#### 幂运算符**
+
+#### 模板字符串（Template string）
+
+### es8
+
+#### async/await
+
+#### Object.values()
+
+#### Object.entries()
+
+#### padStart()
+
+#### padEnd()
+
+#### ShareArrayBuffer（因安全问题，暂时在Chrome跟FireFox中被禁用）
+
+#### Atomics对象
+
+#### Object.getOwnPropertyDescriptors()
+
+### es9
+
+#### for await...of
+
+#### 模板字符串（Template string）
+
+#### 正则表达式反向(lookbehind)断言
+
+#### 正则表达式 Unicode 转义
+
+#### 正则表达式 s/dotAll 模式
+
+#### 正则表达式命名捕获组
+
+#### 对象扩展操作符
+
+#### Promise.prototype.finally()
+
+### es10
+
+#### Array.prototype.flat() / flatMap()
+
+#### String.prototype.trimStart() / trimLeft() / trimEnd() / trimRight()
+
+#### Object.fromEntries()
+
+#### Symbol.prototype.description
+
+#### String.prototype.matchAll
+
+#### Function.prototype.toString() 返回注释与空格
+
+#### try-catch
+
+#### BigInt
+
+#### globalThis
+
+#### import()
+
+#### 私有元素与方法
