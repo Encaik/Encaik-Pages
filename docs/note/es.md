@@ -186,6 +186,13 @@ console.log(someObject)
 
 #### Promise
 
+```js
+new Promise((resolve, reject) => {
+  resolve('success')
+  reject('reject')
+})
+```
+
 #### for...of
 
 ```js

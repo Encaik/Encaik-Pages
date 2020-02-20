@@ -289,11 +289,768 @@ Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的�
 
 JavaScript 函数作用域: 作用域在函数内修改。
 
-### 引用和操作符优先级
+### 操作符优先级
+
+下面的表将所有运算符按照优先级的不同从高（20）到低（1）排列。
+
+|优先级|运算类型|关联性|运算符|
+|:--|:--|:--|:--|
+|20|圆括号|n/a（不相关）|( … )|
+|19|成员访问|从左到右|… . …|
+||需计算的成员访问|从左到右|… [ … ]|
+||new (带参数列表)|n/a|new … ( … )|
+||函数调用|从左到右|… ( … )|
+||可选链（Optional chaining）|从左到右|?.|
+|18|new (无参数列表)|从右到左|new …|
+|17|后置递增(运算符在后)|n/a|… ++|
+||后置递减(运算符在后)|n/a|… --|
+|16|逻辑非|从右到左|! …|
+||按位非|从右到左|~ …|
+||一元加法|从右到左|+ …|
+||一元减法|从右到左|- …|
+||前置递增|从右到左|++ …|
+||前置递减|从右到左|-- …|
+||typeof|从右到左|typeof …|
+||void|从右到左|void …|
+||delete|从右到左|delete …|
+||await|从右到左|await …|
+|15|幂|从右到左|… ** …|
+|14|乘法|从左到右|… * …|
+||除法|从左到右|… / …|
+||取模|从左到右|… % …|
+|13|加法|从左到右|… + …|
+||减法|从左到右|… - …|
+|12|按位左移|从左到右|… << …|
+||按位右移|从左到右|… >> …|
+||无符号右移|从左到右|… >>> …|
+|11|小于|从左到右|… < …|
+||小于等于|从左到右|… <= …|
+||大于|从左到右|… > …|
+||大于等于|从左到右|… >= …|
+||in|从左到右|… in …|
+||instanceof|从左到右|… instanceof …|
+|10|等号|从左到右|… == …|
+||非等号|从左到右|… != …|
+||全等号|从左到右|… === …|
+||非全等号|从左到右|… !== …|
+|9|按位与|从左到右|… & …|
+|8|按位异或|从左到右|… ^ …|
+|7|按位或|从左到右|… | …|
+|6|逻辑与|从左到右|… && …|
+|5|逻辑或|从左到右|… || …|
+|4|条件运算符|从右到左|… ? … : …|
+|3|赋值|从右到左|… = …|
+|||从右到左|… += …|
+|||从右到左|… -= …|
+|||从右到左|… *= …|
+|||从右到左|… /= …|
+|||从右到左|… %= …|
+|||从右到左|… <<= …|
+|||从右到左|… >>= …|
+|||从右到左|… >>>= …|
+|||从右到左|… &= …|
+|||从右到左|… ^= …|
+|||从右到左|… |= …|
+|2|yield|从右到左|yield …|
+||yield*|从右到左|yield* …|
+|1|展开运算符|n/a|... …|
+|0|逗号|从左到右|… , …|
 
 ### 原型和继承
 
+![原型链](https://user-gold-cdn.xitu.io/2020/2/19/1705cd422ba707f0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+
+#### 基于原型链的继承
+
+继承属性
+
+JavaScript 对象是动态的属性“包”（指其自己的属性）。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
+
+>遵循ECMAScript标准，someObject.[[Prototype]] 符号是用于指向 someObject 的原型。从 ECMAScript 6 开始，[[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来访问。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 __proto__。
+>
+>但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 [[prototype]] 指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
+
+这里演示当尝试访问属性时会发生什么：
+
+```js
+// 让我们从一个自身拥有属性a和b的函数里创建一个对象o：
+let f = function () {
+   this.a = 1;
+   this.b = 2;
+}
+/* 这么写也一样
+function f() {
+  this.a = 1;
+  this.b = 2;
+}
+*/
+let o = new f(); // {a: 1, b: 2}
+
+// 在f函数的原型上定义属性
+f.prototype.b = 3;
+f.prototype.c = 4;
+
+// 不要在 f 函数的原型上直接定义 f.prototype = {b:3,c:4};这样会直接打破原型链
+// o.[[Prototype]] 有属性 b 和 c
+//  (其实就是 o.__proto__ 或者 o.constructor.prototype)
+// o.[[Prototype]].[[Prototype]] 是 Object.prototype.
+// 最后o.[[Prototype]].[[Prototype]].[[Prototype]]是null
+// 这就是原型链的末尾，即 null，
+// 根据定义，null 就是没有 [[Prototype]]。
+
+// 综上，整个原型链如下:
+
+// {a:1, b:2} ---> {b:3, c:4} ---> Object.prototype---> null
+
+console.log(o.a); // 1
+// a是o的自身属性吗？是的，该属性的值为 1
+
+console.log(o.b); // 2
+// b是o的自身属性吗？是的，该属性的值为 2
+// 原型上也有一个'b'属性，但是它不会被访问到。
+// 这种情况被称为"属性遮蔽 (property shadowing)"
+
+console.log(o.c); // 4
+// c是o的自身属性吗？不是，那看看它的原型上有没有
+// c是o.[[Prototype]]的属性吗？是的，该属性的值为 4
+
+console.log(o.d); // undefined
+// d 是 o 的自身属性吗？不是，那看看它的原型上有没有
+// d 是 o.[[Prototype]] 的属性吗？不是，那看看它的原型上有没有
+// o.[[Prototype]].[[Prototype]] 为 null，停止搜索
+// 找不到 d 属性，返回 undefined
+```
+
+给对象设置属性会创建自有属性。获取和设置属性的唯一限制是内置 getter 或 setter 的属性。
+
+继承方法
+
+JavaScript 并没有其他基于类的语言所定义的“方法”。在 JavaScript 里，任何函数都可以添加到对象上作为对象的属性。函数的继承与其他的属性继承没有差别，包括上面的“属性遮蔽”（这种情况相当于其他语言的方法重写）。
+
+当继承的函数被调用时，this 指向的是当前继承的对象，而不是继承的函数所在的原型对象。
+
+```js
+var o = {
+  a: 2,
+  m: function(){
+    return this.a + 1;
+  }
+};
+
+console.log(o.m()); // 3
+// 当调用 o.m 时，'this' 指向了 o.
+
+var p = Object.create(o);
+// p是一个继承自 o 的对象
+
+p.a = 4; // 创建 p 的自身属性 'a'
+console.log(p.m()); // 5
+// 调用 p.m 时，'this' 指向了 p
+// 又因为 p 继承了 o 的 m 函数
+// 所以，此时的 'this.a' 即 p.a，就是 p 的自身属性 'a'
+```
+
+#### 在 JavaScript 中使用原型
+
+接下去，来仔细分析一下这些应用场景下， JavaScript 在背后做了哪些事情。
+
+正如之前提到的，在 JavaScript 中，函数（function）是允许拥有属性的。所有的函数会有一个特别的属性 —— prototype 。请注意，以下的代码是独立的（出于严谨，假定页面没有其他的JavaScript代码）。为了最佳的学习体验，我们强烈建议阁下打开浏览器的控制台（在Chrome和火狐浏览器中，按Ctrl+Shift+I即可），进入“console”选项卡，然后把如下的JavaScript代码复制粘贴到窗口中，最后通过按下回车键运行代码。
+
+```js
+function doSomething(){}
+console.log( doSomething.prototype );
+// 和声明函数的方式无关，
+// JavaScript 中的函数永远有一个默认原型属性。
+var doSomething = function(){};
+console.log( doSomething.prototype );
+```
+
+在控制台显示的JavaScript代码块中，我们可以看到doSomething函数的一个默认属性prototype。而这段代码运行之后，控制台应该显示类似如下的结果：
+
+```js
+{
+    constructor: ƒ doSomething(),
+    __proto__: {
+        constructor: ƒ Object(),
+        hasOwnProperty: ƒ hasOwnProperty(),
+        isPrototypeOf: ƒ isPrototypeOf(),
+        propertyIsEnumerable: ƒ propertyIsEnumerable(),
+        toLocaleString: ƒ toLocaleString(),
+        toString: ƒ toString(),
+        valueOf: ƒ valueOf()
+    }
+}
+```
+
+我们可以给doSomething函数的原型对象添加新属性，如下：
+
+```js
+function doSomething(){}
+doSomething.prototype.foo = "bar";
+console.log( doSomething.prototype );
+```
+
+可以看到运行后的结果如下：
+
+```js
+{
+    foo: "bar",
+    constructor: ƒ doSomething(),
+    __proto__: {
+        constructor: ƒ Object(),
+        hasOwnProperty: ƒ hasOwnProperty(),
+        isPrototypeOf: ƒ isPrototypeOf(),
+        propertyIsEnumerable: ƒ propertyIsEnumerable(),
+        toLocaleString: ƒ toLocaleString(),
+        toString: ƒ toString(),
+        valueOf: ƒ valueOf()
+    }
+}
+```
+
+现在我们可以通过new操作符来创建基于这个原型对象的doSomething实例。使用new操作符，只需在调用doSomething函数语句之前添加new。这样，便可以获得这个函数的一个实例对象。一些属性就可以添加到该原型对象中。
+
+请尝试运行以下代码：
+
+```js
+function doSomething(){}
+doSomething.prototype.foo = "bar"; // add a property onto the prototype
+var doSomeInstancing = new doSomething();
+doSomeInstancing.prop = "some value"; // add a property onto the object
+console.log( doSomeInstancing );
+```
+
+运行的结果类似于以下的语句。
+
+```js
+{
+    prop: "some value",
+    __proto__: {
+        foo: "bar",
+        constructor: ƒ doSomething(),
+        __proto__: {
+            constructor: ƒ Object(),
+            hasOwnProperty: ƒ hasOwnProperty(),
+            isPrototypeOf: ƒ isPrototypeOf(),
+            propertyIsEnumerable: ƒ propertyIsEnumerable(),
+            toLocaleString: ƒ toLocaleString(),
+            toString: ƒ toString(),
+            valueOf: ƒ valueOf()
+        }
+    }
+}
+```
+
+如上所示, doSomeInstancing 中的__proto__是 doSomething.prototype. 但这是做什么的呢？当你访问doSomeInstancing 中的一个属性，浏览器首先会查看doSomeInstancing 中是否存在这个属性。
+
+如果 doSomeInstancing 不包含属性信息, 那么浏览器会在 doSomeInstancing 的 __proto__ 中进行查找(同 doSomething.prototype). 如属性在 doSomeInstancing 的 __proto__ 中查找到，则使用 doSomeInstancing 中 __proto__ 的属性。
+
+否则，如果 doSomeInstancing 中 __proto__ 不具有该属性，则检查doSomeInstancing 的 __proto__ 的  __proto__ 是否具有该属性。默认情况下，任何函数的原型属性 __proto__ 都是 window.Object.prototype. 因此, 通过doSomeInstancing 的 __proto__ 的  __proto__  ( 同 doSomething.prototype 的 __proto__ (同  Object.prototype)) 来查找要搜索的属性。
+
+如果属性不存在 doSomeInstancing 的 __proto__ 的  __proto__ 中， 那么就会在doSomeInstancing 的 __proto__ 的  __proto__ 的  __proto__ 中查找。然而, 这里存在个问题：doSomeInstancing 的 __proto__ 的  __proto__ 的  __proto__ 其实不存在。因此，只有这样，在 __proto__ 的整个原型链被查看之后，这里没有更多的 __proto__ ， 浏览器断言该属性不存在，并给出属性值为 undefined 的结论。
+
+让我们在控制台窗口中输入更多的代码，如下：
+
+```js
+function doSomething(){}
+doSomething.prototype.foo = "bar";
+var doSomeInstancing = new doSomething();
+doSomeInstancing.prop = "some value";
+console.log("doSomeInstancing.prop:      " + doSomeInstancing.prop);
+console.log("doSomeInstancing.foo:       " + doSomeInstancing.foo);
+console.log("doSomething.prop:           " + doSomething.prop);
+console.log("doSomething.foo:            " + doSomething.foo);
+console.log("doSomething.prototype.prop: " + doSomething.prototype.prop);
+console.log("doSomething.prototype.foo:  " + doSomething.prototype.foo);
+```
+
+结果如下：
+
+```js
+doSomeInstancing.prop:      some value
+doSomeInstancing.foo:       bar
+doSomething.prop:           undefined
+doSomething.foo:            undefined
+doSomething.prototype.prop: undefined
+doSomething.prototype.foo:  bar
+```
+
+#### 使用不同的方法来创建对象和生成原型链
+
+使用语法结构创建的对象
+
+```js
+var o = {a: 1};
+
+// o 这个对象继承了 Object.prototype 上面的所有属性
+// o 自身没有名为 hasOwnProperty 的属性
+// hasOwnProperty 是 Object.prototype 的属性
+// 因此 o 继承了 Object.prototype 的 hasOwnProperty
+// Object.prototype 的原型为 null
+// 原型链如下:
+// o ---> Object.prototype ---> null
+
+var a = ["yo", "whadup", "?"];
+
+// 数组都继承于 Array.prototype
+// (Array.prototype 中包含 indexOf, forEach 等方法)
+// 原型链如下:
+// a ---> Array.prototype ---> Object.prototype ---> null
+
+function f(){
+  return 2;
+}
+
+// 函数都继承于 Function.prototype
+// (Function.prototype 中包含 call, bind等方法)
+// 原型链如下:
+// f ---> Function.prototype ---> Object.prototype ---> null
+```
+
+使用构造器创建的对象
+
+在 JavaScript 中，构造器其实就是一个普通的函数。当使用 new 操作符 来作用这个函数时，它就可以被称为构造方法（构造函数）。
+
+```js
+function Graph() {
+  this.vertices = [];
+  this.edges = [];
+}
+
+Graph.prototype = {
+  addVertex: function(v){
+    this.vertices.push(v);
+  }
+};
+
+var g = new Graph();
+// g 是生成的对象，他的自身属性有 'vertices' 和 'edges'。
+// 在 g 被实例化时，g.[[Prototype]] 指向了 Graph.prototype。
+```
+
+使用 Object.create 创建的对象
+
+ECMAScript 5 中引入了一个新方法：Object.create()。可以调用这个方法来创建一个新对象。新对象的原型就是调用 create 方法时传入的第一个参数：
+
+```js
+var a = {a: 1};
+// a ---> Object.prototype ---> null
+
+var b = Object.create(a);
+// b ---> a ---> Object.prototype ---> null
+console.log(b.a); // 1 (继承而来)
+
+var c = Object.create(b);
+// c ---> b ---> a ---> Object.prototype ---> null
+
+var d = Object.create(null);
+// d ---> null
+console.log(d.hasOwnProperty); // undefined, 因为d没有继承Object.prototype
+```
+
+使用 class 关键字创建的对象
+
+ECMAScript6 引入了一套新的关键字用来实现 class。使用基于类语言的开发人员会对这些结构感到熟悉，但它们是不同的。JavaScript 仍然基于原型。这些新的关键字包括 class, constructor，static，extends 和 super。
+
+```js
+"use strict";
+
+class Polygon {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+}
+
+class Square extends Polygon {
+  constructor(sideLength) {
+    super(sideLength, sideLength);
+  }
+  get area() {
+    return this.height * this.width;
+  }
+  set sideLength(newLength) {
+    this.height = newLength;
+    this.width = newLength;
+  }
+}
+
+var square = new Square(2);
+```
+
+性能
+
+在原型链上查找属性比较耗时，对性能有副作用，这在性能要求苛刻的情况下很重要。另外，试图访问不存在的属性时会遍历整个原型链。
+
+遍历对象的属性时，原型链上的每个可枚举属性都会被枚举出来。要检查对象是否具有自己定义的属性，而不是其原型链上的某个属性，则必须使用所有对象从 Object.prototype 继承的 hasOwnProperty 方法。下面给出一个具体的例子来说明它：
+
+```js
+console.log(g.hasOwnProperty('vertices'));
+// true
+
+console.log(g.hasOwnProperty('nope'));
+// false
+
+console.log(g.hasOwnProperty('addVertex'));
+// false
+
+console.log(g.__proto__.hasOwnProperty('addVertex'));
+// true
+```
+
+hasOwnProperty 是 JavaScript 中唯一一个处理属性并且不会遍历原型链的方法。（译者注：原文如此。另一种这样的方法：Object.keys()）
+
+>注意：检查属性是否为 undefined 是不能够检查其是否存在的。该属性可能已存在，但其值恰好被设置成了 undefined。
+
 ### this
+
+与其他语言相比，函数的 this 关键字在 JavaScript 中的表现略有不同，此外，在严格模式和非严格模式之间也会有一些差别。
+
+在绝大多数情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用的，ES2015 引入了支持this词法解析的箭头函数（它在闭合的执行环境内设置this的值）。
+
+this：当前执行代码的环境对象。
+
+#### 全局环境
+
+无论是否在严格模式下，在全局执行环境中（在任何函数体外部）this 都指向全局对象。
+
+```js
+// 在浏览器中, window 对象同时也是全局对象：
+console.log(this === window); // true
+
+a = 37;
+console.log(window.a); // 37
+
+this.b = "MDN";
+console.log(window.b)  // "MDN"
+console.log(b)         // "MDN"
+```
+
+#### 函数（运行内）环境
+
+在函数内部，this的值取决于函数被调用的方式。
+
+简单调用
+
+因为下面的代码不在严格模式下，且 this 的值不是由该调用设置的，所以 this 的值默认指向全局对象。
+
+```js
+function f1(){
+  return this;
+}
+//在浏览器中：
+f1() === window;   //在浏览器中，全局对象是window
+
+//在Node中：
+f1() === global;
+```
+
+然而，在严格模式下，this将保持他进入执行环境时的值，所以下面的this将会默认为undefined。
+
+```js
+function f2(){
+  "use strict"; // 这里是严格模式
+  return this;
+}
+
+f2() === undefined; // true
+```
+
+所以，在严格模式下，如果 this 没有被执行环境（execution context）定义，那它将保持为 undefined。
+
+>在第二个例子中，this的确应该是undefined，因为f2是被直接调用的，而不是作为对象的属性或方法调用的（如 window.f2()）。有一些浏览器最初在支持严格模式时没有正确实现这个功能，于是它们错误地返回了window对象。
+
+如果要想把 this 的值从一个环境传到另一个，就要用 call 或者apply 方法。
+
+```js
+// 将一个对象作为call和apply的第一个参数，this会被绑定到这个对象。
+var obj = {a: 'Custom'};
+
+// 这个属性是在global对象定义的。
+var a = 'Global';
+
+function whatsThis(arg) {
+  return this.a;  // this的值取决于函数的调用方式
+}
+
+whatsThis();          // 'Global'
+whatsThis.call(obj);  // 'Custom'
+whatsThis.apply(obj); // 'Custom'
+```
+
+当一个函数在其主体中使用 this 关键字时，可以通过使用函数继承自Function.prototype 的 call 或 apply 方法将 this 值绑定到调用中的特定对象。
+
+```js
+function add(c, d) {
+  return this.a + this.b + c + d;
+}
+
+var o = {a: 1, b: 3};
+
+// 第一个参数是作为‘this’使用的对象
+// 后续参数作为参数传递给函数调用
+add.call(o, 5, 7); // 1 + 3 + 5 + 7 = 16
+
+// 第一个参数也是作为‘this’使用的对象
+// 第二个参数是一个数组，数组里的元素用作函数调用中的参数
+add.apply(o, [10, 20]); // 1 + 3 + 10 + 20 = 34
+```
+
+使用 call 和 apply 函数的时候要注意，如果传递给 this 的值不是一个对象，JavaScript 会尝试使用内部 ToObject 操作将其转换为对象。因此，如果传递的值是一个原始值比如 7 或 'foo'，那么就会使用相关构造函数将它转换为对象，所以原始值 7 会被转换为对象，像 new Number(7) 这样，而字符串 'foo' 转化成 new String('foo') 这样，例如：
+
+```js
+function bar() {
+  console.log(Object.prototype.toString.call(this));
+}
+
+//原始值 7 被隐式转换为对象
+bar.call(7); // [object Number]
+```
+
+bind方法
+
+ECMAScript 5 引入了 Function.prototype.bind。调用f.bind(someObject)会创建一个与f具有相同函数体和作用域的函数，但是在这个新函数中，this将永久地被绑定到了bind的第一个参数，无论这个函数是如何被调用的。
+
+```js
+function f(){
+  return this.a;
+}
+
+var g = f.bind({a:"azerty"});
+console.log(g()); // azerty
+
+var h = g.bind({a:'yoo'}); // bind只生效一次！
+console.log(h()); // azerty
+
+var o = {a:37, f:f, g:g, h:h};
+console.log(o.f(), o.g(), o.h()); // 37, azerty, azerty
+```
+
+箭头函数
+
+在箭头函数中，this与封闭词法环境的this保持一致。在全局代码中，它将被设置为全局对象：
+
+```js
+var globalObject = this;
+var foo = (() => this);
+console.log(foo() === globalObject); // true
+```
+
+>注意：如果将this传递给call、bind、或者apply，它将被忽略。不过你仍然可以为调用添加参数，不过第一个参数（thisArg）应该设置为null。
+
+```js
+// 接着上面的代码
+// 作为对象的一个方法调用
+var obj = {foo: foo};
+console.log(obj.foo() === globalObject); // true
+
+// 尝试使用call来设定this
+console.log(foo.call(obj) === globalObject); // true
+
+// 尝试使用bind来设定this
+foo = foo.bind(obj);
+console.log(foo() === globalObject); // true
+```
+
+无论如何，foo 的 this 被设置为他被创建时的环境（在上面的例子中，就是全局对象）。这同样适用于在其他函数内创建的箭头函数：这些箭头函数的this被设置为封闭的词法环境的。
+
+```js
+// 创建一个含有bar方法的obj对象，
+// bar返回一个函数，
+// 这个函数返回this，
+// 这个返回的函数是以箭头函数创建的，
+// 所以它的this被永久绑定到了它外层函数的this。
+// bar的值可以在调用中设置，这反过来又设置了返回函数的值。
+var obj = {
+  bar: function() {
+    var x = (() => this);
+    return x;
+  }
+};
+
+// 作为obj对象的一个方法来调用bar，把它的this绑定到obj。
+// 将返回的函数的引用赋值给fn。
+var fn = obj.bar();
+
+// 直接调用fn而不设置this，
+// 通常(即不使用箭头函数的情况)默认为全局对象
+// 若在严格模式则为undefined
+console.log(fn() === obj); // true
+
+// 但是注意，如果你只是引用obj的方法，
+// 而没有调用它
+var fn2 = obj.bar;
+// 那么调用箭头函数后，this指向window，因为它从 bar 继承了this。
+console.log(fn2()() == window); // true
+```
+
+在上面的例子中，一个赋值给了 obj.bar的函数（称为匿名函数 A），返回了另一个箭头函数（称为匿名函数 B）。因此，在 A 调用时，函数B的this被永久设置为obj.bar（函数A）的this。当返回的函数（函数B）被调用时，它this始终是最初设置的。在上面的代码示例中，函数B的this被设置为函数A的this，即obj，所以即使被调用的方式通常将其设置为 undefined 或全局对象（或者如前面示例中的其他全局执行环境中的方法），它的 this 也仍然是 obj 。
+
+作为对象的方法
+
+当函数作为对象里的方法被调用时，它们的 this 是调用该函数的对象。
+
+下面的例子中，当 o.f()被调用时，函数内的this将绑定到o对象。
+
+```js
+var o = {
+  prop: 37,
+  f: function() {
+    return this.prop;
+  }
+};
+
+console.log(o.f()); // logs 37
+```
+
+请注意，这样的行为，根本不受函数定义方式或位置的影响。在前面的例子中，我们在定义对象o的同时，将函数内联定义为成员 f 。但是，我们也可以先定义函数，然后再将其附属到o.f。这样做会导致相同的行为：
+
+```js
+var o = {prop: 37};
+
+function independent() {
+  return this.prop;
+}
+
+o.f = independent;
+
+console.log(o.f()); // logs 37
+```
+
+这表明函数是从o的f成员调用的才是重点。
+
+同样，this 的绑定只受最靠近的成员引用的影响。在下面的这个例子中，我们把一个方法g当作对象o.b的函数调用。在这次执行期间，函数中的this将指向o.b。事实证明，这与他是对象 o 的成员没有多大关系，最靠近的引用才是最重要的。
+
+```js
+o.b = {g: independent, prop: 42};
+console.log(o.b.g()); // 42
+```
+
+原型链中的 this
+
+对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象，就像该方法在对象上一样。
+
+var o = {
+  f: function() {
+    return this.a + this.b;
+  }
+};
+var p = Object.create(o);
+p.a = 1;
+p.b = 4;
+
+console.log(p.f()); // 5
+
+在这个例子中，对象p没有属于它自己的f属性，它的f属性继承自它的原型。虽然在对 f 的查找过程中，最终是在 o 中找到 f 属性的，这并没有关系；查找过程首先从 p.f 的引用开始，所以函数中的 this 指向p。也就是说，因为f是作为p的方法调用的，所以它的this指向了p。这是 JavaScript 的原型继承中的一个有趣的特性。
+
+getter 与 setter 中的 this
+
+再次，相同的概念也适用于当函数在一个 getter 或者 setter 中被调用。用作 getter 或 setter 的函数都会把 this 绑定到设置或获取属性的对象。
+
+```js
+function sum() {
+  return this.a + this.b + this.c;
+}
+
+var o = {
+  a: 1,
+  b: 2,
+  c: 3,
+  get average() {
+    return (this.a + this.b + this.c) / 3;
+  }
+};
+
+Object.defineProperty(o, 'sum', {
+    get: sum, enumerable: true, configurable: true});
+
+console.log(o.average, o.sum); // logs 2, 6
+```
+
+作为构造函数
+
+当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。
+
+>虽然构造器返回的默认值是this所指的那个对象，但它仍可以手动返回其他的对象（如果返回值不是一个对象，则返回this对象）。
+
+```js
+/*
+ * 构造函数这样工作:
+ *
+ * function MyConstructor(){
+ *   // 函数实体写在这里
+ *   // 根据需要在this上创建属性，然后赋值给它们，比如：
+ *   this.fum = "nom";
+ *   // 等等...
+ *
+ *   // 如果函数具有返回对象的return语句，
+ *   // 则该对象将是 new 表达式的结果。
+ *   // 否则，表达式的结果是当前绑定到 this 的对象。
+ *   //（即通常看到的常见情况）。
+ * }
+ */
+
+function C(){
+  this.a = 37;
+}
+
+var o = new C();
+console.log(o.a); // logs 37
+
+
+function C2(){
+  this.a = 37;
+  return {a:38};
+}
+
+o = new C2();
+console.log(o.a); // logs 38
+```
+
+在刚刚的例子中（C2），因为在调用构造函数的过程中，手动的设置了返回对象，与this绑定的默认对象被丢弃了。（这基本上使得语句 “this.a = 37;”成了“僵尸”代码，实际上并不是真正的“僵尸”，这条语句执行了，但是对于外部没有任何影响，因此完全可以忽略它）。
+
+作为一个DOM事件处理函数
+
+当函数被用作事件处理函数时，它的this指向触发事件的元素（一些浏览器在使用非addEventListener的函数动态添加监听函数时不遵守这个约定）。
+
+```js
+// 被调用时，将关联的元素变成蓝色
+function bluify(e){
+  console.log(this === e.currentTarget); // 总是 true
+
+  // 当 currentTarget 和 target 是同一个对象时为 true
+  console.log(this === e.target);
+  this.style.backgroundColor = '#A5D9F3';
+}
+
+// 获取文档中的所有元素的列表
+var elements = document.getElementsByTagName('*');
+
+// 将bluify作为元素的点击监听函数，当元素被点击时，就会变成蓝色
+for(var i=0 ; i<elements.length ; i++){
+  elements[i].addEventListener('click', bluify, false);
+}
+```
+
+作为一个内联事件处理函数
+
+当代码被内联on-event 处理函数调用时，它的this指向监听器所在的DOM元素：
+
+```js
+<button onclick="alert(this.tagName.toLowerCase());">
+  Show this
+</button>
+```
+
+上面的 alert 会显示button。注意只有外层代码中的this是这样设置的：
+
+```js
+<button onclick="alert((function(){return this})());">
+  Show inner this
+</button>
+```
+
+在这种情况下，没有设置内部函数的this，所以它指向 global/window 对象（即非严格模式下调用的函数未设置this时指向的默认对象）。
 
 ### 执行上下文（EC）
 
@@ -387,11 +1144,134 @@ RegExp 对象属性:
 
 ### 事件循环
 
-队列(Queue):队列 是一种 FIFO(First In, First Out) 的数据结构，它的特点就是 先进先出。
+JavaScript 的并发模型基于“事件循环”。这个模型与像 C 或者 Java 这种其它语言中的模型截然不同。
 
-栈(Stack):栈 是一种 LIFO（Last In, First Out）的数据结构，特点即 后进先出。
+#### 运行时概念
 
-调用栈(Call Stack):Event Loop 会一直检查 Call Stack 中是否有函数需要执行，如果有，就从栈顶依次执行。同时，如果执行的过程中发现其他函数，继续入栈然后执行。
+下面的内容解释了一个理论模型。现代 JavaScript 引擎实现并着重优化了所描述的这些语义。
+
+##### 可视化描述
+
+![runtime](https://developer.mozilla.org/files/4617/default.svg)
+
+##### 栈
+
+函数调用形成了一个栈帧。
+
+```js
+function foo(b) {
+  var a = 10;
+  return a + b + 11;
+}
+
+function bar(x) {
+  var y = 3;
+  return foo(x * y);
+}
+
+console.log(bar(7)); // 返回 42
+```
+
+当调用 bar 时，创建了第一个帧 ，帧中包含了 bar 的参数和局部变量。当 bar 调用 foo 时，第二个帧就被创建，并被压到第一个帧之上，帧中包含了 foo 的参数和局部变量。当 foo 返回时，最上层的帧就被弹出栈（剩下 bar 函数的调用帧 ）。当 bar 返回的时候，栈就空了。
+
+##### 堆
+
+对象被分配在一个堆中，即用以表示一大块非结构化的内存区域。
+
+##### 队列
+
+一个 JavaScript 运行时包含了一个待处理的消息队列。每一个消息都关联着一个用以处理这个消息的函数。
+
+在事件循环期间的某个时刻，运行时从最先进入队列的消息开始处理队列中的消息。为此，这个消息会被移出队列，并作为输入参数调用与之关联的函数。正如前面所提到的，调用一个函数总是会为其创造一个新的栈帧。
+
+函数的处理会一直进行到执行栈再次为空为止；然后事件循环将会处理队列中的下一个消息（如果还有的话）。
+
+#### 事件循环
+
+之所以称之为事件循环，是因为它经常按照类似如下的方式来被实现：
+
+```js
+while (queue.waitForMessage()) {
+  queue.processNextMessage();
+}
+```
+
+如果当前没有任何消息，queue.waitForMessage() 会同步地等待消息到达。
+
+##### "执行至完成"
+
+每一个消息完整地执行后，其它消息才会被执行。这为程序的分析提供了一些优秀的特性，包括：一个函数执行时，它永远不会被抢占，并且在其他代码运行之前完全运行（且可以修改此函数操作的数据）。这与C语言不同，例如，如果函数在线程中运行，它可能在任何位置被终止，然后在另一个线程中运行其他代码。
+
+这个模型的一个缺点在于当一个消息需要太长时间才能处理完毕时，Web应用就无法处理用户的交互，例如点击或滚动。浏览器用“程序需要过长时间运行”的对话框来缓解这个问题。一个很好的做法是缩短消息处理，并在可能的情况下将一个消息裁剪成多个消息。
+
+##### 添加消息
+
+在浏览器里，当一个事件发生且有一个事件监听器绑定在该事件上时，消息会被随时添加进队列。如果没有事件监听器，事件会丢失。所以点击一个附带点击事件处理函数的元素会添加一个消息，其它事件类似。
+
+函数 setTimeout 接受两个参数：待加入队列的消息和一个延迟（可选，默认为 0）。这个延迟代表了消息被实际加入到队列的最小延迟时间。如果队列中没有其它消息，在这段延迟时间过去之后，消息会被马上处理。但是，如果有其它消息，setTimeout 消息必须等待其它消息处理完。因此第二个参数仅仅表示最少延迟时间，而非确切的等待时间。
+
+下面的例子演示了这个概念（setTimeout 并不会在计时器到期之后直接执行）：
+
+```js
+const s = new Date().getSeconds();
+
+setTimeout(function() {
+  // 输出 "2"，表示回调函数并没有在 500 毫秒之后立即执行
+  console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
+}, 500);
+
+while(true) {
+  if(new Date().getSeconds() - s >= 2) {
+    console.log("Good, looped for 2 seconds");
+    break;
+  }
+}
+```
+
+##### 零延迟
+
+零延迟并不意味着回调会立即执行。以 0 为第二参数调用 setTimeout 并不表示在 0 毫秒后就立即调用回调函数。
+
+其等待的时间取决于队列里待处理的消息数量。在下面的例子中，"这是一条消息" 将会在回调获得处理之前输出到控制台，这是因为延迟参数是运行时处理请求所需的最小等待时间，但并不保证是准确的等待时间。
+
+基本上，setTimeout 需要等待当前队列中所有的消息都处理完毕之后才能执行，即使已经超出了由第二参数所指定的时间。
+
+```js
+(function() {
+
+  console.log('这是开始');
+
+  setTimeout(function cb() {
+    console.log('这是来自第一个回调的消息');
+  });
+
+  console.log('这是一条消息');
+
+  setTimeout(function cb1() {
+    console.log('这是来自第二个回调的消息');
+  }, 0);
+
+  console.log('这是结束');
+
+})();
+
+// "这是开始"
+// "这是一条消息"
+// "这是结束"
+// 此处，函数返回了 undefined
+// "这是来自第一个回调的消息"
+// "这是来自第二个回调的消息"
+```
+
+##### 多个运行时互相通信
+
+一个 web worker 或者一个跨域的 iframe 都有自己的栈，堆和消息队列。两个不同的运行时只能通过 postMessage 方法进行通信。如果另一个运行时侦听 message 事件，则此方法会向该运行时添加消息。
+
+#### 永不阻塞
+
+事件循环模型的一个非常有趣的特性是，与许多其他语言不同，JavaScript 永不阻塞。 处理 I/O 通常通过事件和回调来执行，所以当一个应用正等待一个 IndexedDB 查询返回或者一个 XHR 请求返回时，它仍然可以处理其它事情，比如用户输入。
+
+遗留的例外是存在的，如 alert 或者同步 XHR，但应该尽量避免使用它们。注意，例外的例外也是存在的（但通常是实现错误而非其它原因）。
 
 ## 开发框架
 
