@@ -70,6 +70,7 @@ module.exports = {
       '/note/': [
         '',
         'es',
+        'dsaa',
         'jinyan',
         'lib'
       ],
