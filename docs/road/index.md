@@ -1,8 +1,11 @@
 # 知识积累
 
-## 数据
+## 常用官方网站
 
 - [百度统计流量研究院](https://tongji.baidu.com/research/site#profile)
+- [W3Techs](https://w3techs.com/)
+- [web技术册](https://platform.html5.org/)
+- [腾讯云开发者手册](https://cloud.tencent.com/developer/devdocs)
 
 ## 浏览器
 
@@ -66,10 +69,13 @@ Windows Phone 8 系统浏览器内核是 Trident。
 ### 事件模型
 
 此模型是W3C制定的标准模型，现代浏览器（IE6~8除外）都已经遵循这个规范。W3C制定的事件模型中，一次事件的发生包含三个过程：
-(1). 事件捕获阶段
-(2). 事件目标阶段
-(3). 事件冒泡阶段
+
+1. 事件捕获阶段
+2. 事件目标阶段
+3. 事件冒泡阶段
+
 ![事件模型](/img/road/1.png)
+
 事件捕获：当某个元素触发某个事件（如onclick），顶层对象document就会发出一个事件流，随着DOM树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。在这个过程中，事件相应的监听函数是不会被触发的。
 
 事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。
@@ -80,13 +86,13 @@ Windows Phone 8 系统浏览器内核是 Trident。
 事件的传播是可以阻止的：
 
 - 在W3c中，使用stopPropagation（）方法
-
 - 在IE下设置cancelBubble = true；
 
 在捕获的过程中stopPropagation（）；后，后面的冒泡过程就不会发生了。
 
 标准的事件监听器该如何绑定：
-    addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，第三个即用来指定是否在捕获阶段进行处理，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
+
+addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，第三个即用来指定是否在捕获阶段进行处理，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
 
 ### 浏览器BOM API
 
@@ -1291,7 +1297,11 @@ while(true) {
 
 ### Vue
 
+#### 生命周期
+
 ### React
+
+#### 生命周期
 
 ## 跨平台开发
 
