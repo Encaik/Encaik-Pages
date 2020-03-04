@@ -230,7 +230,15 @@ CSS 布局模式，有时简称为布局，是一种基于盒子与其兄弟和�
 
 网格布局：用来布置那些与一个固定网格相关的元素。
 
+## 数据结构与算法
+
+[杂记-数据结构与算法](../note/dsaa.md)
+
 ## JS
+
+### ECMAscript
+
+[杂记-ECMAscript](../note/es.md)
 
 ### 运行机制
 
@@ -1295,13 +1303,140 @@ while(true) {
 
 ## 开发框架
 
-### Vue
+### Vue VS React
+
+#### 起源
+
+|Vue|React|
+|:--|:--|
+|Google 前工程师尤雨溪于 2014 年创建了这个框架。Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。|与 Vue 不同，react 库是由 Facebook 创建的。最初是为了 Facebook 广告流量管理创建的。那时 Facebook 遇到了维护和编码方面的问题。它以动态创建和交互式 UI 的能力而闻名。|
+
+#### 介绍
+
+|Vue|React|
+|:--|:--|
+|Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。|React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。|
+
+#### 运行时性能
+
+|Vue|React|
+|:--|:--|
+|在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。你可以理解为每一个组件都已经自动获得了 shouldComponentUpdate，并且没有React的子树问题限制。|在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。如要避免不必要的子组件的重渲染，你需要在所有可能的地方使用 PureComponent，或是手动实现 houldComponentUpdate 方法。同时你可能会需要使用不可变的数据结构来使得你的组件更容易被优化。然而，使用 PureComponent 和 shouldComponentUpdate 时，需要保证该组件的整个子树的渲染输出都是由该组件的 props 所决定的。如果不符合这个情况，那么此类优化就会导致难以察觉的渲染结果不一致。这使得 React 中的组件优化伴随着相当的心智负担。|
+
+#### 核心思想
+
+|Vue|React|
+|:--|:--|
+|Vue 也提供了渲染函数，甚至支持 JSX。然而，我们默认推荐的还是模板。任何合乎规范的 HTML 都是合法的 Vue 模板，这也带来了一些特有的优势：对于很多习惯了 HTML 的开发者来说，模板比起 JSX 读写起来更自然。这里当然有主观偏好的成分，但如果这种区别会导致开发效率的提升，那么它就有客观的价值存在。基于 HTML 的模板使得将已有的应用逐步迁移到 Vue 更为容易。这也使得设计师和新人开发者更容易理解和参与到项目中。你甚至可以使用其他模板预处理器，比如 Pug 来书写 Vue 的模板。|在 React 中，所有的组件的渲染功能都依靠 JSX。JSX 是使用 XML 语法编写 JavaScript 的一种语法糖。使用 JSX 的渲染函数有下面这些优势：你可以使用完整的编程语言 JavaScript 功能来构建你的视图页面。比如你可以使用临时变量、JS 自带的流程控制、以及直接引用当前 JS 作用域中的值等等。开发工具对 JSX 的支持相比于现有可用的其他 Vue 模板还是比较先进的 (比如，linting、类型检查、编辑器的自动完成)。|
+
+#### 组件
+
+##### vue
+
+vue组件定义使用xx.vue文件来表示，vue组件将html、css、js组合到一起，模板部分使用数据使用{{}}，形式如下：
+
+```js
+// 模板(html)
+<template>
+  <div>{{name}}</div>
+</template>
+
+// 数据管理(js)
+<script>
+export default {
+  name: 'NewComponent',
+  data() {
+    return {
+      name: 'xx'
+    }
+  }
+}
+</script>
+
+// 样式(css)
+<style scoped>
+
+</style>
+```
+
+组件使用：
+
+```js
+<new-component name="xx" />
+```
+
+##### react
+
+react推荐使用jsx或者js文件来表示组件，react支持class组件和function组件2种形式，react使用{}包裹变量，这点需要注意。
+
+>注意： 组件名称必须以大写字母开头。React 会将以小写字母开头的组件视为原生 DOM 标签。例如，<div /> 代表 HTML 的 div 标签，而 <Welcome /> 则代表一个组件，并且需在作用域内使用 Welcome。
+
+（1）class组件
+
+```js
+import React from 'react';
+
+class NewComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'xx'
+    };
+  }
+  render() {
+    rerurn(<div>{name}</div>);
+  }
+}
+
+export default NewComponent;
+```
+
+（2）function组件
+
+hooks的出现赋予了function组件管理state的能力。
+
+```js
+import React, { useState } from 'react';
+
+function NewComponent() {
+  const [name, setName] = useState('');
+  return (<div>{name}</div>);
+}
+
+export default NewComponent;
+```
+
+#### 数据管理
+
+vue与react都是单向数据流，这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
+
+##### vue
+
+data:
+
+props:
+
+##### react
+
+state:
+
+props:
+
+#### 组件通信
+
+##### vue
+
+props/$emit:
+
+##### react
+
+props/回调:
+
+#### CSS
 
 #### 生命周期
 
-### React
-
-#### 生命周期
+#### 事件处理
 
 ## 跨平台开发
 
