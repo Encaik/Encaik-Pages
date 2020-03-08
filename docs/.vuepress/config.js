@@ -49,6 +49,7 @@ module.exports = {
     sidebar: {
       '/blog/': [
         '',
+        'tensorflow',
         'git',
         'vuepress',
         'koa2-learn',
