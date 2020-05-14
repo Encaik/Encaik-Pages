@@ -65,7 +65,8 @@ module.exports = {
         'flutter',
         'tonejs',
         'vue2',
-        'vue3'
+        'vue3',
+        'angular-learn'
       ],
 
       '/note/': [
