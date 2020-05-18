@@ -42,3 +42,92 @@ ng new [project_name]
 |tsconfig.json|工作空间中各个项目的默认 TypeScript 配置|
 |tsconfig.spec.json||
 |tslint.json|工作空间中各个项目的默认 TSLint 配置|
+
+## 主文件
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+## 语法
+
+- 模板语法
+
+{{变量名}}，变量在ts文件中声明，如下：
+
+```ts
+export class AppComponent implements OnInit {
+
+  [变量名]=[变量值];
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+```
+
+- 绑定方法
+
+(click)="[方法名]",方法在ts文件中声明，如下：
+
+```ts
+export class AppComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  [方法名]() {
+      //方法体
+  }
+
+}
+```
+
+- 双向绑定
+
+[(ngModel)]="[变量名]",如下：
+
+```html
+<input type="text" [(ngModel)]="[变量名]"/>
+```
+
+:::warning
+
+使用表单，需要在主文件中引入表单模块，如下：
+
+```ts
+import { FormsModule } from '@angular/forms';
+@NgModule({
+  imports: [
+    FormsModule
+  ]
+}
+```
+
+:::
