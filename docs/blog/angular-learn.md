@@ -1,4 +1,4 @@
-# 学习Angular9
+# 学习使用Angular9
 
 ## 搭建开发环境
 
@@ -59,7 +59,7 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     HomeComponent,
     AboutComponent,
-    
+
   ],
   imports: [
     BrowserModule,

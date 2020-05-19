@@ -66,7 +66,8 @@ module.exports = {
         'tonejs',
         'vue2',
         'vue3',
-        'angular-learn'
+        'angular-learn',
+        'golang-learn'
       ],
 
       '/note/': [
