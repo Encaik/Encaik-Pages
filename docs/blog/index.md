@@ -99,7 +99,7 @@ plugins: [
 ## 引入Babel转译JavaScript代码
 
 ``` sh
-npm install babel-loader @babel/core @babel/preset-env @babel/polyfill
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
 ```
 
 首先在webpack中加入babel-loader使babel生效。
