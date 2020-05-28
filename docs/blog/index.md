@@ -16,7 +16,14 @@ npm init [-y]
 ## 引入Webpack打包文件
 
 ``` sh
-npm install --save-dev webpack webpack-cli
+npm install webpack webpack-cli --save-dev
+```
+
+在package.json文件中做以下调整：
+
+```json
++   "private": true,
+-   "main": "index.js",
 ```
 
 新建webpack.config.js，用来管理webpack配置。
@@ -25,15 +32,12 @@ npm install --save-dev webpack webpack-cli
 const path = require('path');
 
 module.exports = {
-  mode: 'none',
-  entry: {
-    main: './index.js',
-  },
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-}
+    path: path.resolve(__dirname, 'dist')
+  }
+};
 ```
 
 如果想要让项目有本地服务器可以启动，则需要配置webpack-dev-server。
@@ -76,6 +80,22 @@ plugins: [
 ],
 ```
 
+## 清理dist目录
+
+```sh
+npm install clean-webpack-plugin --save-dev
+```
+
+安装完成以后再webpack配置文件做以下修改：
+
+```js
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+plugins: [
+  new CleanWebpackPlugin(['dist']),
+],
+```
+
 ## 引入Babel转译JavaScript代码
 
 ``` sh
@@ -90,7 +110,6 @@ module: {
     {
       test: /\.js$/,
       exclude: /(node_modules|bower_components)/,
-      loader:"babel-loader",
       /* 下面这种写法可以代替简单的babel配置文件 */
       use: {
         loader: 'babel-loader',
