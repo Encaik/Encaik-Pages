@@ -61,7 +61,7 @@ export default {
   .hero {
     text-align: center;
     padding: 50px;
-    background-color: url('/img/bg.png');
+    background-color: url($withBase('/img/bg.png'));
     background-size: 100% 350px;
 
     img {
