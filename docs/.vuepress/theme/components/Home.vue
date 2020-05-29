@@ -60,7 +60,9 @@ export default {
 
   .hero {
     text-align: center;
-    background-color: #d2d2d2
+    padding: 50px;
+    background-color: url('/img/bg.png');
+    background-size: 100% 350px;
 
     img {
       max-width: 100%;
