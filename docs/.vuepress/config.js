@@ -68,7 +68,8 @@ module.exports = {
         'vue3',
         'angular-learn',
         'golang-learn',
-        'map'
+        'map',
+        'http'
       ],
 
       '/note/': [
