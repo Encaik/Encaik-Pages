@@ -11,10 +11,10 @@
   "author": "Encaik",
   "license": "ISC",
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.2.0",
-    "@vuepress/plugin-google-analytics": "^1.2.0",
-    "@vuepress/plugin-pwa": "^1.2.0",
-    "vuepress": "^1.2.0"
+    "@vuepress/plugin-back-to-top": "^1.5.0",
+    "@vuepress/plugin-google-analytics": "^1.5.0",
+    "@vuepress/plugin-pwa": "^1.5.0",
+    "vuepress": "^1.5.0"
   },
   "dependencies": {
     "vue": "^2.6.10",
