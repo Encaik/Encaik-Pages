@@ -60,9 +60,14 @@ export default {
 
   .hero {
     text-align: center;
-    padding: 50px;
-    background-color: url($withBase('/img/bg.png'));
-    background-size: 100% 350px;
+    padding: 10px;
+    :hover {
+      transform: rotate(666turn);
+      transition-delay: 1s;
+      transition-property: all;
+      transition-duration: 59s;
+      transition-timing-function: cubic-bezier(.34,0,.84,1);
+    }
 
     img {
       max-width: 100%;
