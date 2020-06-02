@@ -24,6 +24,16 @@
 
     <Content class="theme-default-content custom" />
 
+    <!-- FIXME:计划添加卡片列表 -->
+    <ul v-if="sidebarItems.length">
+      <li v-for="(item, i) in items" :key="i">
+        <div class="card">
+          <img :src="`${$withBase(item.path)}`">
+          <span>{{item.title}}</span>
+        </div>
+      </li>
+    </ul>
+
     <div v-if="data.footer" class="footer">{{ data.footer }}</div>
   </main>
 </template>
@@ -35,6 +45,12 @@ export default {
   name: 'Home',
 
   components: { NavLink },
+
+  props: ['sidebarItems'],
+
+  created(){
+    console.log(this.sidebarItems)
+  },
 
   computed: {
     data() {
