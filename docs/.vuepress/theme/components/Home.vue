@@ -28,7 +28,7 @@
     <ul v-if="sidebarItems.length">
       <li v-for="(item, i) in items" :key="i">
         <div class="card">
-          <img :src="`${$withBase(item.path)}`">
+          <img :src="`${$withBase(item.path)}`" />
           <span>{{item.title}}</span>
         </div>
       </li>
@@ -48,7 +48,7 @@ export default {
 
   props: ['sidebarItems'],
 
-  created(){
+  created() {
     console.log(this.sidebarItems)
   },
 
@@ -78,19 +78,19 @@ export default {
     text-align: center;
     padding: 10px;
 
-    :hover {
-      transform: rotate(666turn);
-      transition-delay: 1s;
-      transition-property: all;
-      transition-duration: 59s;
-      transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
-    }
-
     img {
       max-width: 100%;
       max-height: 280px;
       display: block;
       margin: 3rem auto 1.5rem;
+
+      :hover {
+        transform: rotate(666turn);
+        transition-delay: 1s;
+        transition-property: all;
+        transition-duration: 59s;
+        transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+      }
     }
 
     h1 {

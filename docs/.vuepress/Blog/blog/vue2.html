@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从头开始学习Vue2源码 | Encaik-个人博客</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="manifest" href="/json/manifest.json">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+    <link rel="mask-icon" href="/img/favicon.ico" color="#fff">
+    <meta name="description" content="Encaik-个人博客">
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#fff">
+    <link rel="preload" href="/assets/css/0.styles.d86e72b5.css" as="style"><link rel="preload" href="/assets/js/app.10a5ea0c.js" as="script"><link rel="preload" href="/assets/js/3.675f2b1c.js" as="script"><link rel="preload" href="/assets/js/2.a5cba7f5.js" as="script"><link rel="preload" href="/assets/js/24.a00b113f.js" as="script"><link rel="preload" href="/assets/js/4.154f069f.js" as="script"><link rel="prefetch" href="/assets/js/10.54d1713a.js"><link rel="prefetch" href="/assets/js/11.ac8a0896.js"><link rel="prefetch" href="/assets/js/12.27527816.js"><link rel="prefetch" href="/assets/js/13.fada1f20.js"><link rel="prefetch" href="/assets/js/14.fa897bbc.js"><link rel="prefetch" href="/assets/js/15.3c83c875.js"><link rel="prefetch" href="/assets/js/16.e59fea99.js"><link rel="prefetch" href="/assets/js/17.bd931464.js"><link rel="prefetch" href="/assets/js/18.ee934170.js"><link rel="prefetch" href="/assets/js/19.2a83668a.js"><link rel="prefetch" href="/assets/js/20.795218c4.js"><link rel="prefetch" href="/assets/js/21.884b2a59.js"><link rel="prefetch" href="/assets/js/22.3e91d08f.js"><link rel="prefetch" href="/assets/js/23.79760591.js"><link rel="prefetch" href="/assets/js/25.a911edca.js"><link rel="prefetch" href="/assets/js/26.297ca829.js"><link rel="prefetch" href="/assets/js/27.ef27b0f0.js"><link rel="prefetch" href="/assets/js/28.a1bd7426.js"><link rel="prefetch" href="/assets/js/29.a1c57457.js"><link rel="prefetch" href="/assets/js/30.28e8b928.js"><link rel="prefetch" href="/assets/js/31.0acc698f.js"><link rel="prefetch" href="/assets/js/32.e3177269.js"><link rel="prefetch" href="/assets/js/33.883e83fb.js"><link rel="prefetch" href="/assets/js/34.2814e88a.js"><link rel="prefetch" href="/assets/js/35.d25ac460.js"><link rel="prefetch" href="/assets/js/36.c6ce2c7a.js"><link rel="prefetch" href="/assets/js/37.e5818683.js"><link rel="prefetch" href="/assets/js/38.36440d80.js"><link rel="prefetch" href="/assets/js/39.69655e60.js"><link rel="prefetch" href="/assets/js/40.2782da6d.js"><link rel="prefetch" href="/assets/js/41.0101b9c7.js"><link rel="prefetch" href="/assets/js/42.02301c7b.js"><link rel="prefetch" href="/assets/js/43.41cf74eb.js"><link rel="prefetch" href="/assets/js/44.c3caec8b.js"><link rel="prefetch" href="/assets/js/45.7bc11f5a.js"><link rel="prefetch" href="/assets/js/46.b6fda013.js"><link rel="prefetch" href="/assets/js/47.79eee1b6.js"><link rel="prefetch" href="/assets/js/48.63963105.js"><link rel="prefetch" href="/assets/js/5.081a9547.js"><link rel="prefetch" href="/assets/js/6.50d5a1ff.js"><link rel="prefetch" href="/assets/js/7.e5a32f2e.js"><link rel="prefetch" href="/assets/js/8.9cb39557.js"><link rel="prefetch" href="/assets/js/9.0ea00540.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d86e72b5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Encaik-个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博文</a></div><div class="nav-item"><a href="/note/" class="nav-link">杂记</a></div><div class="nav-item"><a href="/repo/" class="nav-link">项目</a></div><div class="nav-item"><a href="/road/" class="nav-link">学习路径</a></div><div class="nav-item"><a href="https://github.com/Encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://gitee.com/encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博文</a></div><div class="nav-item"><a href="/note/" class="nav-link">杂记</a></div><div class="nav-item"><a href="/repo/" class="nav-link">项目</a></div><div class="nav-item"><a href="/road/" class="nav-link">学习路径</a></div><div class="nav-item"><a href="https://github.com/Encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://gitee.com/encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/" aria-current="page" class="sidebar-link">前端工程化项目构建流程及基本结构</a></li><li><a href="/blog/tensorflow.html" class="sidebar-link">学习使用Tensorflow.js机器学习</a></li><li><a href="/blog/git.html" class="sidebar-link">Git语法及使用</a></li><li><a href="/blog/vuepress.html" class="sidebar-link">Vuepress搭建博客</a></li><li><a href="/blog/koa2-learn.html" class="sidebar-link">Koa2基本学习</a></li><li><a href="/blog/docker.html" class="sidebar-link">Docker 使用</a></li><li><a href="/blog/docker-compose.html" class="sidebar-link">Docker-compose使用</a></li><li><a href="/blog/docker-project.html" class="sidebar-link">docker-compose部署流程</a></li><li><a href="/blog/react.html" class="sidebar-link">React学习-创建项目</a></li><li><a href="/blog/react-native.html" class="sidebar-link">React Native学习-创建项目</a></li><li><a href="/blog/typescript.html" class="sidebar-link">Typescr学习-实现基础爬虫</a></li><li><a href="/blog/vuetestutils.html" class="sidebar-link">vue-test-utils学习-用jest进行单元测试</a></li><li><a href="/blog/vuetestutils2.html" class="sidebar-link">vue-test-utils学习-用nightwatch进行e2e测试</a></li><li><a href="/blog/egg.html" class="sidebar-link">学习使用Egg.js搭建后端</a></li><li><a href="/blog/flutter.html" class="sidebar-link">学习使用Flutter进行移动端开发</a></li><li><a href="/blog/tonejs.html" class="sidebar-link">学习使用Tone.js制作网页版乐器</a></li><li><a href="/blog/vue2.html" aria-current="page" class="active sidebar-link">从头开始学习Vue2源码</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vue2.html#准备" class="sidebar-link">准备</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#package-json" class="sidebar-link">package.json</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vue2.html#dev" class="sidebar-link">dev</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#test" class="sidebar-link">test</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#build" class="sidebar-link">build</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#webpack-config-js" class="sidebar-link">webpack.config.js</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#babelrc" class="sidebar-link">.babelrc</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#instance-实例" class="sidebar-link">instance(实例)</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#compiler" class="sidebar-link">compiler</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vue2.html#index" class="sidebar-link">index</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#html-parser" class="sidebar-link">html-parser</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#codegen" class="sidebar-link">codegen</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#util" class="sidebar-link">util</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vue2.html#index-2" class="sidebar-link">index</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#dom" class="sidebar-link">dom</a></li></ul></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#observer-观察者" class="sidebar-link">observer(观察者)</a></li><li class="sidebar-sub-header"><a href="/blog/vue2.html#vdom" class="sidebar-link">vdom</a></li></ul></li><li><a href="/blog/vue3.html" class="sidebar-link">从头开始学习Vue3源码</a></li><li><a href="/blog/angular-learn.html" class="sidebar-link">学习使用Angular9</a></li><li><a href="/blog/golang-learn.html" class="sidebar-link">学习使用Golang</a></li><li><a href="/blog/map.html" class="sidebar-link">地图api及库总结</a></li><li><a href="/blog/http.html" class="sidebar-link">前端请求发展及使用</a></li></ul> </aside> <main class="page"> <img src="/img/blog/vue2.png" alt class="banner"> <div class="theme-default-content content__default"><h1 id="从头开始学习vue2源码"><a href="#从头开始学习vue2源码" class="header-anchor">#</a> 从头开始学习Vue2源码</h1> <h2 id="准备"><a href="#准备" class="header-anchor">#</a> 准备</h2> <p>首先，从Github克隆Vue的源码。</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">git</span> clone git@github.com:vuejs/vue.git
+</code></pre></div><p>然后，打开文件夹，并将版本切换到vue最早创建的init版本。</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">git</span> checkout a879ec06ef9504db8df2a19aac0d07609fe36131
+</code></pre></div><p>此时文件夹中就是vue最开始的源码，结构比现在简单了很多：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>VueProject
+    ├─build
+    │   └─build.js
+    ├─src
+    │   ├─compiler
+    │   ├─instance
+    │   ├─observer
+    │   ├─util
+    │   ├─vdom
+    │   ├─config.js
+    │   ├─index.js
+    │   └─index.umd.js      // Webpack入口文件
+    ├─.babelrc              // Babel配置文件
+    ├─package-lock.json     // npm包管理文件
+    ├─package.json          // npm配置文件
+    └─webpack.config.js     // Webpack配置文件
+</code></pre></div><p>除了这些常用熟悉的文件外，其他文件逐个分析。</p> <h2 id="package-json"><a href="#package-json" class="header-anchor">#</a> package.json</h2> <div class="language-json extra-class"><pre class="language-json"><code><span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;webpack --watch&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;test&quot;</span><span class="token operator">:</span> <span class="token string">&quot;mocha&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;NODE_ENV=production node build/build.js&quot;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre></div><h3 id="dev"><a href="#dev" class="header-anchor">#</a> dev</h3> <p>这是webpack观察者模式启动项目的命令，目的是修改项目后不用每次都打包，缺点是需要手动刷新浏览器。</p> <h3 id="test"><a href="#test" class="header-anchor">#</a> test</h3> <p>未找到相关配置，直接运行报错，应该是需要有全局mocha配置。之后细看。</p> <h3 id="build"><a href="#build" class="header-anchor">#</a> build</h3> <p>修改环境变量为生产环境并打包项目。运行此命令后产生dist文件夹，里面是打包好的vue.js文件。</p> <h2 id="webpack-config-js"><a href="#webpack-config-js" class="header-anchor">#</a> webpack.config.js</h2> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'src/index.umd.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'vue.js'</span><span class="token punctuation">,</span>
+    library<span class="token operator">:</span> <span class="token string">'Vue'</span><span class="token punctuation">,</span>
+    libraryTarget<span class="token operator">:</span> <span class="token string">'umd'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">{</span>
+    loaders<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span> test<span class="token operator">:</span> <span class="token regex">/\.js/</span><span class="token punctuation">,</span> loader<span class="token operator">:</span> <span class="token string">'babel'</span><span class="token punctuation">,</span> exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>入口文件为index.umd.js，输出目录为dist/vue.js，库名称为Vue，库类型为umd。</p> <p>下面为配置babel处理除了node_modules文件夹中的其他js文件。</p> <h2 id="babelrc"><a href="#babelrc" class="header-anchor">#</a> .babelrc</h2> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;development&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;es2015&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;stage-2&quot;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;production&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;es2015-rollup&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;stage-2&quot;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>设置了两个环境不同的规则，如果没有设置BABEL_ENV则使用NODE_ENV，如果都没有设置默认就是development。</p> <p>其中开发环境下配置预设转换为es2015，模式为stage-2，是不同阶段出现的es语法，包含不同的转码插件。</p> <p>stage-2：</p> <p>除了覆盖stage-3的所有功能，还支持如下两个插件：</p> <ul><li>syntax-trailing-function-commas</li> <li>transform-object-reset-spread</li></ul> <p>而在生产环境则用了es2015-rollup，这是前端模块打包工具，可以让bundle文件最小化，避免引入冗余模块代码，有效减少文件请求大小。</p> <h2 id="instance-实例"><a href="#instance-实例" class="header-anchor">#</a> instance(实例)</h2> <p>先选择这个文件夹是因为这是入口文件导向的第一个文件夹。index.umd.js只是引入indes.js文件，而index.js文件则引入instance文件夹中的index.js文件。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> compile <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../compiler/index'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> observe <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../observer/index'</span>
+<span class="token keyword">import</span> Watcher <span class="token keyword">from</span> <span class="token string">'../observer/watcher'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> h<span class="token punctuation">,</span> patch <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../vdom/index'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> nextTick<span class="token punctuation">,</span> isReserved<span class="token punctuation">,</span> getOuterHTML <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../util/index'</span>
+</code></pre></div><p>从开头就可以看到这个文件已经引入了其他所有文件夹的入口文件。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token class-name">Component</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__h__ <span class="token operator">=</span> h
+Component<span class="token punctuation">.</span>nextTick <span class="token operator">=</span> nextTick
+</code></pre></div><p>该文件声明了一个Component类并且暴露接口。</p> <p>添加了名为__h__的属性，该属性的值由vdom入口文件导出。</p> <p>给名为nextTick的属性赋值为nextTick，该值由util入口文件导出。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* 源代码 */</span>
+<span class="token function">constructor</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$options <span class="token operator">=</span> options
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_data <span class="token operator">=</span> options<span class="token punctuation">.</span>data
+    <span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>el<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> render <span class="token operator">=</span> <span class="token function">compile</span><span class="token punctuation">(</span><span class="token function">getOuterHTML</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_el<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span>
+    Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_proxy</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>methods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>methods<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> options<span class="token punctuation">.</span>methods<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_ob <span class="token operator">=</span> <span class="token function">observe</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_watchers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_watcher <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Watcher</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> render<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_update<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">_update</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>_watcher<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment">/* Vue实例 */</span>
+  <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    el<span class="token operator">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+    data<span class="token operator">:</span> <span class="token punctuation">{</span>
+      message<span class="token operator">:</span> <span class="token string">'Hello Vue!'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>对比中可以看到实例花括号中的内容被构造函数拆解，其中<code>this.$options = options</code>把参数对象赋值给了$options。</p> <p><code>this._data = options.data</code>把data对象赋值给了私有变量_data。</p> <p><code>const el = this._el = document.querySelector(options.el)</code>把dom中绑定Vue实例元素的标签同时赋值给了私有变量_el和静态常量el。</p> <p><code>const render = compile(getOuterHTML(el))</code>调用compile方法，并把返回值赋给了render。</p> <p><code>this._el.innerHTML = ''</code>把绑定Vue元素的标签内部清空。</p> <p><code>Object.keys(options.data).forEach(key =&gt; this._proxy(key))</code>把data中的参数遍历调用了_proxy方法。</p> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>遍历对象有两种方法：</p> <ul><li><code>Object.keys(obj).forEach((key)=&gt;{})</code></li></ul> <p>此方法只会循环遍历对象中可遍历的属性，而不去搜索原型链。</p> <ul><li><code>for(let i in obj)</code></li></ul> <p>此方法会搜索原型链并遍历所有属性。因此一般<code>for···in···</code>都需要一个<code>hasOwnProperty</code>方法来判断便利出的是不是本身的属性。</p></div> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>methods<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>options<span class="token punctuation">.</span>methods<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> options<span class="token punctuation">.</span>methods<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/* 这一段则是判断vue实例中是否含存在methods对象，如果存在则遍历并绑定this作用域后赋值给实例作为属性。 */</span>
+</code></pre></div><p><code>this._ob = observe(options.data)</code>把私有变量_ob赋值为方法observe的返回值，该方法参数为data对象。</p> <p><code>this._watchers = []</code>设置私有变量watchers数组为空。</p> <p><code>this._watcher = new Watcher(this, render, this._update)</code>设置私有变量watcher为Watcher类的实例，参数为vue实例，render和_update方法。</p> <p><code>this._update(this._watcher.value)</code>调用私有方法_update，参数为_watcher.value。</p> <p>构造函数结束，可以看出构造函数是在初始化vue实例，解析实例中的数据。</p> <p>接下来自己动手试试，首先创建了vue.js当作源码，然后创建main.js当作实例。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/* vue.js */</span>
+<span class="token keyword">class</span> <span class="token class-name">Vue</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">params</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> el <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>_el <span class="token operator">=</span> params<span class="token punctuation">.</span>el<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_data <span class="token operator">=</span> params<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Vue<span class="token punctuation">;</span>
+
+<span class="token comment">/* main.js */</span>
+<span class="token keyword">var</span> Vue <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./vue.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token operator">:</span> <span class="token string">&quot;#app&quot;</span><span class="token punctuation">,</span>
+  data<span class="token operator">:</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">&quot;enciak&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>app<span class="token punctuation">.</span>_el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>运行<code>node main.js</code>后得到结果#app，说明没有问题。</p> <p>继续往下需要解析html文件，所以修改文件目录分离vue实例和网页，然后在vue实例中创建node项目并配置webpack等相关文件。</p> <p>首先初始化node项目:<code>npm i -y</code></p> <p>然后安装webpack，babel等依赖:</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token function">npm</span> <span class="token function">install</span> webpack webpack-cli --save-dev
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev @babel/core @babel/cli @babel/preset-env
+<span class="token function">npm</span> <span class="token function">install</span> --save @babel/polyfill
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev babel-loader
+</code></pre></div><p>创建webpack.config.js，因为版本原因，所以需要修改配置文件结构及属性，最终配置文件如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  entry<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./src/index.js'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  output<span class="token operator">:</span> <span class="token punctuation">{</span>
+    path<span class="token operator">:</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'./dist'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    filename<span class="token operator">:</span> <span class="token string">'vue.js'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  module<span class="token operator">:</span> <span class="token punctuation">{</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        test<span class="token operator">:</span> <span class="token regex">/\.js$/</span><span class="token punctuation">,</span>
+        exclude<span class="token operator">:</span> <span class="token regex">/node_modules/</span><span class="token punctuation">,</span>
+        use<span class="token operator">:</span><span class="token punctuation">{</span>
+          loader<span class="token operator">:</span> <span class="token string">'babel-loader'</span><span class="token punctuation">,</span>
+          options<span class="token operator">:</span> <span class="token punctuation">{</span>
+            presets<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'@babel/preset-env'</span><span class="token punctuation">]</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>创建.babelrc文件，内容如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;@babel/preset-env&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>最终文件目录结构如下：</p> <div class="language-sh extra-class"><pre class="language-sh"><code>VueProject
+    ├─dist
+    │   └─vue.js
+    ├─src
+    │   └─index.js
+    ├─.babelrc
+    ├─package-lock.json
+    ├─package.json
+    └─webpack.config.js
+VueHtmlProject
+    ├─src
+    │   └─index.js
+    ├─index.html
+    ├─package-lock.json
+    ├─package.json
+    └─webpack.config.js
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">注意</p> <p>在后续使用中发现，index.umd.js是为了让vue以umd模块的形式导出，这样做可以让webpack直接使用，如果以ES6的形式导出，在导入vue时会报错。</p></div> <p>然后在index.html中通过文件引入的方式引入vue.js，并创建实例。在浏览器中打开index.html，控制台中输出了#app的标签，说明没有问题拿到了标签，下一步分析html解析。</p> <h2 id="compiler"><a href="#compiler" class="header-anchor">#</a> compiler</h2> <h3 id="index"><a href="#index" class="header-anchor">#</a> index</h3> <p>在vue源码中，构造函数通过<code>const render = compile(getOuterHTML(el))</code>拿到了标签，解析并返回了渲染内容。所以打开compiler目录查看结构:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>compiler
+    ├─codegen.js
+    ├─html-parser.js
+    ├─index.js
+    └─text-parser.js
+</code></pre></div><p>先查看index.js文件的内容:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> parse <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./html-parser'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> generate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./codegen'</span>
+
+<span class="token keyword">const</span> cache <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">compile</span> <span class="token punctuation">(</span><span class="token parameter">html</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  html <span class="token operator">=</span> html<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> hit <span class="token operator">=</span> cache<span class="token punctuation">[</span>html<span class="token punctuation">]</span>
+  <span class="token keyword">return</span> hit <span class="token operator">||</span> <span class="token punctuation">(</span>cache<span class="token punctuation">[</span>html<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">generate</span><span class="token punctuation">(</span><span class="token function">parse</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以看到首先引入了同目录下另外两个文件，然后创建了一个新的对象赋值给cache。</p> <div class="custom-block tip"><p class="custom-block-title">注意</p> <p>创建一个空对象有以下三个方法：</p> <ul><li>{}</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&gt;</span> <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span> <span class="token keyword">undefined</span>
+<span class="token operator">&gt;</span> a<span class="token punctuation">.</span>isPrototypeOf
+<span class="token operator">&lt;</span> ƒ <span class="token function">isPrototypeOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>native code<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre></div><ul><li>Object.create(null)</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&gt;</span> <span class="token keyword">var</span> b <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span> <span class="token keyword">undefined</span>
+<span class="token operator">&gt;</span> b<span class="token punctuation">.</span>isPrototypeOf
+<span class="token operator">&lt;</span> <span class="token keyword">undefined</span>
+</code></pre></div><ul><li>new Object()</li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&gt;</span> <span class="token keyword">var</span> c <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span> <span class="token keyword">undefined</span>
+<span class="token operator">&gt;</span> c<span class="token punctuation">.</span>isPrototypeOf
+<span class="token operator">&lt;</span> ƒ <span class="token function">isPrototypeOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">[</span>native code<span class="token punctuation">]</span> <span class="token punctuation">}</span>
+</code></pre></div><p>根据对比可以明显看出来，<code>Object.create(null)</code>创建的是一个绝对空白的对象，甚至都没有构造函数，toString、hasOwnProperty属性。</p></div> <p>然后创建方法compile并导出，参数名为html，根据之前的代码知道这里是挂载vue实例的标签。</p> <p>实例调用compile，并传参<code>getOuterHTML(el)</code>，此方法由util文件夹中的index导出，方法返回该标签及其子标签的字符串。</p> <p>在compile中定义html，赋值为传参字符串去掉空白字符。</p> <p><code>const hit = cache[html]</code>中，cache应该没有html属性，因此赋值后hit为undefined。</p> <p><code>return hit || (cache[html] = generate(parse(html)))</code>返回hit或cache[html]，后者则是通过generate方法生成，该方法由同目录下的codegen文件导出。传参则是html调用parse方法，该方法由同目录下的html-parse文件导出。</p> <h3 id="html-parser"><a href="#html-parser" class="header-anchor">#</a> html-parser</h3> <h4 id="parse"><a href="#parse" class="header-anchor">#</a> parse</h4> <p>找到方法后通过注释可以知道这个方法把html解析为了AST。parse方法内部定义了root，currentParent,stack三个变量，然后调用了HTMLParser方法，并传入参数html和一个对象，最后则返回root。</p> <h4 id="htmlparser"><a href="#htmlparser" class="header-anchor">#</a> HTMLParser</h4> <p>HTMLParser方法接受了两个参数，一个是html，另一个是handler对象。其中handler作为参数调用了attrForHandler方法。</p> <h4 id="attrforhandler"><a href="#attrforhandler" class="header-anchor">#</a> attrForHandler</h4> <p>从文件中找到了该方法，内容如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">attrForHandler</span><span class="token punctuation">(</span><span class="token parameter">handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> pattern <span class="token operator">=</span> singleAttrIdentifier<span class="token punctuation">.</span>source <span class="token operator">+</span>
+                <span class="token string">'(?:\\s*('</span> <span class="token operator">+</span> <span class="token function">joinSingleAttrAssigns</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">')'</span> <span class="token operator">+</span>
+                <span class="token string">'\\s*(?:'</span> <span class="token operator">+</span> singleAttrValues<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'))?'</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">'^\\s*'</span> <span class="token operator">+</span> pattern<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>可以看到该方法又将handler作为参数调用了joinSingleAttrAssigns方法。拿到方法返回的正则匹配范围后，可以看到还需要转换两个属性，singleAttrIdentifier.source即([^\s&quot;'&lt;&gt;/=]+)，singleAttrValues.join('|')即&quot;([^&quot;]<em>)&quot;+|'([^']</em>)'+|([^\s&quot;'=&lt;&gt;`]+)。</p> <p>最后pattren的值是([^\s&quot;'&lt;&gt;/=]+)(?:\s*((?:=))\s*(?:&quot;([^&quot;]<em>)&quot;+|'([^']</em>)'+|([^\s&quot;'=&lt;&gt;<code>]+)))?，然后新建一个RegExp对象，参数为^\s*([^\s&quot;'&lt;&gt;\/=]+)(?:\s*((?:=))\s*(?:&quot;([^&quot;]*)&quot;+|'([^']*)'+|([^\s&quot;'=&lt;&gt;</code>]+)))?。</p> <h4 id="joinsingleattrassigns"><a href="#joinsingleattrassigns" class="header-anchor">#</a> joinSingleAttrAssigns</h4> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">joinSingleAttrAssigns</span><span class="token punctuation">(</span><span class="token parameter">handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> singleAttrAssigns<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">assign</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'(?:'</span> <span class="token operator">+</span> assign<span class="token punctuation">.</span>source <span class="token operator">+</span> <span class="token string">')'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>该方法拿到handler后并未使用，而是用map处理了singleAttrAssigns数组。<code>singleAttrAssigns = [singleAttrAssign]</code>根据定义看到数组中只有一个值为singleAttrAssign，<code>singleAttrAssign = /=/</code>查看定义得知这是匹配<code>=</code>的正则表达式。</p> <p>因此map最终返回的应该是一个字符串<code>'(?:=)'</code>，然后处理了joinSingleAttrAssigns返回一个正则匹配范围<code>'(?:=)'</code>。</p> <h3 id="codegen"><a href="#codegen" class="header-anchor">#</a> codegen</h3> <p>进入codegen文件可以看到有各种方法解析AST，并最终返回一个方法，内容为返回解析后的代码。</p> <h2 id="util"><a href="#util" class="header-anchor">#</a> util</h2> <h3 id="index-2"><a href="#index-2" class="header-anchor">#</a> index</h3> <p>调用compile需要用到getOuterHTML方法，所以打开index文件查看方法来源。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./lang'</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./env'</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./dom'</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./options'</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./component'</span>
+<span class="token keyword">export</span> <span class="token operator">*</span> <span class="token keyword">from</span> <span class="token string">'./debug'</span>
+<span class="token keyword">export</span> <span class="token punctuation">{</span> defineReactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../observer/index'</span>
+
+</code></pre></div><p>从名称中可以看出各文件大概的作用，进入dom文件查看是否存在该方法。</p> <h3 id="dom"><a href="#dom" class="header-anchor">#</a> dom</h3> <h4 id="outerhtml"><a href="#outerhtml" class="header-anchor">#</a> outerHTML</h4> <p>在我末尾找到了该方法，内容如下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">/**
+ * Get outerHTML of elements, taking care
+ * of SVG elements in IE as well.
+ *
+ * @param {Element} el
+ * @return {String}
+ */</span>
+
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">getOuterHTML</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>el<span class="token punctuation">.</span>outerHTML<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> el<span class="token punctuation">.</span>outerHTML
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> container <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span>
+    container<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>el<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> container<span class="token punctuation">.</span>innerHTML
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>该方法是为了获取vue挂载的标签本身及内容，因为outerHTML只支持IE浏览器，为了兼容性需要做处理。如果存在outerHTML则返回该标签，如果不存在则创建div并复制节点及其子节点到div下，返回该div的innerHTML。</p> <h2 id="observer-观察者"><a href="#observer-观察者" class="header-anchor">#</a> observer(观察者)</h2> <h2 id="vdom"><a href="#vdom" class="header-anchor">#</a> vdom</h2></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">发布日期:</span> <span class="time">12/20/2019, 10:35:08 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/tonejs.html" class="prev">
+        学习使用Tone.js制作网页版乐器
+      </a></span> <span class="next"><a href="/blog/vue3.html">
+        从头开始学习Vue3源码
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.10a5ea0c.js" defer></script><script src="/assets/js/3.675f2b1c.js" defer></script><script src="/assets/js/2.a5cba7f5.js" defer></script><script src="/assets/js/24.a00b113f.js" defer></script><script src="/assets/js/4.154f069f.js" defer></script>
+  </body>
+</html>
