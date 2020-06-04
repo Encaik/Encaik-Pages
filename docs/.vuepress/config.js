@@ -109,6 +109,7 @@ module.exports = {
       updatePopup: true
     }],
     ['@vuepress/back-to-top'],
+    ['@vuepress-reco/vuepress-plugin-loading-page'],
     ['vuepress-plugin-helper-live2d', {
         // 是否开启控制台日志打印(default: false)
         log: false,
