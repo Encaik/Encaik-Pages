@@ -106,7 +106,8 @@ export default {
   mounted() {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
-    })
+    });
+    // window.addEventListener('mousemove', this.mousemove);
   },
 
   methods: {
@@ -133,7 +134,23 @@ export default {
           this.toggleSidebar(false)
         }
       }
-    }
+    },
+
+    // mousemove(e) {
+    //   let body = document.getElementsByClassName('body');
+    //   let circle = document.createElement('span');
+    //   let x = e.offsetX;
+    //   let y = e.offsetY;
+    //   circle.style.left = x + "px";
+    //   circle.style.top = y + "px";
+    //   let size = Math.random() * 100;
+    //   circle.style.width = 20 + size + "px";
+    //   circle.style.height = 20 + size + "px";
+    //   body.appendChild(circle);
+    //   setTimeout(function() {
+    //     circle.remove();
+    //   }, 1800);
+    // }
   }
 }
 </script>

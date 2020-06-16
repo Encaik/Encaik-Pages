@@ -2,7 +2,7 @@
   <main class="page">
     <slot name="top" />
 
-    <img v-if="img" :src="`/img/${this.$page.relativePath.split('.')[0]}.png`" class="banner" alt />
+    <!-- <img v-if="img" :src="`/img/${this.$page.relativePath.split('.')[0]}.png`" class="banner" alt /> -->
     <Content class="theme-default-content" />
     <PageEdit />
 
