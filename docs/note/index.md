@@ -1,108 +1,113 @@
-# 实习记录
+# 经验总结
 
-## 2019年9月6日-2019年9月25日
+## Ant-design-vue使用心得
 
-### 开发国际化人脸识别门禁管理系统
+- 优点
 
-- 学习Ant-design-vue框架的使用
-- 学习Vue-i18n国际化的使用
-- 实战运用axios
+  - 组件库强大，拥有各式各样的组件，且配置项多样
+  - 符合Vue核心思想，试用顺手
 
-## 2019年9月25日-2019年10月24日
+- 缺点
 
-### 开发中国药科大学人脸识别通行管理系统
+  - 样式自定义单调，官方方法只能通过less覆盖，手动覆盖混乱
 
-- 实战运用vue-router和vuex
+## Vuepress中使用emoji
 
-## 2019年10月24日-2019年11月5日
+可以通过Shortcodes直接写在文档中，Shortcodes可在[emojipedia](https://emojipedia.org)查找
 
-### [:lock:保密]某后台管理系统
+```markdown
+    :heart:
+```
 
-- 第一次多人协作开发，学习到了制定开发标准的过程
-- 系统着重CSS样式，了解了项目中content-box和border-box的区别以及选择
+显示效果：:heart:
 
-## 2019年10月28日-2019年11月2日
+## vue.$set及vue.$delete
 
-### [:lock:保密]某前台APP-移动端混合开发
+[官网示例](https://cn.vuejs.org/v2/api/#Vue-set)
 
-- 学习原生app与H5页面（使用vue）混合开发的步骤
-- 学习使用Websocket持续链接进行数据传输
+在我们使用vue进行开发的过程中，可能会遇到一种情况：当生成vue实例后，当再次给数据赋值时，有时候并不会自动更新到视图上去；
+当我们去看vue文档的时候，会发现有这么一句话：如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。
 
-## 2019年11月2日-2019年11月5日
+如下代码，给 student对象新增 age 属性
 
-- 寻找3d旋转可视化解决方案
-- 学习并使用three.js
-- 学习并使用impress.js
-- 使用impress.js完成三屏3d旋转可视化方案
+```js
+data () {
+    return {
+        student: {
+            name: '',
+            sex: ''
+        }
+    }
+},
+mounted () {
+    this.student.age = 24
+}
+```
 
-## 2019年11月5日-2019年11月11日
+原因是：受 ES5 的限制，Vue.js 不能检测到对象属性的添加或删除。因为 Vue.js 在初始化实例时将属性转为 getter/setter，所以属性必须在 data 对象上才能让 Vue.js 转换它，才能让它是响应的。
 
-### 人脸识别课堂点名可视化大屏
+要处理这种情况，我们可以使用$set()方法，既可以新增属性,又可以触发视图更新。
 
-- 学习使用Vue预设动画
+this.$set(this.data,”key”,value’)
 
-## 2019年11月7日-2019年11月9日
+```js
+mounted () {
+    this.$set(this.student,"age", 24)
+}
+```
 
-### 人脸识别幼儿园监控可视化大屏三路视频展示方案
+## Flutter中TextField光标和hintText底边不对齐
 
-- 了解到了RTSP等视频流知识
-- 了解到了VLV，VXG，StreaMedia等web端视频播放器库
-- 了解并学习了impress.js,three.js等库
+原因是：不同文本的baselines不一样，中文hinttext比光标要大，所以baselines更低
 
-## 2019年11月11日-2019年11月15日
+解决方法：在TextField中添加style配置baselines
 
-### [:arrows_counterclockwise:中途接手]人脸识别上课签到点名系统后台
+``` dart
+style: TextStyle(
+  textBaseline: TextBaseline.alphabetic
+)
+```
 
-- 提高熟练度
+## Navicat导出Excel格式表结构
 
-## 2019年11月15日-2019年11月19日
+``` sql
+SELECT
+COLUMN_NAME 字段名称,
+COLUMN_TYPE 数据类型,
+IF(IS_NULLABLE='NO','是','否') AS '必填',
+COLUMN_COMMENT 注释
+FROM
+INFORMATION_SCHEMA.COLUMNS
+where
+-- db_name为数据库名称，到时候只需要修改成你要导出表结构的数据库即可
+table_schema ='db_name'
+AND
+-- table_name为表名，到时候换成你要导出的表的名称
+-- 如果不写的话，默认会查询出所有表中的数据，这样可能就分不清到底哪些字段是哪张表中的了
+table_name = 'table_name'
+```
 
-- 学习使用Flutter进行初级布局
+## ElementUI sass无法覆盖样式
 
-## 2019年11月20日
+可以在样式前面加`/deep/`即可覆盖
 
-- 出差苏州
+## 破解office
 
-## 2019年11月21日-2019年11月25日
+将下面的代码保存成bat文件，管理员运行，即可破解
 
-- 学习使用Docker
-- 学习使用Docker-compose
-- 成功在Ubuntu18.04部署docker项目
-
-## 2019年11月26日-2019年11月30日
-
-- 为通行系统增加功能
-- 成功在CentOS7.7部署docker项目
-- 学习react及react-native
-- 使用react以及Antd搭建基本管理后台
-
-## 2019年12月1日-2019年12月8日
-
-- 为通行系统增加功能
-- 学习并使用Flutter开发app，并实现登陆，网络请求，列表显示，详情查看，视频播放等功能
-
-## 2019年12月9日-2019年12月11日
-
-- 为通行系统增加功能
-- 学习并使用Flutter开发app，并实现文件处理，资源管理器等功能
-
-## 2019年12月12日-2019年12月24日
-
-### 会议人脸识别记录查询系统APP
-
-- 学习并使用Egg.js搭建后端api服务
-- 学习并使用Tone.js库制作网页乐器，着重修复上一版本网页钢琴在高频率触发音频播放时失声的问题
-- 学习vue2源码，解析到html解释器
-- 学习AST标准，并分析JavaScript解释器原理
-- 学习html解释器，并尝试写一个html解释器程序
-- 学习并使用Travis CI处理自动集成
-- 学习并使用Codecov处理代码测试覆盖率检测
-- 学习并使用Codebeat处理代码质量检测
-
-## 2019年12月25日-2019年12月27日
-
-- 学习vue3源码
-
-## 2019年12月28日
-
-实习结束
+```bat
+@echo off
+title Activate Office 365 ProPlus for FREE - MSGuides.com&cls&echo ============================================================================&echo #Project: Activating Microsoft software products for FREE without software&echo ============================================================================&echo.&echo #Supported products: Office 365 ProPlus (x86-x64)&echo.&echo.&(if exist "%ProgramFiles%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles%\Microsoft Office\Office16")&(if exist "%ProgramFiles(x86)%\Microsoft Office\Office16\ospp.vbs" cd /d "%ProgramFiles(x86)%\Microsoft Office\Office16")&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_kms*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&(for /f %%x in ('dir /b ..\root\Licenses16\proplusvl_mak*.xrm-ms') do cscript ospp.vbs /inslic:"..\root\Licenses16\%%x" >nul)&echo.&echo ============================================================================&echo Activating your Office...&cscript //nologo ospp.vbs /unpkey:WFG99 >nul&cscript //nologo ospp.vbs /unpkey:DRTFM >nul&cscript //nologo ospp.vbs /unpkey:BTDRB >nul&cscript //nologo ospp.vbs /inpkey:XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99 >nul&set i=1
+:server
+if %i%==1 set KMS_Sev=kms7.MSGuides.com
+if %i%==2 set KMS_Sev=kms8.MSGuides.com
+if %i%==3 set KMS_Sev=kms9.MSGuides.com
+if %i%==4 goto notsupported
+cscript //nologo ospp.vbs /sethst:%KMS_Sev% >nul&echo ============================================================================&echo.&echo.
+cscript //nologo ospp.vbs /act | find /i "successful" && (echo.&echo ============================================================================&echo.&echo #My official blog: MSGuides.com&echo.&echo #How it works: bit.ly/kms-server&echo.&echo #Please feel free to contact me at msguides.com@gmail.com if you have any questions or concerns.&echo.&echo #Please consider supporting this project: donate.msguides.com&echo #Your support is helping me keep my servers running everyday!&echo.&echo ============================================================================&choice /n /c YN /m "Would you like to visit my blog [Y,N]?" & if errorlevel 2 exit) || (echo The connection to my KMS server failed! Trying to connect to another one... & echo Please wait... & echo. & echo. & set /a i+=1 & goto server)
+explorer "http://MSGuides.com"&goto halt
+:notsupported
+echo.&echo ============================================================================&echo Sorry! Your version is not supported.&echo Please try installing the latest version here: bit.ly/odt2k16
+:halt
+pause
+```

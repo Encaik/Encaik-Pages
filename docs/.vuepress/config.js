@@ -76,11 +76,12 @@ module.exports = {
         '',
         'es',
         'dsaa',
-        'jinyan',
+        'shixi',
         'lib'
       ],
       '/repo/': [
         '',
+        'ksh',
         'wkc',
         'javaks',
         'tongji',
