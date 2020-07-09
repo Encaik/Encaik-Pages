@@ -22,19 +22,19 @@ module.exports = {
       link: '/'
     },
     {
-      text: '博文',
+      text: '学习日志',
       link: '/blog/'
     },
     {
-      text: '杂记',
+      text: '笔记摘录',
       link: '/note/'
     },
     {
-      text: '项目',
+      text: '项目总结',
       link: '/repo/'
     },
     {
-      text: '学习路径',
+      text: '知识总览',
       link: '/road/'
     },
     {
