@@ -109,3 +109,23 @@ let performance = window.performance
 - DOMready时长 = domContentLoadedEventEnd - navigationStart;
 
 - onload时长 = loadEventEnd - navigationStart;
+
+最后稍微美化一下用表格输出:
+
+```js
+let times = {};
+let t = window.performance.timing;
+times.redirectTime = t.redirectEnd - t.redirectStart + "ms";
+times.DNSTime = t.domainLookupEnd - t.domainLookupStart + "ms";
+times.TCPTime = t.connectEnd - t.connectStart + "ms";
+times.HTTPTime = t.responseEnd - t.responseStart + "ms";
+times.DOMTime = t.domComplete - t.domInteractive + "ms";
+times.whiteTime = t.responseStart - t.navigationStart || t.fetchStart + "ms";
+times.readyTime = t.domContentLoadedEventEnd - t.navigationStart || t.fetchStart + "ms";
+times.loadTime = t.loadEventEnd - t.navigationStart || t.fetchStart + "ms";
+console.table(times)
+```
+
+::: tip 注意
+`t.navigationStart || t.fetchStart`为我所使用的chrome浏览器获取后无navigationStart属性，文档说明无上个文档与fetchStart相同，因为写成了这种形式。
+:::

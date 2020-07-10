@@ -49,6 +49,7 @@ module.exports = {
     sidebar: {
       '/blog/': [
         '',
+        'console',
         'performance',
         'g6',
         'map',
