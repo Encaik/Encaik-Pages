@@ -49,6 +49,7 @@ module.exports = {
     sidebar: {
       '/blog/': [
         '',
+        'performance',
         'g6',
         'map',
         'golang-learn',
