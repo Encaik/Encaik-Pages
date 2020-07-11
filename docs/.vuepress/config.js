@@ -70,6 +70,7 @@ module.exports = {
         'typescript',
         'egg',
         'tonejs',
+        'electron',
         'http',
         'git',
         'vuepress',
