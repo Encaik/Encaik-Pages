@@ -23,6 +23,5 @@ footer: Copyright © 2019-2020 Encaik
 
 # 待补录学习日志
 
-- canvas
-- three.js
 - vuepress 主题修改
+- AST
