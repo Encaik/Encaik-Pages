@@ -58,3 +58,16 @@ var divisorGame = function(N) {
   }
 };
 ```
+
+将每次选最小改为每次选最大后，出错，经过反复推算，应该是这道题只能选最小，即轮流减一，谁先到 1 谁输，根据这个规律可以直接精简程序至如下：
+
+```js
+/**
+ * @param {number} N
+ * @return {boolean}
+ */
+var divisorGame = function(N) {
+  if (N % 2 == 0) return true;
+  return false;
+};
+```
