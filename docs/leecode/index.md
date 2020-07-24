@@ -6,7 +6,7 @@
 
 ## 第一次打卡
 
-1025. 除数博弈
+1025.除数博弈
 
 难度：简单
 
@@ -69,5 +69,17 @@ var divisorGame = function(N) {
 var divisorGame = function(N) {
   if (N % 2 == 0) return true;
   return false;
+};
+```
+
+然后发现可以直接用 N%2 代替逻辑判断，于是精简出最终版本：
+
+```js
+/**
+ * @param {number} N
+ * @return {boolean}
+ */
+var divisorGame = function(N) {
+  return !(N % 2);
 };
 ```
