@@ -86,7 +86,7 @@ module.exports = {
         "vuepress"
       ],
       "/note/": ["", "es", "dsaa", "lib", "shixi"],
-      "/leecode/": [""],
+      "/leecode/": ["", "leecode"],
       "/repo/": [
         "",
         "ksh",
