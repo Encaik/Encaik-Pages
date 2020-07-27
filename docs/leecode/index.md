@@ -83,3 +83,47 @@ var divisorGame = function(N) {
   return !(N % 2);
 };
 ```
+
+## 第二次打卡
+
+392.判断子序列
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/is-subsequence/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+var isSubsequence = function(s, t) {
+  if (s.length === t.length) {
+    if (s == t) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (s.length > t.length) {
+    return false;
+  }
+  let str = s.split("");
+  let lstr = t;
+  for (let x = 0; x < str.length; x++) {
+    let temp = lstr.split(str[x]);
+    if (temp.length == 2) {
+      temp.shift();
+      lstr = temp.join("");
+    } else if (temp.length > 2) {
+      temp.shift();
+      lstr = temp.join(str[x]);
+    } else {
+      return false;
+    }
+  }
+  return true;
+};
+```
