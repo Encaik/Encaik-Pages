@@ -1,8 +1,8 @@
 ---
 home: true
 heroImage: /img/head.png
-heroText: Encaik-前端博客
-tagline: 希望以后的自己能感谢现在努力的自己!
+heroText: Encaik
+tagline: 论其术之大，观新纪于前，思吾道至端
 features:
   - title: 学习日志
     details: 整理在前端学习中学习到的新知识，理清思路，方便后期翻阅回忆。

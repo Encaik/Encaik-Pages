@@ -1,8 +1,8 @@
 module.exports = {
   base: "/",
   dest: "docs/.vuepress/blog/",
-  title: "Encaik-个人博客",
-  description: "Encaik-个人博客",
+  title: "<Encaik学前端/>",
+  description: "<Encaik学前端/>",
   head: [
     ["link", { rel: "icon", href: "/img/favicon.ico" }],
     ["link", { rel: "manifest", href: "/json/manifest.json" }],
