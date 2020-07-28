@@ -127,3 +127,33 @@ var isSubsequence = function(s, t) {
   return true;
 };
 ```
+
+## 第三次打卡
+
+104.二叉树的最大深度
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+
+初次完成代码：
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var maxDepth = function(root) {
+  if (root == null) return 0;
+  const leftMaxDepth = maxDepth(root.left);
+  const rightMaxDepth = maxDepth(root.right);
+  return 1 + Math.max(leftMaxDepth, rightMaxDepth);
+};
+```
