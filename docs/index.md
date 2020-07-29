@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /img/head.png
-heroText: Encaik
+heroText: <Encaik学前端/>
 tagline: 论其术之大，观新纪于前，思吾道至端
 features:
   - title: 学习日志
