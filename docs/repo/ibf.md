@@ -2,6 +2,8 @@
 
 ## 项目介绍
 
+![截图](/img/repo/ibf2019.png)
+
 ### github 链接
 
 [Github 链接](https://github.com/Encaik/IBF2019)

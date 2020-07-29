@@ -430,7 +430,7 @@ var sum = add(a, b);
 console.log(sum);
 ```
 
-此处console前应有一个空行，暂时不知空行消失的原因
+此处 console 前应有一个空行，暂时不知空行消失的原因
 
 ### estree 规范解析
 

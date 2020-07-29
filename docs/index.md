@@ -14,6 +14,8 @@ features:
     details: 梳理以往开发的项目，有学校作业，比赛项目，毕业设计，也有自己的小尝试，作为一种积累可以翻阅。
   - title: 知识总览
     details: 整理前端发展路径以及前端知识点，作为总览前端学习的利器，监督自己学习。
+  - title: 期待更多
+    details: ......
 footer: Copyright © 2019-2020 Encaik
 ---
 
@@ -26,6 +28,4 @@ footer: Copyright © 2019-2020 Encaik
 # 待补录学习日志
 
 - vuepress 主题修改
-- AST
-- Cesium.js
 - Echarts.js
