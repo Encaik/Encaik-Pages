@@ -22,27 +22,27 @@ module.exports = {
     sidebar: "auto",
     nav: [
       {
-        text: "首页🏠",
+        text: "🏠首页",
         link: "/"
       },
       {
-        text: "学习日志📓",
+        text: "📓学习日志",
         link: "/blog/"
       },
       {
-        text: "笔记摘录📃",
+        text: "📃笔记摘录",
         link: "/note/"
       },
       {
-        text: "力扣记录📰",
+        text: "📰力扣记录",
         link: "/leecode/"
       },
       {
-        text: "项目总结📦",
+        text: "📦项目总结",
         link: "/repo/"
       },
       {
-        text: "知识总览📖",
+        text: "📖知识总览",
         link: "/road/"
       },
       {
@@ -57,6 +57,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "deno",
         "ast",
         "canvas",
         "console",
