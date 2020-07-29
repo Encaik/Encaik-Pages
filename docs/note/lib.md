@@ -1,4 +1,4 @@
-# JS库收集
+# JS 库收集
 
 ## 视觉类
 
@@ -8,13 +8,13 @@
 
 [官方网站](https://daneden.github.io/animate.css/)
 
-网站上展示了一些预设的CSS动效样式，使用简单，功能强大。
+网站上展示了一些预设的 CSS 动效样式，使用简单，功能强大。
 
 ![官方网站](/img/lib/1.jpg)
 
 #### Bounce.js
 
-官网类似于一个工具可以调整生成CSS动画并导出CSS。
+官网类似于一个工具可以调整生成 CSS 动画并导出 CSS。
 
 [官方网站](http://bouncejs.com/)
 
@@ -30,7 +30,7 @@
 
 #### Magic Animations
 
-网站上展示了很多预设动画，并可以在logo上预览，点击后可复制代码。
+网站上展示了很多预设动画，并可以在 logo 上预览，点击后可复制代码。
 
 [官方网站](https://www.minimamente.com/project/magic/)
 
@@ -62,7 +62,7 @@
 
 #### Vivus.js
 
-SVG动画效果库
+SVG 动画效果库
 
 [官方网站](http://maxwellito.github.io/vivus/)
 
@@ -104,7 +104,7 @@ SVG动画效果库
 
 ![官方网站](/img/lib/15.jpg)
 
-### 3D制作
+### 3D 制作
 
 #### Three.js
 
@@ -130,7 +130,7 @@ SVG动画效果库
 
 #### Favico.js
 
-### PPT制作
+### PPT 制作
 
 #### impress.js
 

@@ -2,10 +2,10 @@
 
 ## 项目介绍
 
-### github地址
+### github 地址
 
-[Github链接](https://github.com/Encaik/Financial-management-system)
+[Github 链接](https://github.com/Encaik/Financial-management-system)
 
 ### 开发目的
 
-大一学院微科创比赛作品，第一次接触网站开发，技术选型为最基础的html+css+js+jquery+php+mysql。
+大一学院微科创比赛作品，第一次接触网站开发，技术选型为最基础的 html+css+js+jquery+php+mysql。

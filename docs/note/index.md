@@ -1,19 +1,10 @@
 # 经验总结
 
-## Ant-design-vue使用心得
+## 框架
 
-- 优点
+### Vuepress 中使用 emoji
 
-  - 组件库强大，拥有各式各样的组件，且配置项多样
-  - 符合Vue核心思想，试用顺手
-
-- 缺点
-
-  - 样式自定义单调，官方方法只能通过less覆盖，手动覆盖混乱
-
-## Vuepress中使用emoji
-
-可以通过Shortcodes直接写在文档中，Shortcodes可在[emojipedia](https://emojipedia.org)查找
+可以通过 Shortcodes 直接写在文档中，Shortcodes 可在[emojipedia](https://emojipedia.org)查找
 
 ```markdown
     :heart:
@@ -21,14 +12,14 @@
 
 显示效果：:heart:
 
-## vue.$set及vue.$delete
+### vue.$set及vue.$delete
 
 [官网示例](https://cn.vuejs.org/v2/api/#Vue-set)
 
-在我们使用vue进行开发的过程中，可能会遇到一种情况：当生成vue实例后，当再次给数据赋值时，有时候并不会自动更新到视图上去；
-当我们去看vue文档的时候，会发现有这么一句话：如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。
+在我们使用 vue 进行开发的过程中，可能会遇到一种情况：当生成 vue 实例后，当再次给数据赋值时，有时候并不会自动更新到视图上去；
+当我们去看 vue 文档的时候，会发现有这么一句话：如果在实例创建之后添加新的属性到实例上，它不会触发视图更新。
 
-如下代码，给 student对象新增 age 属性
+如下代码，给 student 对象新增 age 属性
 
 ```js
 data () {
@@ -46,9 +37,9 @@ mounted () {
 
 原因是：受 ES5 的限制，Vue.js 不能检测到对象属性的添加或删除。因为 Vue.js 在初始化实例时将属性转为 getter/setter，所以属性必须在 data 对象上才能让 Vue.js 转换它，才能让它是响应的。
 
-要处理这种情况，我们可以使用$set()方法，既可以新增属性,又可以触发视图更新。
+要处理这种情况，我们可以使用\$set()方法，既可以新增属性,又可以触发视图更新。
 
-this.$set(this.data,”key”,value’)
+this.\$set(this.data,”key”,value’)
 
 ```js
 mounted () {
@@ -56,21 +47,27 @@ mounted () {
 }
 ```
 
-## Flutter中TextField光标和hintText底边不对齐
+### Flutter 中 TextField 光标和 hintText 底边不对齐
 
-原因是：不同文本的baselines不一样，中文hinttext比光标要大，所以baselines更低
+原因是：不同文本的 baselines 不一样，中文 hinttext 比光标要大，所以 baselines 更低
 
-解决方法：在TextField中添加style配置baselines
+解决方法：在 TextField 中添加 style 配置 baselines
 
-``` dart
+```dart
 style: TextStyle(
   textBaseline: TextBaseline.alphabetic
 )
 ```
 
-## Navicat导出Excel格式表结构
+### ElementUI 无法覆盖样式
 
-``` sql
+可以在样式前面加`/deep/`即可覆盖
+
+## 工具
+
+### Navicat 导出 Excel 格式表结构
+
+```sql
 SELECT
 COLUMN_NAME 字段名称,
 COLUMN_TYPE 数据类型,
@@ -87,13 +84,9 @@ AND
 table_name = 'table_name'
 ```
 
-## ElementUI sass无法覆盖样式
+## 破解 office
 
-可以在样式前面加`/deep/`即可覆盖
-
-## 破解office
-
-将下面的代码保存成bat文件，管理员运行，即可破解
+将下面的代码保存成 bat 文件，管理员运行，即可破解
 
 ```bat
 @echo off

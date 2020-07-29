@@ -2,7 +2,7 @@
 
 ## 项目介绍
 
-### github地址
+### github 地址
 
 - 前端[https://github.com/Encaik/usuams](https://github.com/Encaik/usuams)
 - 后端[https://github.com/Encaik/usuams-server](https://github.com/Encaik/usuams-server)
@@ -15,41 +15,41 @@ Node.js
 
 #### 前端技术
 
-| 技术 | 说明 |
-|---|---|
-| Vue | 前端框架 |
-| Vue-router | 路由框架 |
-| Vuex | 全局状态管理框架 |
-| Ant-design-vue | 前端UI框架 |
-| Axios | 前端HTTP框架 |
-| Qs | 格式化Json库 |
-| Nprogress | 进度条控件 |
-| Moment | 时间管理库 |
-| VueLazyload | 图片懒加载库 |
-| js-md5 | 密码加密库 |
-| vue-wangEditor | 富文本编辑器库 |
+| 技术           | 说明             |
+| -------------- | ---------------- |
+| Vue            | 前端框架         |
+| Vue-router     | 路由框架         |
+| Vuex           | 全局状态管理框架 |
+| Ant-design-vue | 前端 UI 框架     |
+| Axios          | 前端 HTTP 框架   |
+| Qs             | 格式化 Json 库   |
+| Nprogress      | 进度条控件       |
+| Moment         | 时间管理库       |
+| VueLazyload    | 图片懒加载库     |
+| js-md5         | 密码加密库       |
+| vue-wangEditor | 富文本编辑器库   |
 
 #### 后端技术
 
-| 技术 | 说明 |
-|---|---|
-| Egg | 后端框架 |
-| Mysql | 数据库 |
-| egg-mysql | mysql数据库处理库 |
-| egg-cors | 跨域配置库 |
-| egg-jwt | token生成及验证库 |
+| 技术      | 说明               |
+| --------- | ------------------ |
+| Egg       | 后端框架           |
+| Mysql     | 数据库             |
+| egg-mysql | mysql 数据库处理库 |
+| egg-cors  | 跨域配置库         |
+| egg-jwt   | token 生成及验证库 |
 
 ### 开发进度
 
 #### 2020-1-11 至 2020-1-12
 
-- 创建前端项目usuams
-- 创建后端项目usuams-server
+- 创建前端项目 usuams
+- 创建后端项目 usuams-server
 
 #### 2020-1-13 至 2020-1-19
 
-- 拟定数据库结构，创建user_type表、user_table表和affair_table表
-- 添加后端mysql库，操作数据库
+- 拟定数据库结构，创建 user_type 表、user_table 表和 affair_table 表
+- 添加后端 mysql 库，操作数据库
 - 搭建后端登录模块、用户模块、事务模块
 - 搭建前端超级管理员框架，并搭建功能性插件框架
 
@@ -60,9 +60,9 @@ Node.js
 - 完善用户管理，完成侧边树结构
 - 完成用户管理组件化，并添加事务管理、用户管理的功能栏
 - 添加表格操作功能，以及组件化弹窗
-- 添加后端cors跨域配置库，允许前端8080端口访问后端7001端口
+- 添加后端 cors 跨域配置库，允许前端 8080 端口访问后端 7001 端口
 - 添加登录不同身份进入不同页面
-- 前后台同步添加jwt身份验证
+- 前后台同步添加 jwt 身份验证
 
 #### 2020-1-27 至 2020-2-2
 
@@ -78,10 +78,10 @@ Node.js
 - 完善部长团界面为根据部长团角色信息，只显示该部门干事
 - 修改事务表结构，添加工作人员表
 - 搭建会外人员首页加入学生会页面
-- 添加密码全局MD5加密
-- 修改登出操作，清空所有浏览器缓存，并在再次登录前刷新页面让router组件初始化
+- 添加密码全局 MD5 加密
+- 修改登出操作，清空所有浏览器缓存，并在再次登录前刷新页面让 router 组件初始化
 - 添加会外人员加入学生会功能，并完成页面
-- 重新设计会外人员表结构，添加status字段标明所处招新阶段
+- 重新设计会外人员表结构，添加 status 字段标明所处招新阶段
 - 添加部长团会外人员页面根据阶段及部门过滤数据功能
 
 #### 2020-2-3 至 2020-2-9
