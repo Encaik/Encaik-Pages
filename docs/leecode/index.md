@@ -157,3 +157,67 @@ var maxDepth = function(root) {
   return 1 + Math.max(leftMaxDepth, rightMaxDepth);
 };
 ```
+
+## 第四次打卡
+
+343.整数拆分
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/integer-break/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var integerBreak = function(n) {
+  let num = Math.ceil(n / 2);
+  let res = 0;
+  for (; num > 0; num--) {
+    if (n % num === 0) {
+      let temp = Math.pow(num, n / num);
+      res = Math.max(res, temp);
+    } else if (Math.floor(n / num) === 1) {
+      let temp = num * (n - num);
+      res = Math.max(res, temp);
+    } else if (n % num > num / 2) {
+      let temp = Math.pow(num, Math.floor(n / num)) * (n % num);
+      res = Math.max(res, temp);
+    } else if (n % num < num / 2) {
+      let temp = Math.pow(num, Math.floor(n / num) - 1) * (num + (n % num));
+      res = Math.max(res, temp);
+    }
+  }
+  return res;
+};
+```
+
+简化代码时发现，当余数刚好等于除数的一半的时候，这种情况没有判断到，因此添加了这一判断
+
+```js
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var integerBreak = function(n) {
+  let num = Math.ceil(n / 2);
+  let res = 0;
+  for (; num > 0; num--) {
+    let temp = 0;
+    if (n % num === 0) {
+      temp = Math.pow(num, n / num);
+    } else if (Math.floor(n / num) === 1) {
+      temp = num * (n - num);
+    } else if (n % num > num / 2) {
+      temp = Math.pow(num, Math.floor(n / num)) * (n % num);
+    } else if (n % num <= num / 2) {
+      temp = Math.pow(num, Math.floor(n / num) - 1) * (num + (n % num));
+    }
+    res = Math.max(res, temp);
+  }
+  return res;
+};
+```
