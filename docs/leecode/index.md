@@ -221,3 +221,42 @@ var integerBreak = function(n) {
   return res;
 };
 ```
+
+## 第五次打卡
+
+面试题 08.03.魔术索引
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/magic-index-lcci/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMagicIndex = function(nums) {
+  for (let index = 0; index < nums.length; index++) {
+    if (nums[index] == index) {
+      return index;
+    }
+  }
+  return -1;
+};
+```
+
+之后将返回体略作简化
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMagicIndex = function(nums) {
+  for (let index = 0; index < nums.length; index++)
+    if (nums[index] == index) return index;
+  return -1;
+};
+```
