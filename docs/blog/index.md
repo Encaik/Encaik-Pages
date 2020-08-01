@@ -1,4 +1,4 @@
-[banner](/img/blog/index.png)
+![banner](/img/blog/index.png)
 
 # 前端工程化项目构建流程及基本结构
 
