@@ -57,6 +57,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "socketio",
         "taro",
         "deno",
         "ast",
@@ -65,8 +66,8 @@ module.exports = {
         "performance",
         "g6",
         "map",
-        "golang-learn",
-        "angular-learn",
+        "golang",
+        "angular",
         "vue3",
         "vue2",
         "tensorflow",
@@ -91,6 +92,7 @@ module.exports = {
       "/leecode/": ["", "leecode"],
       "/repo/": [
         "",
+        "chatdemo",
         "ksh",
         "tenseflow",
         "electron",
