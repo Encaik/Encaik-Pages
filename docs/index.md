@@ -21,11 +21,11 @@ footer: Copyright © 2019-2020 Encaik
 
 ---
 
-![Netlify Status](https://api.netlify.com/api/v1/badges/966e16d1-397e-45a1-9cdf-469059defbf6/deploy-status) ![codebeat badge](https://codebeat.co/badges/be6b8cf6-832a-4a3d-8582-158aa6d09d1a)
-
----
-
 # 待补录学习日志
 
 - vuepress 主题修改
 - Echarts.js
+
+---
+
+![Netlify Status](https://api.netlify.com/api/v1/badges/966e16d1-397e-45a1-9cdf-469059defbf6/deploy-status)
