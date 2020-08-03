@@ -1,5 +1,7 @@
 # 使用 socket.io 做一个在线聊天室
 
+![banner](/img/blog/socketio.png)
+
 ## 安装
 
 ```sh
