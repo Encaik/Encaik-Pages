@@ -1,5 +1,7 @@
 # 学习使用 Tensorflow.js 机器学习
 
+![语法](/img/blog/tensorflow.png)
+
 ## 介绍
 
 ### 什么是 Tensorflow.js

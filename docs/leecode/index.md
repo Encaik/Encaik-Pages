@@ -260,3 +260,37 @@ var findMagicIndex = function(nums) {
   return -1;
 };
 ```
+
+## 第五次打卡
+
+415.字符串相加
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/add-strings/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var addStrings = function(num1, num2) {
+  return String(parseInt(num1) + parseInt(num2));
+};
+```
+
+这段代码通过了执行，但是在提交时出错，经过检查发现是数字超出了 js 的最大整数导致精度丢失。想到 js 应该没有长整型的概念，已经打算手写加法的我，突然想要搜一下，结果发现了长整型的提案，于是尝试了一下：
+
+```js
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var addStrings = function(num1, num2) {
+  return String(BigInt(num1) + BigInt(num2));
+};
+```
