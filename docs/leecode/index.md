@@ -1,10 +1,12 @@
 # 力扣的打卡记录
 
+[[toc]]
+
 ## 起因
 
 因为偶然想起 leecode，上去做了个打卡题，虽然通过但是应该还有优化空间，于是想留个优化的记录，方便之后思考。
 
-## 第一次打卡
+## 2020-7-24 打卡
 
 1025.除数博弈
 
@@ -84,7 +86,7 @@ var divisorGame = function(N) {
 };
 ```
 
-## 第二次打卡
+## 2020-7-27 打卡
 
 392.判断子序列
 
@@ -128,7 +130,7 @@ var isSubsequence = function(s, t) {
 };
 ```
 
-## 第三次打卡
+## 2020-7-28 打卡
 
 104.二叉树的最大深度
 
@@ -158,7 +160,7 @@ var maxDepth = function(root) {
 };
 ```
 
-## 第四次打卡
+## 2020-7-30 打卡
 
 343.整数拆分
 
@@ -222,7 +224,7 @@ var integerBreak = function(n) {
 };
 ```
 
-## 第五次打卡
+## 2020-7-31 打卡
 
 面试题 08.03.魔术索引
 
@@ -261,7 +263,7 @@ var findMagicIndex = function(nums) {
 };
 ```
 
-## 第五次打卡
+## 2020-8-3 打卡
 
 415.字符串相加
 
@@ -294,3 +296,56 @@ var addStrings = function(num1, num2) {
   return String(BigInt(num1) + BigInt(num2));
 };
 ```
+
+## 2020-8-4 打卡
+
+207.课程表
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/course-schedule/submissions/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number} numCourses
+ * @param {number[][]} prerequisites
+ * @return {boolean}
+ */
+var canFinish = function(numCourses, prerequisites) {
+  let map = {};
+  for (let course = 0; course < numCourses; course++) {
+    map[course] = [];
+    for (let index = 0; index < prerequisites.length; index++) {
+      if (prerequisites[index][0] === course) {
+        map[course].push(prerequisites[index][1]);
+      }
+    }
+  }
+  let learn = "";
+  while (true) {
+    for (let index of Object.keys(map)) {
+      if (map[index].length == 0) {
+        learn = index;
+      }
+    }
+    if (learn == "" && JSON.stringify(map) != "{}") {
+      return false;
+    } else if (learn == "" && JSON.stringify(map) == "{}") {
+      return true;
+    }
+    for (let index of Object.keys(map)) {
+      if (index == learn) {
+        delete map[index];
+      } else if (map[index].indexOf(parseInt(learn)) > -1) {
+        let pos = map[index].indexOf(parseInt(learn));
+        map[index].splice(pos, 1);
+      }
+    }
+    learn = "";
+  }
+};
+```
+
+可以看出来题目是想要在有向图中寻找有无通路，但因为数据结构基础差，所以先用本办法做了出来
