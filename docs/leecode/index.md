@@ -349,3 +349,44 @@ var canFinish = function(numCourses, prerequisites) {
 ```
 
 可以看出来题目是想要在有向图中寻找有无通路，但因为数据结构基础差，所以先用本办法做了出来
+
+## 2020-8-6 打卡
+
+336.回文对
+
+难度：困难
+
+[题目链接](https://leetcode-cn.com/problems/palindrome-pairs/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string[]} words
+ * @return {number[][]}
+ */
+var palindromePairs = function(words) {
+  let res = [];
+  let rwords = words.map(i => {
+    return i
+      .split("")
+      .reverse()
+      .join("");
+  });
+  for (let x = 0; x < words.length; x++) {
+    for (let y = 0; y < words.length; y++) {
+      if (y == x) {
+        continue;
+      }
+      let str = words[x] + words[y];
+      let rstr = rwords[y] + rwords[x];
+      if (str === rstr) {
+        res.push([x, y]);
+      }
+    }
+  }
+  return res;
+};
+```
+
+此次是通过暴力破解的办法完成此题目，但是可以有优化的地方
