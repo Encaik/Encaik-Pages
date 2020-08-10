@@ -1,5 +1,56 @@
 # 经验总结
 
+## 原理
+
+### mvvm
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="model1" type="text" oninput="change(this)" />
+    <div id="model2"></div>
+    <script src="./script.js"></script>
+  </body>
+</html>
+```
+
+```js
+//初始化实例
+let app = {
+  data() {
+    return {
+      model: "123"
+    };
+  }
+};
+//解析实例数据
+test = new Proxy(app.data(), {
+  get(target, key) {
+    return target[key];
+  },
+  set(target, key, value) {
+    document.getElementById(`${key}1`).value = value;
+    document.getElementById(`${key}2`).innerText = value;
+    return Reflect.set(target, key, value);
+  }
+});
+//挂载数据
+Object.keys(app.data()).map(item => {
+  document.getElementById(`${item}1`).value = test[item];
+  document.getElementById(`${item}2`).innerText = test[item];
+});
+//监听变更
+function change(e) {
+  test.model = e.value;
+}
+```
+
 ## 框架
 
 ### Vuepress 中使用 emoji
