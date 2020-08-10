@@ -92,7 +92,7 @@ module.exports = {
       "/leecode/": ["", "leecode"],
       "/repo/": [
         "",
-        "mddeom",
+        "mddemo",
         "chatdemo",
         "ksh",
         "tenseflow",
