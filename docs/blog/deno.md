@@ -69,3 +69,16 @@ deno run ./index.js
 ```sh
 Hello World!
 ```
+
+deno 启动服务
+
+```js
+import { serve } from "https://deno.land/std@0.62.0/http/server.ts";
+const s = serve({ port: 8000 });
+console.log("http://localhost:8000/");
+for await (const req of s) {
+  req.respond({ body: "Hello World\n" });
+}
+```
+
+执行后就可以看到 deno 启动了一个服务
