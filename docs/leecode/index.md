@@ -390,3 +390,28 @@ var palindromePairs = function(words) {
 ```
 
 此次是通过暴力破解的办法完成此题目，但是可以有优化的地方
+
+## 2020-8-10 打卡
+
+696.计数二进制子串
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/count-binary-substrings/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var countBinarySubstrings = function(s) {
+  let str = s.match(/(1+|0+)/g);
+  let count = 0;
+  for (let index = 0; index < str.length - 1; index++) {
+    count = count + Math.min(str[index].length, str[index + 1].length);
+  }
+  return count;
+};
+```
