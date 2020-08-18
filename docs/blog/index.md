@@ -183,6 +183,58 @@ plugins: [
 ],
 ```
 
+### 使用 babel-loader 转译 JavaScript 代码
+
+```sh
+npm install -D babel-loader @babel/core @babel/preset-env
+```
+
+首先在 webpack 中加入 babel-loader 使 babel 生效。
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        }
+      }
+    }
+  ];
+}
+```
+
+由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装 @babel/polyfill 转换新 API。
+
+```sh
+npm install --save @babel/polyfill
+```
+
+修改配置文件启用插件，并且配置兼容的浏览器环境。在配置文件中设置 targets 属性：
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "edge": "17",
+          "firefox": "60",
+          "chrome": "67",
+          "safari": "11.1"
+        },
+        "useBuiltIns": "usage"
+      }
+    ]
+  ]
+}
+```
+
 ## 引入 CSS 预编译器简化 CSS 代码
 
 先安装每一个预编译器都需要的加载模块。
@@ -256,75 +308,6 @@ module: {
       use: ["style-loader", "css-loader", "stylus-loader"]
     }
   ];
-}
-```
-
-## 引入 Babel 转译 JavaScript 代码
-
-```sh
-npm install --save-dev @babel/core @babel/cli @babel/preset-env
-```
-
-首先在 webpack 中加入 babel-loader 使 babel 生效。
-
-```js
-module: {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      /* 下面这种写法可以代替简单的babel配置文件 */
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"]
-        }
-      }
-    }
-  ];
-}
-```
-
-然后新建.babelrc，用来管理 babel 配置。
-
-```json
-{
-  "presets": [["@babel/preset-env"]]
-}
-```
-
-由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装 @babel/polyfill 转换新 API。安装 @babel/plugin-transform-runtime 优化代码，@babel/plugin-transform-runtime 是一个可以重复使用 Babel 注入的帮助程序代码来节省代码的插件。
-
-```sh
-npm install --save-dev @babel/polyfill @babel/plugin-transform-runtime
-```
-
-修改 .babelrc 配置文件启用插件，并且配置兼容的浏览器环境。在 .babelrc 配置文件中设置 targets 属性：
-
-```json
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        // 在每个文件中使用polyfill时，为polyfill添加特定导入。利用捆绑器只加载一次相同的polyfill。
-        "modules": false,
-        // 启用将ES6模块语法转换为其他模块类型，设置为false不会转换模块。
-        "targets": {
-          "browsers": "last 2 versions, not ie <= 9"
-        }
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "helpers": false
-      }
-    ]
-  ]
 }
 ```
 
