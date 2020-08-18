@@ -183,7 +183,7 @@ plugins: [
 ],
 ```
 
-### 使用 babel-loader 转译 JavaScript 代码
+### 使用 babel-loader 转译 ES6 及更新版本代码
 
 ```sh
 npm install -D babel-loader @babel/core @babel/preset-env
