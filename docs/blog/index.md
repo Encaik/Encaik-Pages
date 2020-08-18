@@ -31,7 +31,7 @@ license: (ISC)
 Is this OK? (yes)
 ```
 
-## 引入 Webpack 打包文件
+## 使用 Webpack 模块化打包
 
 ### 初步使用 webpack
 
@@ -76,9 +76,31 @@ module.exports = {
 },
 ```
 
-### webpack 启动本地服务
+### 使用 source map 定位错误
 
-如果想要让项目有本地服务器可以启动，则需要配置 webpack-dev-server。
+在开发中，如果出现错误，控制台只能找到打包文件的出错位置，不能找到打包前模块文件的错误位置。因此需要使用 source map 来定位错误。
+
+```js
+module.exports = {
+  devtool: "inline-source-map"
+};
+```
+
+在配置中添加 inline-source-map，就可以启用 source map。
+
+### 使用观察模式即时打包
+
+观察模式是对代码进行观察，如果发现代码有变化则立即打包，而不用每次更改都运行命令手动打包。观察模式是 webpack 命令的配置，可以通过命令启用。
+
+```json
+"scripts": {
+  "watch": "webpack --watch",
+},
+```
+
+### 使用 webpack-dev-server 启动本地服务
+
+观察模式虽然方便，但是仍然需要每次都刷新页面才可以更新代码，如果想要让项目有可以自动刷新的本地服务器，则需要配置 webpack-dev-server,首先安装包。
 
 ```sh
 npm install --save-dev webpack-dev-server
@@ -87,19 +109,45 @@ npm install --save-dev webpack-dev-server
 然后修改 webpack.config.js 文件启用 webpack-dev-server。
 
 ```js
-const webpack = require('webpack');
-
-devServer: {
-  contentBase: './dist',
-  hot: true,
-},
-plugins: [
-  new webpack.NamedModulesPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-],
+module.exports = {
+  devServer: {
+    contentBase: "./dist"
+  }
+};
 ```
 
-为了方便不再修改 html 文件，可以安装插件让打包的 js 自动插入到 html 里并生成 html 文件。想要达成这个目的，可以使用 html-webpack-plugin 插件。
+此配置将使项目在默认的 8080 端口开启服务，并在当前目录的 dist 下寻找可访问的页面。开启服务也有对应的命令可以使用。
+
+```json
+"scripts": {
+  "start": "webpack-dev-server --open",
+},
+```
+
+启动服务后，打开页面修改代码保存，页面将自动刷新。
+
+### 启用 HMR 进行开发
+
+当项目结构逐渐复杂，每次保存代码都重新编译就会很浪费时间。这时候可以使用热重载，即在项目运行的状态下，替换部分更改的模块，而不需要重新编译整个项目，这样可以大大提高效率。HMR 功能是 webpack-dev-server 包的内容，因此只需要对配置文件进行修改即可。
+
+```js
+const webpack = require("webpack");
+
+module.exports = {
+  devServer: {
+    contentBase: "./dist",
+    hot: true
+  },
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};
+```
+
+### 使用 HtmlWebpackPlugin 生成 html 模板
+
+为了方便不再修改 html 文件，可以安装插件让打包的 js 自动插入到 生成的 html 文件里。想要达成这个目的，可以使用 html-webpack-plugin 插件。
 
 ```sh
 npm install --save-dev html-webpack-plugin
@@ -112,13 +160,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 plugins: [
   new HtmlWebpackPlugin({
-    template: './src/public/index.html',
-    filename: 'index.html',
-  }),
+    title: 'Output Management'
+  })
 ],
 ```
 
-## 清理 dist 目录
+### 使用 clean-webpack-plugin 清理 dist 目录
+
+有时候会把旧的文件遗留在打包目录内，但是我们并不需要。因此我们可以使用 clean-webpack-plugin 插件在每次打包前清空 dist 目录。
 
 ```sh
 npm install clean-webpack-plugin --save-dev
@@ -127,80 +176,11 @@ npm install clean-webpack-plugin --save-dev
 安装完成以后再 webpack 配置文件做以下修改：
 
 ```js
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 plugins: [
-  new CleanWebpackPlugin(['dist']),
+  new CleanWebpackPlugin(),
 ],
-```
-
-## 引入 Babel 转译 JavaScript 代码
-
-```sh
-npm install --save-dev @babel/core @babel/cli @babel/preset-env
-```
-
-首先在 webpack 中加入 babel-loader 使 babel 生效。
-
-```js
-module: {
-  rules: [
-    {
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      /* 下面这种写法可以代替简单的babel配置文件 */
-      use: {
-        loader: "babel-loader",
-        options: {
-          presets: ["@babel/preset-env"]
-        }
-      }
-    }
-  ];
-}
-```
-
-然后新建.babelrc，用来管理 babel 配置。
-
-```json
-{
-  "presets": [["@babel/preset-env"]]
-}
-```
-
-由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装 @babel/polyfill 转换新 API。安装 @babel/plugin-transform-runtime 优化代码，@babel/plugin-transform-runtime 是一个可以重复使用 Babel 注入的帮助程序代码来节省代码的插件。
-
-```sh
-npm install --save-dev @babel/polyfill @babel/plugin-transform-runtime
-```
-
-修改 .babelrc 配置文件启用插件，并且配置兼容的浏览器环境。在 .babelrc 配置文件中设置 targets 属性：
-
-```json
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        // 在每个文件中使用polyfill时，为polyfill添加特定导入。利用捆绑器只加载一次相同的polyfill。
-        "modules": false,
-        // 启用将ES6模块语法转换为其他模块类型，设置为false不会转换模块。
-        "targets": {
-          "browsers": "last 2 versions, not ie <= 9"
-        }
-      }
-    ]
-  ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "helpers": false
-      }
-    ]
-  ]
-}
 ```
 
 ## 引入 CSS 预编译器简化 CSS 代码
@@ -276,6 +256,75 @@ module: {
       use: ["style-loader", "css-loader", "stylus-loader"]
     }
   ];
+}
+```
+
+## 引入 Babel 转译 JavaScript 代码
+
+```sh
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+```
+
+首先在 webpack 中加入 babel-loader 使 babel 生效。
+
+```js
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      exclude: /(node_modules|bower_components)/,
+      /* 下面这种写法可以代替简单的babel配置文件 */
+      use: {
+        loader: "babel-loader",
+        options: {
+          presets: ["@babel/preset-env"]
+        }
+      }
+    }
+  ];
+}
+```
+
+然后新建.babelrc，用来管理 babel 配置。
+
+```json
+{
+  "presets": [["@babel/preset-env"]]
+}
+```
+
+由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装 @babel/polyfill 转换新 API。安装 @babel/plugin-transform-runtime 优化代码，@babel/plugin-transform-runtime 是一个可以重复使用 Babel 注入的帮助程序代码来节省代码的插件。
+
+```sh
+npm install --save-dev @babel/polyfill @babel/plugin-transform-runtime
+```
+
+修改 .babelrc 配置文件启用插件，并且配置兼容的浏览器环境。在 .babelrc 配置文件中设置 targets 属性：
+
+```json
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        // 在每个文件中使用polyfill时，为polyfill添加特定导入。利用捆绑器只加载一次相同的polyfill。
+        "modules": false,
+        // 启用将ES6模块语法转换为其他模块类型，设置为false不会转换模块。
+        "targets": {
+          "browsers": "last 2 versions, not ie <= 9"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": false
+      }
+    ]
+  ]
 }
 ```
 
