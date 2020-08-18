@@ -8,27 +8,53 @@
 
 ## 创建 Node.js 项目
 
+先通过下面的命令初始化 node 项目，新建 package.json 文件用来管理包。
+
 ```sh
 npm init [-y]
 
 ```
 
-此命令会新建 package.json 文件，用来管理 Node.js 项目。
+如果在后面跟上`-y`的意义是每项问题都选择回车默认。如果不加则有以下问题,括号内为回车默认填写内容。
+
+```sh
+package name: ([文件夹名])
+version: (1.0.0)
+description:
+entry point: (index.js)
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+[此处展示根据前面的选项生成的package.json的内容]
+Is this OK? (yes)
+```
 
 ## 引入 Webpack 打包文件
+
+### 初步使用 webpack
+
+项目中的文件可以选择分文件形式，也可以选择压缩打包为单文件形式，打包工具选择目前主流的 webpack。先通过下面的命令安装 webpack 包。
 
 ```sh
 npm install webpack webpack-cli --save-dev
 ```
 
-在 package.json 文件中做以下调整：
+然后创建一个打包项目的文件结构,即 dist/index.html 文件与 src/index.js 文件。并在 package.json 文件中做一些调整，以便确保我们安装包是私有的(private)，并且移除 main 入口。这可以防止意外发布代码。
 
 ```json
 +   "private": true,
 -   "main": "index.js",
 ```
 
-新建 webpack.config.js，用来管理 webpack 配置。
+执行打包命令，webpack 会根据默认配置将 src 中的 js 文件打包为一个 js 放入 dist，dist 中的 html 只需要引用这个 js 即可。
+
+```sh
+npx webpack
+```
+
+对于更复杂的配置需求，可以新建 webpack.config.js 文件用来管理 webpack 的自定义配置。
 
 ```js
 const path = require("path");
@@ -36,11 +62,21 @@ const path = require("path");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
+    filename: "main.js",
     path: path.resolve(__dirname, "dist")
   }
 };
 ```
+
+为了让打包不需要每次都手动输入命令，可以再 package.json 中添加 npm 脚本。
+
+```json
+"scripts": {
+  "build": "webpack"
+},
+```
+
+### webpack 启动本地服务
 
 如果想要让项目有本地服务器可以启动，则需要配置 webpack-dev-server。
 
