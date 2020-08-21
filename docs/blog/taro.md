@@ -1,5 +1,7 @@
 # Taro 多端统一小程序框架体验
 
+![banner](/img/blog/taro.png)
+
 ## 环境配置
 
 1. Node.js
