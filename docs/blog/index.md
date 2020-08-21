@@ -235,23 +235,15 @@ npm install --save @babel/polyfill
 }
 ```
 
-## 引入 CSS 预编译器简化 CSS 代码
+### 通过 loader 加载 CSS
 
-先安装每一个预编译器都需要的加载模块。
-
-```sh
-npm i -D style-loader css-loader
-```
-
-然后根据不同的情况安装不同的模块。
-
-### Less
-
-如果要加入 less，则先安装 less 及其 webpack 模块。
+目前项目主要都是由 js 完成，但是网页中，css 是不可能不用的。在 webpack 中使用非 js 的模块化文件，都需要先使用 loader 去加载。先安装 CSS 的加载模块。
 
 ```sh
-npm i -D less less-loader
+npm install --save-dev style-loader css-loader
 ```
+
+安装完成后，在 webpack 的配置文件里，模块-规则一栏，添加对.css 后缀文件的加载器，这样 webpack 就可以认出模块化的 css 文件该如何去处理了。
 
 ```js
 module: {
@@ -259,59 +251,45 @@ module: {
     {
       test: /\.css$/,
       use: ["style-loader", "css-loader"]
-    },
-    {
-      test: /\.less$/,
-      use: ["style-loader", "css-loader", "less-loader"]
-      //use中的模块为从下至上链式调用，即less-loader>css-loader>style-loader
     }
   ];
 }
 ```
 
-### Sass/Scss
+### 通过 file-loader 加载图片
+
+如果在文件中使用图片，相对路径将会以文本形式存在，这将导致我们需要将图片等资源，手动移动到打包后的目录，这和工程化的思想不符合，所以我们需要模块化图片，让图片一起打包。首先安装文件加载模块。
 
 ```sh
-npm i -D node-sass sass-loader
+npm install --save-dev file-loader
 ```
+
+加载完成后，对.png、.svg、.jpg、.gif 后缀的图像文件进行处理，这些文件将参与打包。
 
 ```js
 module: {
   rules: [
     {
-      test: /\.css$/,
-      use: ["style-loader", "css-loader"]
-    },
-    {
-      test: /\.less$/,
-      use: ["style-loader", "css-loader", "less-loader"]
+      test: /\.(png|svg|jpg|gif)$/,
+      use: ["file-loader"]
     }
   ];
 }
 ```
 
-### stylus
+### 通过别名配置引用资源
 
-```sh
-npm i -D stylus stylus-loader
-```
+如果不想通过 loader 的方式加载资源文件，webpack 也可以通过别名的方式，将某个路径规定一个别名，import 这个别名规定路径里的文件，将参与打包。
 
 ```js
-module: {
-  rules: [
-    {
-      test: /\.css$/,
-      use: ["style-loader", "css-loader"]
-    },
-    {
-      test: /\.styl$/,
-      use: ["style-loader", "css-loader", "stylus-loader"]
-    }
-  ];
-}
+resolve: {
+  alias: {
+    public: path.resolve(__dirname, "public/"),
+  },
+},
 ```
 
-## 引入 ESlint 检查代码格式
+## 使用 ESlint 检查代码格式
 
 ```sh
 npm i -D eslint eslint-loader eslint-friendly-formatter
