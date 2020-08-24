@@ -57,6 +57,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "echarts",
         "csspre",
         "socketio",
         "taro",
