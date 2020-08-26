@@ -57,6 +57,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "webpack",
         "echarts",
         "csspre",
         "socketio",
