@@ -1,4 +1,6 @@
-# Echarts 的使用及配置项使用
+# Echarts 的使用及配置项对照
+
+![banner](/img/blog/echarts.png)
 
 ## 使用
 
@@ -68,6 +70,34 @@ myChart.setOption(option);
 主流的框架中，使用 echarts 需要在 dom 挂载完成后，否则初始化时无法找到 dom 将会报错
 :::
 
+### 定时刷新
+
+如果遇到数据要定时刷新的情况，可以将 option 对象定义为方法，然后传入数据返回 option。通过图标对象调用 setOption 即可刷新数据。
+
 ## 配置项
 
-### [title](https://echarts.apache.org/zh/option.html#title)
+以下是一些常用配置项，带`*`的是比较重要的配置项。配置项在文档中都很清楚，这里只对他们的含义做一个对照，Echarts 的核心在于配置项，熟悉了配置项的使用就可以满足业务使用了。
+
+- title——图表标题
+- \*legend——图表标注
+- \*grid——图表布局
+- \*xAxis——X 轴（笛卡尔坐标系）
+- \*yAxis——Y 轴（笛卡尔坐标系）
+- polar——极坐标（适用于原笛卡尔坐标系图表）
+- radiusAxis——径向轴（极坐标）
+- angleAxis——角度轴（极坐标）
+- radar——雷达图坐标系
+- dataZoom——图表缩放
+- \*tooltip——提示气泡框
+- axisPointer——坐标轴指示器
+- \*toolbox——工具组件
+- brush——刷取部分数据
+- geo——地图信息绘制
+- parallel——平行坐标系
+- parallelAxis——平行坐标轴（平行坐标系）
+- singleAxis——单轴坐标系
+- timeline——时间线
+- calendar——日历坐标系
+- \*series——数据
+- textStyle——文本样式
+- color——色彩样式
