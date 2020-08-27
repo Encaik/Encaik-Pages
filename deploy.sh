@@ -13,6 +13,3 @@ git init
 git add -A
 git commit -m 'deploy'
 git push -f https://gitee.com/encaik/encaik.git master
-
-cd ../../../
-git rm -r -f docs/.vuepress/blog
