@@ -7,7 +7,7 @@ set -e
 npm run docs:build
 
 # 进入生成的文件夹
-cd docs/.vuepress/Blog
+cd docs/.vuepress/blog
 
 git init
 git add -A
@@ -15,4 +15,4 @@ git commit -m 'deploy'
 git push -f https://gitee.com/encaik/encaik.git master
 
 cd ../../../
-git rm -r -f docs/.vuepress/Blog
+git rm -r -f docs/.vuepress/blog
