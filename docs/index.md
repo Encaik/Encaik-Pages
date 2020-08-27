@@ -24,7 +24,12 @@ footer: Copyright © 2019-2020 Encaik
 # 待补录学习日志
 
 - vuepress 主题修改
-- Echarts.js
+
+---
+
+# 友情链接
+
+欢迎各位大佬交换友链！
 
 ---
 
