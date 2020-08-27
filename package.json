@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "docs:deploy": "E:\\Git\\git-bash.exe deploy.sh"
+    "docs:deploy": "C:/Progra~1/Git/git-bash.exe deploy.sh"
   },
   "author": "Encaik",
   "license": "ISC",

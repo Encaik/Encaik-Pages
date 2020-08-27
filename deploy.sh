@@ -7,19 +7,12 @@ set -e
 npm run docs:build
 
 # 进入生成的文件夹
-cd docs/.vuepress/blog
-
-# 如果是发布到自定义域名
-# echo 'www.example.com' > CNAME
+cd docs/.vuepress/Blog
 
 git init
 git add -A
 git commit -m 'deploy'
+git push -f https://gitee.com/encaik/encaik.git master
 
-# 如果发布到 https://<USERNAME>.github.io
-# git push -f https://github.com/Encaik/Blog.git master
-
-# 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:Encaik/blog.git master:gh-pages
-
-cd -
+cd ../../../
+git rm -r -f docs/.vuepress/Blog
