@@ -1,2 +1,2 @@
-./node_modules/
-./docs/.vuepress/blog/
+node_modules
+docs/.vuepress/blog/
