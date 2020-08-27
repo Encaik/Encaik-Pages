@@ -46,21 +46,22 @@ module.exports = {
         link: "/road/"
       },
       {
-        text: "💖Github",
+        text: "Github",
         link: "https://github.com/Encaik"
       },
       {
-        text: "💝码云",
+        text: "码云",
         link: "https://gitee.com/encaik"
       },
       {
-        text: "🚀国内镜像",
+        text: "[国内镜像]",
         link: "https://encaik.gitee.io/"
       }
     ],
     sidebar: {
       "/blog/": [
         "",
+        "nodecli",
         "webpack",
         "echarts",
         "csspre",
