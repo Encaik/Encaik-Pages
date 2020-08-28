@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "nodespider",
         "nodecli",
         "webpack",
         "echarts",
@@ -88,7 +89,7 @@ module.exports = {
         "react",
         "vuetestutils2",
         "vuetestutils",
-        "typescript",
+        "tsspider",
         "egg",
         "tonejs",
         "electron",
