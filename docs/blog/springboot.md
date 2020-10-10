@@ -29,4 +29,26 @@
 
 - model
 
-实力层，用来声明需要用到的实例结构
+实例层，用来声明需要用到的实例结构
+
+## 主类
+
+```java
+package com.start;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
+
+@EnableAutoConfiguration
+@ComponentScan(basePackages = {"com.**"})
+public class Application {
+
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+
+}
+```
+
+SpringApplication.run()是启动整个项目的代理方法

@@ -24,6 +24,8 @@ footer: Copyright © 2019-2020 Encaik
 # 待补录学习日志
 
 - vuepress 主题修改
+- springboot 学习记录
+- pupeteer 学习记录
 
 ---
 

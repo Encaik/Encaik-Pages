@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "puppeteer",
         "springboot",
         "nodespider",
         "nodecli",
