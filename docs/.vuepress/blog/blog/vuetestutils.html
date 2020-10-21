@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-test-utils学习-用jest进行单元测试 | &lt;Encaik学前端/&gt;</title>
+    <meta name="generator" content="VuePress 1.5.2">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="manifest" href="/json/manifest.json">
+    <link rel="apple-touch-icon" href="/img/favicon.ico">
+    <link rel="mask-icon" href="/img/favicon.ico" color="#fff">
+    <meta name="description" content="<Encaik学前端/>">
+    <meta name="theme-color" content="#fff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#fff">
+    <link rel="preload" href="/assets/css/0.styles.dc595e24.css" as="style"><link rel="preload" href="/assets/js/app.bd3f0f02.js" as="script"><link rel="preload" href="/assets/js/3.89568fe3.js" as="script"><link rel="preload" href="/assets/js/2.590cb2e6.js" as="script"><link rel="preload" href="/assets/js/43.1109556c.js" as="script"><link rel="preload" href="/assets/js/4.8eb3e90a.js" as="script"><link rel="prefetch" href="/assets/js/10.4e223f07.js"><link rel="prefetch" href="/assets/js/11.3bfb8044.js"><link rel="prefetch" href="/assets/js/12.681b783b.js"><link rel="prefetch" href="/assets/js/13.8d720ff6.js"><link rel="prefetch" href="/assets/js/14.8e5ddade.js"><link rel="prefetch" href="/assets/js/15.5c94c7ec.js"><link rel="prefetch" href="/assets/js/16.7e18cd62.js"><link rel="prefetch" href="/assets/js/17.ed949b04.js"><link rel="prefetch" href="/assets/js/18.3cf5450e.js"><link rel="prefetch" href="/assets/js/19.58313f81.js"><link rel="prefetch" href="/assets/js/20.2e3040bb.js"><link rel="prefetch" href="/assets/js/21.2b1012d3.js"><link rel="prefetch" href="/assets/js/22.c1f7bb09.js"><link rel="prefetch" href="/assets/js/23.73cc089f.js"><link rel="prefetch" href="/assets/js/24.8797435e.js"><link rel="prefetch" href="/assets/js/25.7ae5d82b.js"><link rel="prefetch" href="/assets/js/26.c8cb884b.js"><link rel="prefetch" href="/assets/js/27.a46d4209.js"><link rel="prefetch" href="/assets/js/28.49696390.js"><link rel="prefetch" href="/assets/js/29.d80a291b.js"><link rel="prefetch" href="/assets/js/30.fd5e56b3.js"><link rel="prefetch" href="/assets/js/31.1ce4b9e7.js"><link rel="prefetch" href="/assets/js/32.c3d13647.js"><link rel="prefetch" href="/assets/js/33.a35563fa.js"><link rel="prefetch" href="/assets/js/34.32c3da0b.js"><link rel="prefetch" href="/assets/js/35.ec2c2b44.js"><link rel="prefetch" href="/assets/js/36.33beb24a.js"><link rel="prefetch" href="/assets/js/37.d8f0998d.js"><link rel="prefetch" href="/assets/js/38.d49b8c34.js"><link rel="prefetch" href="/assets/js/39.fff34425.js"><link rel="prefetch" href="/assets/js/40.3f62d09f.js"><link rel="prefetch" href="/assets/js/41.2dcd7f0b.js"><link rel="prefetch" href="/assets/js/42.11d95687.js"><link rel="prefetch" href="/assets/js/44.e2399cef.js"><link rel="prefetch" href="/assets/js/45.7a679a51.js"><link rel="prefetch" href="/assets/js/46.73b33028.js"><link rel="prefetch" href="/assets/js/47.fd519161.js"><link rel="prefetch" href="/assets/js/48.b1b28e66.js"><link rel="prefetch" href="/assets/js/49.86a4671e.js"><link rel="prefetch" href="/assets/js/5.8ff02f63.js"><link rel="prefetch" href="/assets/js/50.b4875615.js"><link rel="prefetch" href="/assets/js/51.be1e8109.js"><link rel="prefetch" href="/assets/js/52.f9e3133f.js"><link rel="prefetch" href="/assets/js/53.183c44ad.js"><link rel="prefetch" href="/assets/js/54.20da8e29.js"><link rel="prefetch" href="/assets/js/55.110a713f.js"><link rel="prefetch" href="/assets/js/56.52be78b1.js"><link rel="prefetch" href="/assets/js/57.6e2b18dc.js"><link rel="prefetch" href="/assets/js/58.b27c624a.js"><link rel="prefetch" href="/assets/js/59.15fc8ad4.js"><link rel="prefetch" href="/assets/js/6.e9fe7882.js"><link rel="prefetch" href="/assets/js/60.717deb85.js"><link rel="prefetch" href="/assets/js/61.adad4150.js"><link rel="prefetch" href="/assets/js/62.dc4b38fa.js"><link rel="prefetch" href="/assets/js/63.0c56f3e2.js"><link rel="prefetch" href="/assets/js/64.2e44886d.js"><link rel="prefetch" href="/assets/js/65.8be7291f.js"><link rel="prefetch" href="/assets/js/66.8a1a29d2.js"><link rel="prefetch" href="/assets/js/67.83c4e3ea.js"><link rel="prefetch" href="/assets/js/68.a8d9157f.js"><link rel="prefetch" href="/assets/js/69.719600a4.js"><link rel="prefetch" href="/assets/js/7.e5e5ff12.js"><link rel="prefetch" href="/assets/js/70.401b5c15.js"><link rel="prefetch" href="/assets/js/8.e291d4da.js"><link rel="prefetch" href="/assets/js/9.8668cf5c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dc595e24.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">&lt;Encaik学前端/&gt;</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">🏠首页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">📓学习日志</a></div><div class="nav-item"><a href="/note/" class="nav-link">📃笔记摘录</a></div><div class="nav-item"><a href="/leecode/" class="nav-link">📰力扣记录</a></div><div class="nav-item"><a href="/repo/" class="nav-link">📦项目总结</a></div><div class="nav-item"><a href="/road/" class="nav-link">📖知识总览</a></div><div class="nav-item"><a href="https://github.com/Encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://gitee.com/encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://encaik.gitee.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  [国内镜像]
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">🏠首页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">📓学习日志</a></div><div class="nav-item"><a href="/note/" class="nav-link">📃笔记摘录</a></div><div class="nav-item"><a href="/leecode/" class="nav-link">📰力扣记录</a></div><div class="nav-item"><a href="/repo/" class="nav-link">📦项目总结</a></div><div class="nav-item"><a href="/road/" class="nav-link">📖知识总览</a></div><div class="nav-item"><a href="https://github.com/Encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://gitee.com/encaik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  码云
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://encaik.gitee.io/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  [国内镜像]
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/blog/" aria-current="page" class="sidebar-link">前端工程化项目构建流程及基本结构</a></li><li><a href="/blog/puppeteer.html" class="sidebar-link">初步学习如何使用 puppeteer 操控无头浏览器</a></li><li><a href="/blog/springboot.html" class="sidebar-link">学习 Springboot 做后端</a></li><li><a href="/blog/nodespider.html" class="sidebar-link">使用 node.js 完成爬虫操作</a></li><li><a href="/blog/nodecli.html" class="sidebar-link">自己做一个带 cli 的 npm 包发布</a></li><li><a href="/blog/webpack.html" class="sidebar-link">分析 webpack 源码，理解原理</a></li><li><a href="/blog/echarts.html" class="sidebar-link">Echarts 的使用及配置项对照</a></li><li><a href="/blog/csspre.html" class="sidebar-link">CSS 预处理器-Sass，Less，Stylus 对比</a></li><li><a href="/blog/socketio.html" class="sidebar-link">使用 socket.io 做一个在线聊天室</a></li><li><a href="/blog/taro.html" class="sidebar-link">Taro 多端统一小程序框架体验</a></li><li><a href="/blog/deno.html" class="sidebar-link">初探 Deno，学习用法</a></li><li><a href="/blog/ast.html" class="sidebar-link">从 estree 和 babel 中学习 js 的 AST</a></li><li><a href="/blog/canvas.html" class="sidebar-link">学习canvas制作一个代码美化截图页面</a></li><li><a href="/blog/console.html" class="sidebar-link">学习使用花里胡哨的Console</a></li><li><a href="/blog/performance.html" class="sidebar-link">学习前端性能监控PerformanceApi</a></li><li><a href="/blog/g6.html" class="sidebar-link">学习 AntV G6 图可视化引擎</a></li><li><a href="/blog/map.html" class="sidebar-link">地图 api 及 Cesium.js 库总结</a></li><li><a href="/blog/golang.html" class="sidebar-link">学习使用Golang</a></li><li><a href="/blog/angular.html" class="sidebar-link">学习使用Angular9</a></li><li><a href="/blog/vue3.html" class="sidebar-link">从头开始学习Vue3源码</a></li><li><a href="/blog/vue2.html" class="sidebar-link">从头开始学习Vue2源码</a></li><li><a href="/blog/tensorflow.html" class="sidebar-link">学习使用 Tensorflow.js 机器学习</a></li><li><a href="/blog/koa2-learn.html" class="sidebar-link">Koa2基本学习</a></li><li><a href="/blog/docker-project.html" class="sidebar-link">docker-compose部署流程</a></li><li><a href="/blog/docker-compose.html" class="sidebar-link">Docker-compose使用</a></li><li><a href="/blog/docker.html" class="sidebar-link">Docker 使用</a></li><li><a href="/blog/flutter.html" class="sidebar-link">学习使用Flutter进行移动端开发</a></li><li><a href="/blog/react-native.html" class="sidebar-link">React Native学习-创建项目</a></li><li><a href="/blog/react.html" class="sidebar-link">React学习-创建项目</a></li><li><a href="/blog/vuetestutils2.html" class="sidebar-link">vue-test-utils学习-用nightwatch进行e2e测试</a></li><li><a href="/blog/vuetestutils.html" aria-current="page" class="active sidebar-link">vue-test-utils学习-用jest进行单元测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#安装-jest" class="sidebar-link">安装 Jest</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#在-jest-中处理单文件组件" class="sidebar-link">在 Jest 中处理单文件组件</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#处理-webpack-别名" class="sidebar-link">处理 webpack 别名</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#为-jest-配置-babel" class="sidebar-link">为 Jest 配置 Babel</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#放置测试文件" class="sidebar-link">放置测试文件</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#测试覆盖率" class="sidebar-link">测试覆盖率</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#测试规范示例" class="sidebar-link">测试规范示例</a></li><li class="sidebar-sub-header"><a href="/blog/vuetestutils.html#快照测试" class="sidebar-link">快照测试</a></li></ul></li><li><a href="/blog/tsspider.html" class="sidebar-link">Typescr学习-实现基础爬虫</a></li><li><a href="/blog/egg.html" class="sidebar-link">学习使用Egg.js搭建后端</a></li><li><a href="/blog/tonejs.html" class="sidebar-link">学习使用Tone.js制作网页版乐器</a></li><li><a href="/blog/electron.html" class="sidebar-link">学习 Electron 框架制作桌面端应用</a></li><li><a href="/blog/http.html" class="sidebar-link">前端请求发展及使用</a></li><li><a href="/blog/git.html" class="sidebar-link">Git 语法及使用</a></li><li><a href="/blog/vuepress.html" class="sidebar-link">Vuepress搭建博客</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="vue-test-utils学习-用jest进行单元测试"><a href="#vue-test-utils学习-用jest进行单元测试" class="header-anchor">#</a> vue-test-utils学习-用jest进行单元测试</h1> <h2 id="安装-jest"><a href="#安装-jest" class="header-anchor">#</a> 安装 Jest</h2> <p>我们假定你在一开始已经安装并配置好了 webpack、vue-loader 和 Babel——例如通过 vue-cli 创建了 webpack-simple 模板脚手架。</p> <p>我们要做的第一件事就是安装 Jest 和 Vue Test Utils：</p> <p>$ npm install --save-dev jest @vue/test-utils
+然后我们需要在 package.json 中定义一个单元测试的脚本。</p> <p>// package.json
+{
+&quot;scripts&quot;: {
+&quot;test&quot;: &quot;jest&quot;
+}
+}</p> <h2 id="在-jest-中处理单文件组件"><a href="#在-jest-中处理单文件组件" class="header-anchor">#</a> 在 Jest 中处理单文件组件</h2> <p>为了告诉 Jest 如何处理 *.vue 文件，我们需要安装和配置 vue-jest 预处理器：</p> <p>npm install --save-dev vue-jest
+接下来在 package.json 中创建一个 jest 块：</p> <p>{
+// ...
+&quot;jest&quot;: {
+&quot;moduleFileExtensions&quot;: [
+&quot;js&quot;,
+&quot;json&quot;,
+// 告诉 Jest 处理 <code>*.vue</code> 文件
+&quot;vue&quot;
+],
+&quot;transform&quot;: {
+// 用 <code>vue-jest</code> 处理 <code>*.vue</code> 文件
+&quot;.*\.(vue)$&quot;: &quot;vue-jest&quot;
+}
+}
+}
+注意：vue-jest 目前并不支持 vue-loader 所有的功能，比如自定义块和样式加载。额外的，诸如代码分隔等 webpack 特有的功能也是不支持的。如果要使用这些不支持的特性，你需要用 Mocha 取代 Jest 来运行你的测试，同时用 webpack 来编译你的组件。想知道如何起步，请阅读教程里的用 Mocha + webpack 测试单文件组件。</p> <h2 id="处理-webpack-别名"><a href="#处理-webpack-别名" class="header-anchor">#</a> 处理 webpack 别名</h2> <p>如果你在 webpack 中配置了别名解析，比如把 @ 设置为 /src 的别名，那么你也需要用 moduleNameMapper 选项为 Jest 增加一个匹配配置：</p> <p>{
+// ...
+&quot;jest&quot;: {
+// ...
+// 支持源代码中相同的 <code>@</code> -&gt; <code>src</code> 别名
+&quot;moduleNameMapper&quot;: {
+&quot;^@/(.*)$&quot;: &quot;&lt;rootDir&gt;/src/$1&quot;
+}
+}
+}</p> <h2 id="为-jest-配置-babel"><a href="#为-jest-配置-babel" class="header-anchor">#</a> 为 Jest 配置 Babel</h2> <p>尽管最新版本的 Node 已经支持绝大多数的 ES2015 特性，你可能仍然想要在你的测试中使用 ES modules 语法和 stage-x 的特性。为此我们需要安装 babel-jest：</p> <p>npm install --save-dev babel-jest
+接下来，我们需要在 package.json 的 jest.transform 里添加一个入口，来告诉 Jest 用 babel-jest 处理 JavaScript 测试文件：</p> <p>{
+// ...
+&quot;jest&quot;: {
+// ...
+&quot;transform&quot;: {
+// ...
+// 用 <code>babel-jest</code> 处理 js
+&quot;^.+\.js$&quot;: &quot;&lt;rootDir&gt;/node_modules/babel-jest&quot;
+}
+// ...
+}
+}
+默认情况下，babel-jest 会在其安装完毕后自动进行配置。尽管如此，因为我们已经显性的添加了对 *.vue 文件的转换，所以现在我们也需要显性的配置 babel-jest。</p> <p>我们假设 webpack 使用了 babel-preset-env，这时默认的 Babel 配置会关闭 ES modules 的转译，因为 webpack 已经可以处理 ES modules 了。然而，我们还是需要为我们的测试而开启它，因为 Jest 的测试用例会直接运行在 Node 上。</p> <p>同样的，我们可以告诉 babel-preset-env 面向我们使用的 Node 版本。这样做会跳过转译不必要的特性使得测试启动更快。</p> <p>为了仅在测试时应用这些选项，可以把它们放到一个独立的 env.test 配置项中 (这会被 babel-jest 自动获取)。</p> <p>.babelrc 文件示例：</p> <p>{
+&quot;presets&quot;: [[&quot;env&quot;, { &quot;modules&quot;: false }]],
+&quot;env&quot;: {
+&quot;test&quot;: {
+&quot;presets&quot;: [[&quot;env&quot;, { &quot;targets&quot;: { &quot;node&quot;: &quot;current&quot; } }]]
+}
+}
+}</p> <h2 id="放置测试文件"><a href="#放置测试文件" class="header-anchor">#</a> 放置测试文件</h2> <p>默认情况下，Jest 将会递归的找到整个工程里所有 .spec.js 或 .test.js 扩展名的文件。如果这不符合你的需求，你也可以在 package.json 里的配置段落中改变它的 testRegex。</p> <p>Jest 推荐你在被测试代码的所在目录下创建一个 <strong>tests</strong> 目录，但你也可以为你的测试文件随意设计自己习惯的文件结构。不过要当心 Jest 会为快照测试在临近测试文件的地方创建一个 <strong>snapshots</strong> 目录。</p> <h2 id="测试覆盖率"><a href="#测试覆盖率" class="header-anchor">#</a> 测试覆盖率</h2> <p>Jest 可以被用来生成多种格式的测试覆盖率报告。以下是一个简单的起步的例子：</p> <p>扩展你的 jest 配置 (通常在 package.json 或 jest.config.js 中) 的 collectCoverage 选项，然后添加 collectCoverageFrom 数组来定义需要收集测试覆盖率信息的文件。</p> <p>{
+&quot;jest&quot;: {
+// ...
+&quot;collectCoverage&quot;: true,
+&quot;collectCoverageFrom&quot;: [&quot;<strong>/*.{js,vue}&quot;, &quot;!</strong>/node_modules/**&quot;]
+}
+}
+这样就会开启默认格式的测试覆盖率报告。你可以通过 coverageReporters 选项来定制它们。</p> <p>{
+&quot;jest&quot;: {
+// ...
+&quot;coverageReporters&quot;: [&quot;html&quot;, &quot;text-summary&quot;]
+}
+}
+更多文档内容请移步至 Jest 配置文档，在那里你可以找到覆盖率阀值、目标输出目录等选项。</p> <h2 id="测试规范示例"><a href="#测试规范示例" class="header-anchor">#</a> 测试规范示例</h2> <p>如果你已经熟悉了 Jasmine，你应该很适应 Jest 的断言 API：</p> <p>import { mount } from '@vue/test-utils'
+import Component from './component'</p> <p>describe('Component', () =&gt; {
+test('is a Vue instance', () =&gt; {
+const wrapper = mount(Component)
+expect(wrapper.isVueInstance()).toBeTruthy()
+})
+})</p> <h2 id="快照测试"><a href="#快照测试" class="header-anchor">#</a> 快照测试</h2> <p>当你用 Vue Test Utils 挂载一个组件时，你可以访问到 HTML 根元素。这可以保存为一个快照为 Jest 快照测试所用。</p> <p>test('renders correctly', () =&gt; {
+const wrapper = mount(Component)
+expect(wrapper.element).toMatchSnapshot()
+})
+我们可以通过一个自定义的序列化工具改进被保存的快照：</p> <p>npm install --save-dev jest-serializer-vue
+然后在 package.json 中配置它：</p> <p>{
+// ...
+&quot;jest&quot;: {
+// ...
+// 快照的序列化工具
+&quot;snapshotSerializers&quot;: [&quot;jest-serializer-vue&quot;]
+}
+}</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">发布日期:</span> <span class="time">12/23/2019, 5:55:43 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/vuetestutils2.html" class="prev">
+        vue-test-utils学习-用nightwatch进行e2e测试
+      </a></span> <span class="next"><a href="/blog/tsspider.html">
+        Typescr学习-实现基础爬虫
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----><div id="live2d-widget" class="live2d-widget-container" style="position:fixed;right:65px;bottom:0px;width:135px;height:300px;z-index:99999;opacity:0.8;pointer-events:none;"><canvas id="live2d_canvas" width="135" height="300" class="live2d_canvas" style="position:absolute;left:0px;top:0px;width:135px;height:300px;"></canvas></div></div></div>
+    <script src="/assets/js/app.bd3f0f02.js" defer></script><script src="/assets/js/3.89568fe3.js" defer></script><script src="/assets/js/2.590cb2e6.js" defer></script><script src="/assets/js/43.1109556c.js" defer></script><script src="/assets/js/4.8eb3e90a.js" defer></script>
+  </body>
+</html>
