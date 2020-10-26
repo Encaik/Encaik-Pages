@@ -415,3 +415,28 @@ var countBinarySubstrings = function(s) {
   return count;
 };
 ```
+
+## 2020-10-26 打卡
+
+1365.有多少小于当前数字的数字
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/how-many-numbers-are-smaller-than-the-current-number/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var smallerNumbersThanCurrent = function(nums) {
+  let sorts = [...nums].sort((a, b) => {
+    return a - b;
+  });
+  return nums.map(i => {
+    return sorts.indexOf(i);
+  });
+};
+```
