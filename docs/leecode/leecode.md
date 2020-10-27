@@ -1,5 +1,7 @@
 # 日常刷题
 
+![banner](/img/leecode/leecode.png)
+
 ## 1480.一维数组的动态和
 
 难度：简单

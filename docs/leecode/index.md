@@ -1,5 +1,7 @@
 # 力扣的打卡记录
 
+![banner](/img/leecode/index.png)
+
 [[toc]]
 
 ## 起因

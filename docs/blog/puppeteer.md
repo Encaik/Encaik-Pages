@@ -1,5 +1,7 @@
 # 初步学习如何使用 puppeteer 操控无头浏览器
 
+![banner](/img/blog/pupeteer.png)
+
 ## 安装
 
 ```sh
