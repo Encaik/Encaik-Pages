@@ -440,3 +440,42 @@ var smallerNumbersThanCurrent = function(nums) {
   });
 };
 ```
+
+## 2020-10-27 打卡
+
+144.二叉树的前序遍历
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+
+初次完成代码：
+
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var preorderTraversal = function(root) {
+  let res = [];
+  let getRes = root => {
+    if (root) {
+      res.push(root.val);
+      getRes(root.left);
+      getRes(root.right);
+    }
+  };
+  getRes(root);
+  return res;
+};
+```
+
+题目提出进阶版为迭代算法，但因为我不会迭代，只能先查看题解学习。
