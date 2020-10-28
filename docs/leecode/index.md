@@ -481,3 +481,41 @@ var preorderTraversal = function(root) {
 ```
 
 题目提出进阶版为迭代算法，但因为我不会迭代，只能先查看题解学习。
+
+## 2020-10-28 打卡
+
+1207.独一无二的出现次数
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/unique-number-of-occurrences/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var uniqueOccurrences = function(arr) {
+  let count = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (count[arr[i]]) {
+      count[arr[i]]++;
+    } else {
+      count[arr[i]] = 1;
+    }
+  }
+  let set = new Set();
+  let keys = Object.keys(count);
+  for (let index = 0; index < keys.length; index++) {
+    const item = keys[index];
+    if (set.has(count[item])) {
+      return false;
+    } else {
+      set.add(count[item]);
+    }
+  }
+  return true;
+};
+```
