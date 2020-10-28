@@ -14,6 +14,8 @@ display: inline-flex;
 
 ![使用后](/img/blog/flex&grid/2.png)
 
+## 布局配置
+
 ### 主轴（Main Axis）
 
 主轴决定了子元素的排列方向，且可以由`flex-direction`属性定义主轴方向，该属性有四个取值。
@@ -81,3 +83,57 @@ display: inline-flex;
 ### flex-flow
 
 该属性为`flex-direction`和`flex-wrap`的简写属性。
+
+## 子元素配置
+
+### flex-basis
+
+该属性为子元素占用空间大小，会在父元素允许的范围内占用规定的宽度。
+
+![flex-basis](/img/blog/flex&grid/11.png)
+
+### flex-grow
+
+该属性可以为子元素按比例分配剩余可用空间。
+
+![flex-grow](/img/blog/flex&grid/12.png)
+
+### flex-shrink
+
+当空间不足以放下子元素时，该属性可以为子元素按比例压缩占用空间。
+
+![flex-grow](/img/blog/flex&grid/13.png)
+
+### flex
+
+该属性为`flex-basis`、`flex-grow`和`flex-shrink`的简写属性
+
+## 子元素对齐与空间分配
+
+### align-items
+
+该属性可以使元素在交叉轴方向对齐，有以下几种取值：
+
+- stretch
+
+该值为默认值，会在子元素没有高度的情况下将子元素拉伸到父元素高度，如果父元素也没有高度，将由最高的子元素决定。
+
+![stretch](/img/blog/flex&grid/14.png)
+
+- flex-start
+
+该值会使子元素沿交叉轴顶端对齐。
+
+![flex-start](/img/blog/flex&grid/15.png)
+
+- flex-end
+
+该值会使子元素沿交叉轴末端对齐。
+
+![flex-start](/img/blog/flex&grid/16.png)
+
+- center
+
+该值会使子元素沿交叉轴居中对齐。
+
+![flex-start](/img/blog/flex&grid/17.png)
