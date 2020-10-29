@@ -1,5 +1,7 @@
 # 详细理解 Flexbox 与 Gridbox 布局属性
 
+![banner](/img/blog/flex&grid.png)
+
 ## Flexbox
 
 使用 flex-box 布局时，需要在排列元素的父元素上添加属性。
@@ -130,10 +132,42 @@ display: inline-flex;
 
 该值会使子元素沿交叉轴末端对齐。
 
-![flex-start](/img/blog/flex&grid/16.png)
+![flex-end](/img/blog/flex&grid/16.png)
 
 - center
 
 该值会使子元素沿交叉轴居中对齐。
 
-![flex-start](/img/blog/flex&grid/17.png)
+![center](/img/blog/flex&grid/17.png)
+
+### justify-content
+
+该属性可以使元素在主轴方向对齐，有以下几种取值：
+
+- flex-start
+
+该值为默认值，会使子元素对齐在主轴起点。
+
+![flex-start](/img/blog/flex&grid/18.png)
+
+- flex-end
+
+该值会使子元素沿主轴末端对齐。
+
+![flex-end](/img/blog/flex&grid/19.png)
+
+- center
+
+该值会使子元素沿主轴居中对齐。
+
+![center](/img/blog/flex&grid/20.png)
+
+- space-around
+
+该值会使元素沿主轴均匀分布，且首尾有空余。
+
+![space-around](/img/blog/flex&grid/21.png)
+
+- space-between
+
+![space-between](/img/blog/flex&grid/22.png)
