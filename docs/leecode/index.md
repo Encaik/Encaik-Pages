@@ -519,3 +519,45 @@ var uniqueOccurrences = function(arr) {
   return true;
 };
 ```
+
+## 2020-10-30 打卡
+
+463.岛屿的周长
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/island-perimeter/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+var islandPerimeter = function(grid) {
+  let height = grid.length;
+  let width = grid[0].length;
+  let sum = 0;
+  for (let index = 0; index < height; index++) {
+    for (let indey = 0; indey < width; indey++) {
+      let item = grid[index][indey];
+      if (item) {
+        if (index - 1 == -1 || !grid[index - 1][indey]) {
+          sum++;
+        }
+        if (indey + 1 == width || !grid[index][indey + 1]) {
+          sum++;
+        }
+        if (index + 1 == height || !grid[index + 1][indey]) {
+          sum++;
+        }
+        if (indey - 1 == -1 || !grid[index][indey - 1]) {
+          sum++;
+        }
+      }
+    }
+  }
+  return sum;
+};
+```
