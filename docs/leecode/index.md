@@ -561,3 +561,30 @@ var islandPerimeter = function(grid) {
   return sum;
 };
 ```
+
+## 2020-11-02 打卡
+
+349.两个数组的交集
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/intersection-of-two-arrays/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+  let set = new Set();
+  nums1.forEach(i => {
+    if (nums2.indexOf(i) > -1 && !set.has(i)) {
+      set.add(i);
+    }
+  });
+  return Array.from(set);
+};
+```
