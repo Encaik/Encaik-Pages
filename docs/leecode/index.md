@@ -588,3 +588,45 @@ var intersection = function(nums1, nums2) {
   return Array.from(set);
 };
 ```
+
+## 2020-11-03 打卡
+
+941.有效的山脉数组
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/valid-mountain-array/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} A
+ * @return {boolean}
+ */
+var validMountainArray = function(A) {
+  if (A.length < 3) {
+    return false;
+  }
+  let isUp = false;
+  let isDown = false;
+  for (let index = 1; index < A.length; index++) {
+    if (!isDown && A[index] > A[index - 1]) {
+      isUp = true;
+      continue;
+    } else if (isDown && isUp && A[index] < A[index - 1]) {
+      continue;
+    } else if (!isDown && isUp && A[index] < A[index - 1]) {
+      isDown = true;
+      continue;
+    } else {
+      return false;
+    }
+  }
+  if (isUp && isDown) {
+    return true;
+  } else {
+    return false;
+  }
+};
+```
