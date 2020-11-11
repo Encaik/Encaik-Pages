@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "amap",
         "flex&grid",
         "puppeteer",
         "springboot",
@@ -77,7 +78,7 @@ module.exports = {
         "console",
         "performance",
         "g6",
-        "map",
+        "tdt&cesium",
         "golang",
         "angular",
         "vue3",

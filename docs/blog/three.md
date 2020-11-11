@@ -4,7 +4,9 @@
 
 ### 引入
 
-从网站下载或从 github 下载，然后根据引入方式找到合适的文件夹，很久需求引入文件：
+- script 脚本引入(文件引入)
+
+从网站下载或从 github 下载，然后根据引入方式找到合适的文件夹，根据需求引入文件：
 
 ```html
 <script src="./js/three.js/build/three.min.js"></script>
@@ -13,23 +15,41 @@
 <script src="./js/three.js/examples/js/libs/inflate.min.js"></script>
 ```
 
+以上是常规页面使用 three 的方法，如果是使用模块化项目的话，需要从 jsm 文件夹中导入模块。
+
+- npm 包导入
+
+```sh
+npm i three
+```
+
+```js
+import * as THREE from "./js/three.module.js";
+```
+
 ### 初始化场景
 
 ```js
 var scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0e1926); //设置场景背景色
 ```
 
-### 定义添加辅助网格(可选)
+### 定义添加辅助网格
 
 ```js
 var gridHelper = new THREE.GridHelper(10000, 10, 0x2c2c2c, 0x888888);
 scene.add(gridHelper);
+//或
+var axesHelper = new THREE.AxesHelper(1000);
+scene.add(axesHelper);
 ```
+
+GridHelper 是在场景中显示出一个网格作为参考平面，AxesHelper 是在场景中显示出当前场景的坐标系。
 
 ### 在场景中添加相机
 
 其中`OrthographicCamera`为正交相机，即物体无论远近，大小不会发生变化。
-另一种是透视相机，根据人眼观察物体的效果会对物体产生形变。
+另一种是透视相机`PerspectiveCamera`，根据人眼观察物体的效果会对物体产生形变。
 
 ```js
 /**
@@ -47,7 +67,7 @@ camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
 
 ### 在场景中添加光源
 
-其中`AmbientLight`是环境光，只起环境基础照明作用，不会产生阴影。`PointLight`是点光，通过点光照射的物体会产生阴影，如果没有默认产生则需要对光和物体进行配置。及点光产生阴影，物体接受产生阴影。
+其中`AmbientLight`是环境光，只起环境基础照明作用，不会产生阴影。`PointLight`是点光，通过点光照射的物体会产生阴影，如果没有默认产生则需要对光和物体进行配置。即点光产生阴影，物体接受产生阴影。`DirectionalLight`是平行光，其作用与点光相似，产生的阴影不同。
 
 ```js
 /**
@@ -57,14 +77,15 @@ camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
 var ambient = new THREE.AmbientLight(0xffffff);
 scene.add(ambient);
 //点光
-var pointLight1 = new THREE.PointLight("#123456");
-pointLight1.position.set(100000, 100000, 100000);
-pointLight1.castShadow = true;
-scene.add(pointLight1);
-var pointLight2 = new THREE.PointLight("#ffffff");
-pointLight2.position.set(-100000, -100000, -100000);
-pointLight2.castShadow = true;
-scene.add(pointLight2);
+var pointLight = new THREE.PointLight("#123456");
+pointLight.position.set(100000, 100000, 100000);
+pointLight.castShadow = true; //光照可产生阴影
+scene.add(pointLight);
+//平行光
+var directionalLight = new Three.DirectionalLight(0xccccaa);
+directionalLight.position.set(0, 100, 100);
+directionalLight.intensity = 20; //光照强度
+scene.add(directionalLight);
 ```
 
 ### 创建渲染器对象
@@ -75,7 +96,7 @@ scene.add(pointLight2);
 /**
  * 创建渲染器对象
  */
-renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); //打开抗锯齿和背景可透明
 renderer.setSize(width, height); //设置渲染区域尺寸
 renderer.shadowMapEnabled = true;
 renderer.setClearColor(0xb9d3ff, 0); //设置背景颜色
@@ -85,7 +106,7 @@ renderer.render(scene, camera); //执行渲染操作
 
 ### 添加物体
 
-通过`FBXLoader`可以将FBX模型导入场景中显示。
+通过`FBXLoader`可以将 FBX 模型导入场景中显示。
 
 ```js
 var loader = new THREE.FBXLoader(); //创建一个FBX加载器
