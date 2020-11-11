@@ -9,9 +9,11 @@
 ![使用前](/img/blog/flex&grid/1.png)
 
 ```css
-display: flex;
-/*或*/
-display: inline-flex;
+#flex {
+  display: flex;
+  /*或*/
+  display: inline-flex;
+}
 ```
 
 ![使用后](/img/blog/flex&grid/2.png)
@@ -171,3 +173,86 @@ display: inline-flex;
 - space-between
 
 ![space-between](/img/blog/flex&grid/22.png)
+
+## Gridbox
+
+使用 flex-box 布局时，需要在排列元素的父元素上添加属性。
+
+![使用前](/img/blog/flex&grid/1.png)
+
+```css
+#grid {
+  display: grid;
+  /*或*/
+  display: inline-grid;
+}
+```
+
+![使用后](/img/blog/flex&grid/23.png)
+
+## 布局配置
+
+### 网格列(grid-template-columns)
+
+通过配置列，可以让元素填充进轨道：
+
+```css
+#grid {
+  grid-template-columns: 200px 200px 200px;
+}
+```
+
+![grid-template-columns](/img/blog/flex&grid/24.png)
+
+### fr 单位
+
+除了可以使用像素规定固定的列宽以外，还可以使用 fr 按比例规定列宽。
+
+```css
+#grid {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+```
+
+![fr](/img/blog/flex&grid/25.png)
+
+### repeat()
+
+如果多次使用相同的宽度，可以使用 repeat()方法来节省代码长度。
+
+```css
+#grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+```
+
+### 隐式网格
+
+如果布局的元素超出定义的规则，元素就会被放在隐式网格中，可以通过`grid-auto-rows`属性调整隐式网格行高。
+
+```css
+#grid {
+  grid-auto-rows: 200px;
+}
+```
+
+![grid-auto-rows](/img/blog/flex&grid/26.png)
+
+### minmax()
+
+如果在添加隐式网格行高时，想要可以动态改变的大小，可以使用 minmax()方法规定一个范围。
+
+### 网格线
+
+在有了网格布局以后，想要按位置填充元素，就需要用到网格线来定位。列网格线从左到右，行网格线从上到下，编号都是从 1 开始。
+
+```css
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+```
+
+![网格线](/img/blog/flex&grid/27.png)
