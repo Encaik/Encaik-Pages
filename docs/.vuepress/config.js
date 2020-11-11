@@ -79,6 +79,7 @@ module.exports = {
         "performance",
         "g6",
         "tdt&cesium",
+        "three",
         "golang",
         "angular",
         "vue3",
