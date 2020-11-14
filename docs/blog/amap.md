@@ -1,5 +1,7 @@
 # 高德 JS api 总结
 
+![banner](/img/blog/amap.png)
+
 ## Vue 中引入高德地图 api
 
 - npm 包引入
