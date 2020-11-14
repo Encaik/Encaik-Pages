@@ -1,4 +1,4 @@
-# 学习使用 three.js 展示模型
+# 学习 three.js 库的使用
 
 ## 使用
 
@@ -127,4 +127,54 @@ function render() {
 render();
 var controls = new THREE.OrbitControls(camera, renderer.domElement); //创建控件对象
 controls.addEventListener("change", render); //监听鼠标、键盘事件
+```
+
+### 粒子
+
+粒子系统，创建物体需要有几何体和材质组成，首先创建粒子几何体：
+
+```js
+let editorGeometry = new THREE.Geometry();
+editorGeometry.vertices = threeCloudPointVectors; //点位置信息，是个三元位置对象
+editorGeometry.colors = threeCloudPointColors; //点颜色信息，是个颜色对象
+```
+
+然后创建对应的材质：
+
+```js
+let editorMaterial = new THREE.PointsMaterial({
+  size: 2, //点的大小
+  sizeAttenuation: false, //点的颜色是否随距离衰减
+  vertexColors: Three.VertexColors //启用顶点对应的颜色
+});
+```
+
+有了几何体和材质以后，组装成粒子模型,然后添加至场景中：
+
+```js
+let cloudPoint = new THREE.Points(editorGeometry, editorMaterial);
+scene.add(cloudPoint);
+```
+
+### 导向线
+
+普通的线没有箭头，如果想要做成导向线，需要使用箭头辅助类
+
+- dir -- 基于箭头原点的方向. 必须为单位向量.
+- origin -- 箭头的原点.
+- length -- 箭头的长度. 默认为 1.
+- hex -- 定义的 16 进制颜色值. 默认为 0xffff00.
+- headLength -- 箭头头部(锥体)的长度. 默认为箭头长度的 0.2 倍(0.2 \* length).
+- headWidth -- 箭头的宽度. 默认为箭头头部(锥体)长度的 0.2 倍(0.2 \* headLength).
+
+```js
+let arrowHelper = new THREE.ArrowHelper(
+  dir,
+  origin,
+  length,
+  hex,
+  headLength,
+  headWidth
+);
+scene.add(arrowHelper);
 ```

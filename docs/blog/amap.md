@@ -214,8 +214,26 @@ this.map.plugin(["AMap.ControlBar"], () => {
 
 ### 工具
 
+| 插件名称               | 说明                                  | 是否插件 |
+| ---------------------- | ------------------------------------- | -------- |
+| AMap.MouseTool         | 鼠标工具插件                          | 是       |
+| AMap.CircleEditor      | 圆编辑插件，用于编辑 AMap.Circle 对象 | 是       |
+| AMap.PolyEditor        | 折线、多边形编辑插件                  | 是       |
+| AMap.BezierCurveEditor | 贝瑟尔曲线编辑插件                    | 是       |
+| AMap.EllipseEditor     | 椭圆编辑插件                          | 是       |
+| AMap.RectangleEditor   | 矩形编辑插件                          | 是       |
+| AMap.Hotspot           | 地图热点                              | 是       |
+| AMap.MarkerClusterer   | 点聚合插件                            | 是       |
+| AMap.RangingTool       | 距离量测插件                          | 是       |
+
 ### 事件监听
 
-## 功能实现
+使用`on( eventName, handler, context)`和`off( eventName, handler, context)`方法对地图及地图元素进行监听。
 
-## 效果优化
+eventName：事件名称（必填）
+
+handler：事件回调函数（必填）
+
+context：事件回调中的上下文（可选，缺省时，handler 中 this 为调用 on 方法的对象本身，否则 this 指向 context 引用的对象）
+
+注意：多次绑定时，当 eventName、handler 函数对象、context 对象有任意一个不一样就会再次绑定。

@@ -62,6 +62,7 @@ module.exports = {
       "/blog/": [
         "",
         "amap",
+        "three",
         "flex&grid",
         "puppeteer",
         "springboot",
@@ -79,7 +80,6 @@ module.exports = {
         "performance",
         "g6",
         "tdt&cesium",
-        "three",
         "golang",
         "angular",
         "vue3",
