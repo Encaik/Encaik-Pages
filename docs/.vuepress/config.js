@@ -61,6 +61,8 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "electron-angular",
+        "electron-vue",
         "amap",
         "three",
         "flex&grid",
@@ -97,7 +99,6 @@ module.exports = {
         "tsspider",
         "egg",
         "tonejs",
-        "electron",
         "http",
         "git",
         "vuepress"
