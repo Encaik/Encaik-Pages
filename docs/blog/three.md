@@ -1,5 +1,7 @@
 # 学习 three.js 库的使用
 
+![banner](/img/blog/three.png)
+
 ## 使用
 
 ### 引入
