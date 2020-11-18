@@ -1,5 +1,7 @@
 # 学习 Electron 框架配合 Angular 制作桌面端应用
 
+![banner](/img/blog/electron-angular.png)
+
 ## 安装
 
 ### 模板
@@ -48,5 +50,75 @@ export class ElectronService {
       this.fs = window.require("fs");
     }
   }
+
+  public get ipcRenderer(): Electron.IpcRenderer {
+    return this.electron ? this.electron.ipcRenderer : null;
+  }
+
+  // If you wan to use remote object, pleanse set enableRemoteModule to true in main.ts
+  public get remote(): Electron.Remote {
+    return this.electron ? this.electron.remote : null;
+  }
 }
 ```
+
+## 功能
+
+### ipc 通信控制窗口变化
+
+在主进程 main.ts 中，编写控制窗口的监听方法。
+
+```ts
+import { ipcMain } from "electron";
+//改变窗口尺寸并在屏幕居中
+ipcMain.on("changeSize", (e, arg) => {
+  win.setSize(arg.width, arg.height);
+  win.center();
+});
+//最小化
+ipcMain.on("minimize", () => {
+  win.minimize();
+});
+//最大化或取消最大化
+ipcMain.on("maximize", (e, arg) => {
+  if (arg) {
+    win.maximize();
+  } else {
+    win.unmaximize();
+  }
+});
+//强制销毁窗口
+ipcMain.on("close", () => {
+  win.destroy();
+});
+```
+
+然后在渲染进程中发出消息，控制窗口变化。
+
+```ts
+isMax = false;
+changeSize(): void {
+  this.router.navigate(["/detail"]);
+  this.electronService.ipcRenderer.send("changeSize", { width: 800, height: 600 });
+}
+
+min(): void {
+  this.electronService.ipcRenderer.send("minimize");
+}
+
+max(): void {
+  this.isMax = true;
+  this.electronService.ipcRenderer.send("maximize", true);
+}
+
+unmax(): void {
+  this.isMax = false;
+  this.electronService.ipcRenderer.send("maximize", false);
+}
+
+close(): void {
+  this.electronService.ipcRenderer.send("close");
+}
+```
+
+### 文件操作相关
