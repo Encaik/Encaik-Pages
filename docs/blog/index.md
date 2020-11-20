@@ -6,6 +6,35 @@
 
 ::: warning
 当前文档问 WebpackV4 版本使用方法，在 V5 使用需要进行迁移。
+
+1. 插件语法变更
+
+   ```js
+   plugins: [
+     new webpack.NamedModulesPlugin(),
+     new webpack.HotModuleReplacementPlugin()
+   ];
+   //变为
+   optimization: {
+     moduleIds: "named",
+   },
+   ```
+
+2. mode 必须设置
+
+   ```js
+   mode: "development",
+   ```
+
+3. 服务启动命令变更
+
+   ```sh
+   webpack-dev-server --open
+   //变为
+   webpack serve
+   // open在devserver中加入open字段
+   ```
+
 :::
 
 开发前确保已经安装好了 Node.js 的最新 LTS（长期支持）版本，否则请下载安装或更新。
@@ -212,27 +241,40 @@ module: {
 }
 ```
 
-由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装 @babel/polyfill 转换新 API。
+由于 babel 默认只转换 ES6 新语法，不转换新的 API，如：Set、Map、Promise 等，所以需要安装其他模块转换新 API。有两个模块可以完成此功能。分别是`@babel/polyfill`和`@babel/plugin-transform-runtime`。
+
+其中，polyfill 常用于项目中，因为该模块会在全局添加方法实现 Api；而 plugin-transform-runtime 常用于库中，因为该模块只会在局部添加方法实现 Api，不会影响全局环境。
+
+- @babel/polyfill
 
 ```sh
 npm install --save @babel/polyfill
 ```
 
-修改配置文件启用插件，并且配置兼容的浏览器环境。在配置文件中设置 targets 属性：
+修改 webpack 配置文件启用模块，在配置文件中设置：
+
+```js
+module.exports = {
+  entry: ["@babel/polyfill", "./src/index.js"]
+};
+```
+
+- @babel/plugin-transform-runtime
+
+```sh
+npm install --save @babel/runtime
+npm install --save-dev @babel/plugin-transform-runtime
+```
+
+修改 babel 配置文件，启用插件：
 
 ```json
 {
-  "presets": [
+  "plugins": [
     [
-      "@babel/preset-env",
+      "@babel/plugin-transform-runtime",
       {
-        "targets": {
-          "edge": "17",
-          "firefox": "60",
-          "chrome": "67",
-          "safari": "11.1"
-        },
-        "useBuiltIns": "usage"
+        "corejs": false
       }
     ]
   ]
