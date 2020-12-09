@@ -2,10 +2,26 @@
 
 ## 常用官方网站
 
+### 博客论坛
+
+- [掘金](https://juejin.cn/)
+- [思否](https://segmentfault.com/)
+- [技术胖](https://www.jspang.com/)
+- [政采云前端小报](https://weekly.zoo.team/)
+
+### 技术总览
+
+- [web 技术册](https://platform.html5.org/)
+- [腾讯云开发者手册](https://cloud.tencent.com/developer/devdocs)
+
+### 算法提升
+
+- [力扣](https://leetcode-cn.com/)
+
+### 数据统计
+
 - [百度统计流量研究院](https://tongji.baidu.com/research/site#profile)
 - [W3Techs](https://w3techs.com/)
-- [web技术册](https://platform.html5.org/)
-- [腾讯云开发者手册](https://cloud.tencent.com/developer/devdocs)
 
 ## 浏览器
 
@@ -17,7 +33,7 @@
 
 2. 渲染引擎 它负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入 CSS 等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。
 
-3. JS 引擎 则是解析 Javascript 语言，执行 javascript语言来实现网页的动态效果。
+3. JS 引擎 则是解析 Javascript 语言，执行 javascript 语言来实现网页的动态效果。
 
 4. 最开始渲染引擎和 JS 引擎并没有区分的很明确，后来 JS 引擎越来越独立，内核就倾向于只指渲染引擎。有一个网页标准计划小组制作了一个 ACID 来测试引擎的兼容性和性能。
 
@@ -25,34 +41,34 @@
 
 浏览器的内核的种类很多，常见的浏览器内核可以分为四种：Trident、Gecko、Blink、Webkit。
 
-1. Trident (IE内核)
+1. Trident (IE 内核)
 
-    国内很多的双核浏览器的其中一核便是 Trident，美其名曰 "兼容模式"。
+   国内很多的双核浏览器的其中一核便是 Trident，美其名曰 "兼容模式"。
 
-    代表： IE、傲游、世界之窗浏览器、Avant、腾讯TT、猎豹安全浏览器、360极速浏览器、百度浏览器等。
-    Window10 发布后，IE 将其内置浏览器命名为 Edge，Edge 最显著的特点就是新内核 EdgeHTML。
+   代表： IE、傲游、世界之窗浏览器、Avant、腾讯 TT、猎豹安全浏览器、360 极速浏览器、百度浏览器等。
+   Window10 发布后，IE 将其内置浏览器命名为 Edge，Edge 最显著的特点就是新内核 EdgeHTML。
 
 2. Gecko(firefox)
 
-    Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。
+   Mozilla FireFox(火狐浏览器) 采用该内核，Gecko 的特点是代码完全公开，因此，其可开发程度很高，全世界的程序员都可以为其编写代码，增加功能。
 
-    可惜这几年已经没落了， 比如 打开速度慢、升级频繁。
+   可惜这几年已经没落了， 比如 打开速度慢、升级频繁。
 
 3. webkit(Safari)
 
-    Safari 是苹果公司开发的浏览器，所用浏览器内核的名称是大名鼎鼎的 WebKit。
+   Safari 是苹果公司开发的浏览器，所用浏览器内核的名称是大名鼎鼎的 WebKit。
 
-    代表浏览器：傲游浏览器3、 Apple Safari (Win/Mac/iPhone/iPad)、Symbian手机浏览器、Android 默认浏览器。
+   代表浏览器：傲游浏览器 3、 Apple Safari (Win/Mac/iPhone/iPad)、Symbian 手机浏览器、Android 默认浏览器。
 
 4. Chromium/Bink(chrome)
 
-    在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。
+   在 Chromium 项目中研发 Blink 渲染引擎（即浏览器核心），内置于 Chrome 浏览器之中。Blink 其实是 WebKit 的分支。
 
-    大部分国产浏览器最新版都采用Blink内核。
+   大部分国产浏览器最新版都采用 Blink 内核。
 
 5. Presto (Opera)
 
-    Presto 是挪威产浏览器 opera 的 "前任" 内核，最新的 opera 浏览器早已将之抛弃从而投入到了谷歌怀抱了。
+   Presto 是挪威产浏览器 opera 的 "前任" 内核，最新的 opera 浏览器早已将之抛弃从而投入到了谷歌怀抱了。
 
 #### 移动端的浏览器
 
@@ -62,13 +78,13 @@
 
 Android 4.4 之前的 Android 系统浏览器内核是 WebKit；
 
-Android4.4 系统浏览器切换到了Chromium，内核是 Webkit 的分支 Blink；
+Android4.4 系统浏览器切换到了 Chromium，内核是 Webkit 的分支 Blink；
 
 Windows Phone 8 系统浏览器内核是 Trident。
 
 ### 事件模型
 
-此模型是W3C制定的标准模型，现代浏览器（IE6~8除外）都已经遵循这个规范。W3C制定的事件模型中，一次事件的发生包含三个过程：
+此模型是 W3C 制定的标准模型，现代浏览器（IE6~8 除外）都已经遵循这个规范。W3C 制定的事件模型中，一次事件的发生包含三个过程：
 
 1. 事件捕获阶段
 2. 事件目标阶段
@@ -76,25 +92,25 @@ Windows Phone 8 系统浏览器内核是 Trident。
 
 ![事件模型](/img/road/1.png)
 
-事件捕获：当某个元素触发某个事件（如onclick），顶层对象document就会发出一个事件流，随着DOM树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。在这个过程中，事件相应的监听函数是不会被触发的。
+事件捕获：当某个元素触发某个事件（如 onclick），顶层对象 document 就会发出一个事件流，随着 DOM 树的节点向目标元素节点流去，直到到达事件真正发生的目标元素。在这个过程中，事件相应的监听函数是不会被触发的。
 
 事件目标：当到达目标元素之后，执行目标元素该事件相应的处理函数。如果没有绑定监听函数，那就不执行。
 
 事件冒泡：从目标元素开始，往顶层元素传播。途中如果有节点绑定了相应的事件处理函数，这些函数都会被一次触发。
-所有的事件类型都会经历事件捕获但是只有部分事件会经历事件冒泡阶段,例如submit事件就不会被冒泡。
+所有的事件类型都会经历事件捕获但是只有部分事件会经历事件冒泡阶段,例如 submit 事件就不会被冒泡。
 
 事件的传播是可以阻止的：
 
-- 在W3c中，使用stopPropagation（）方法
-- 在IE下设置cancelBubble = true；
+- 在 W3c 中，使用 stopPropagation（）方法
+- 在 IE 下设置 cancelBubble = true；
 
-在捕获的过程中stopPropagation（）；后，后面的冒泡过程就不会发生了。
+在捕获的过程中 stopPropagation（）；后，后面的冒泡过程就不会发生了。
 
 标准的事件监听器该如何绑定：
 
-addEventListener("eventType","handler","true|false");其中eventType指事件类型，注意不要加‘on’前缀，与IE下不同。第二个参数是处理函数，第三个即用来指定是否在捕获阶段进行处理，一般设为false来与IE保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
+addEventListener("eventType","handler","true|false");其中 eventType 指事件类型，注意不要加‘on’前缀，与 IE 下不同。第二个参数是处理函数，第三个即用来指定是否在捕获阶段进行处理，一般设为 false 来与 IE 保持一致(默认设置)，除非你有特殊的逻辑需求。监听器的解除也类似：removeEventListner("eventType","handler","true!false");
 
-### 浏览器BOM API
+### 浏览器 BOM API
 
 ### 性能
 
@@ -104,64 +120,64 @@ addEventListener("eventType","handler","true|false");其中eventType指事件类
 
 ### 网络模型
 
-|OSI七层模型|TCP/IP四层模型|网络协议|
-|---|---|---|
-|应用层<br/>表示层<br/>会话层|应用层|HTTP（超文本传输协议）<br/>HTTPS（超文本传输安全协议）<br/>FTP（文件传输协议）<br/>SMTP（简单邮件传输协议）<br/>DNS（域名服务）|
-|传输层|传输层|TCP（传输控制协议）<br/>UDP（用户数据报协议）|
-|网络层|网际互连层|IP（网际协议）<br/>ICMP（网络控制消息协议）<br/>IGMP（网络组管理协议）|
-|数据链路层<br/>物理层|网络接口层|以太网<br/>Wi-Fi|
+| OSI 七层模型                 | TCP/IP 四层模型 | 网络协议                                                                                                                        |
+| ---------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 应用层<br/>表示层<br/>会话层 | 应用层          | HTTP（超文本传输协议）<br/>HTTPS（超文本传输安全协议）<br/>FTP（文件传输协议）<br/>SMTP（简单邮件传输协议）<br/>DNS（域名服务） |
+| 传输层                       | 传输层          | TCP（传输控制协议）<br/>UDP（用户数据报协议）                                                                                   |
+| 网络层                       | 网际互连层      | IP（网际协议）<br/>ICMP（网络控制消息协议）<br/>IGMP（网络组管理协议）                                                          |
+| 数据链路层<br/>物理层        | 网络接口层      | 以太网<br/>Wi-Fi                                                                                                                |
 
 ### TCP vs UDP
 
 #### UDP
 
-UDP协议是参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。
+UDP 协议是参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。
 
 特点:
 
-- UDP是无连接的，减少开销和发送数据之前的时间延迟。大家都知道TCP的三次握手和四次分手，这个是需要时间花销的，但是UDP没有这部分花销。
-- UDP使用最大努力交付，即不保证可靠交付。那谁来保证可靠的交付呢？是由UDP的上一层协议，应用层来保证。
-- UDP是面向报文的，适合一次性传输少量数据的网络应用。什么意思呢，如下图，UDP这层，把应用层的全部内容作为自己的数据报部分，在IP层也只是加了一个IP首部，我们知道，在以太网，链路层上的数据如果超过1500字节，就会分片，所以网络层发现上面传输层给了太大的数据就会分片，加上UDP是不可靠的协议，这就加大了UDP的不可靠性，容易丢失，所以UDP适合数据量少的。
-- UDP没有拥塞控制，适合很多实时应用。也就是说如果网络堵塞，UDP不管那么多，照样按照自己的速率发数据，那有些人就会说，这协议是不是有点坑B，路都堵上了，还发死劲发数据呢，但是反过来看，这也是UDP的优点，它允许丢包，如果你的网络情况还不错，UDP就非常适合实时应用，比如视频会议。
-- UDP首部较小，只有8字节，而TCP由20字节。这也是减少网络传输开销的一方面。
+- UDP 是无连接的，减少开销和发送数据之前的时间延迟。大家都知道 TCP 的三次握手和四次分手，这个是需要时间花销的，但是 UDP 没有这部分花销。
+- UDP 使用最大努力交付，即不保证可靠交付。那谁来保证可靠的交付呢？是由 UDP 的上一层协议，应用层来保证。
+- UDP 是面向报文的，适合一次性传输少量数据的网络应用。什么意思呢，如下图，UDP 这层，把应用层的全部内容作为自己的数据报部分，在 IP 层也只是加了一个 IP 首部，我们知道，在以太网，链路层上的数据如果超过 1500 字节，就会分片，所以网络层发现上面传输层给了太大的数据就会分片，加上 UDP 是不可靠的协议，这就加大了 UDP 的不可靠性，容易丢失，所以 UDP 适合数据量少的。
+- UDP 没有拥塞控制，适合很多实时应用。也就是说如果网络堵塞，UDP 不管那么多，照样按照自己的速率发数据，那有些人就会说，这协议是不是有点坑 B，路都堵上了，还发死劲发数据呢，但是反过来看，这也是 UDP 的优点，它允许丢包，如果你的网络情况还不错，UDP 就非常适合实时应用，比如视频会议。
+- UDP 首部较小，只有 8 字节，而 TCP 由 20 字节。这也是减少网络传输开销的一方面。
 
 #### TCP
 
-TCP协议简单来说是一种位于传输层的，面向连接的、可靠的、基于字节流的传输层通信协议。
+TCP 协议简单来说是一种位于传输层的，面向连接的、可靠的、基于字节流的传输层通信协议。
 
-- TCP是面向连接的传输层协议。比如说TCP的三次握手，四次分手，针对的都是连接。
-- 每一条TCP连接只能有两个端点，每一条TCP连接是点对点的。也就是说TCP是不同计算机之间的进程的通信。
-- TCP提供可靠交付的服务，无差错，不丢失，不重复，按序到达。总结一下就是，可靠有序，不丢不重。
-- TCP提供全双工通信。全双工指的是连接双方可以同时收发数据。在收发两端都有发送缓存和接收缓存，发送缓存就是一个准备发送的队列，接收缓存是一个准备接收的队列。
-- TCP面向字节流。
+- TCP 是面向连接的传输层协议。比如说 TCP 的三次握手，四次分手，针对的都是连接。
+- 每一条 TCP 连接只能有两个端点，每一条 TCP 连接是点对点的。也就是说 TCP 是不同计算机之间的进程的通信。
+- TCP 提供可靠交付的服务，无差错，不丢失，不重复，按序到达。总结一下就是，可靠有序，不丢不重。
+- TCP 提供全双工通信。全双工指的是连接双方可以同时收发数据。在收发两端都有发送缓存和接收缓存，发送缓存就是一个准备发送的队列，接收缓存是一个准备接收的队列。
+- TCP 面向字节流。
 
 ### HTTP/HTTPS
 
-超文本传输​​协议（HTTP）是一个用于传输超媒体文档（例如 HTML）的应用层协议。它是为 Web 浏览器与 Web 服务器之间的通信而设计的，但也可以用于其他目的。HTTP 遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。HTTP 是无状态协议，这意味着服务器不会在两个请求之间保留任何数据（状态）。该协议虽然通常基于 TCP/IP 层，但可以在任何可靠的传输层上使用；也就是说，不像 UDP，它是一个不会静默丢失消息的协议。RUDP——作为 UDP 的可靠化升级版本——是一种合适的替代选择。
+超文本传输 ​​ 协议（HTTP）是一个用于传输超媒体文档（例如 HTML）的应用层协议。它是为 Web 浏览器与 Web 服务器之间的通信而设计的，但也可以用于其他目的。HTTP 遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。HTTP 是无状态协议，这意味着服务器不会在两个请求之间保留任何数据（状态）。该协议虽然通常基于 TCP/IP 层，但可以在任何可靠的传输层上使用；也就是说，不像 UDP，它是一个不会静默丢失消息的协议。RUDP——作为 UDP 的可靠化升级版本——是一种合适的替代选择。
 
 #### 组成
 
-1. 方法(method)：客户端希望服务器对资源执行的动作，是一个单独的词，比如，GET、POST或HEAD
-2. 请求URL(request-URL)：要直接与服务器进行对话，只要请求URL是资源的绝对路径就可以了，服务器可以假定自己是URL的主机/端口
-3. 版本(version)：报文所使用的HTTP版本。其格式：HTTP/<主要版本号>.<次要版本号>
+1. 方法(method)：客户端希望服务器对资源执行的动作，是一个单独的词，比如，GET、POST 或 HEAD
+2. 请求 URL(request-URL)：要直接与服务器进行对话，只要请求 URL 是资源的绝对路径就可以了，服务器可以假定自己是 URL 的主机/端口
+3. 版本(version)：报文所使用的 HTTP 版本。其格式：HTTP/<主要版本号>.<次要版本号>
 4. 状态码(status-code)：状态码是三位数字，描述了请求过程中所发生的情况。每个状态码的第一位数字都用于描述状态的一般类别(比如，“成功”、“出错”等等)
-5. 原因短语(reason-phrase)：数字状态码的可读版本，包含行终止序列之前的所有文本。原因短语只对人类有意义，因此，尽管响应行HTTP/1.0 200 NOT OK和HTTP/1.0 200 OK中原因短语的含义不同，但同样都会被当作成功指示处理
-6. 头部(header)：可以有零个或多个头部，每个首部都包含一个名字，后面跟着一个冒号(:)，然后是一个可选的空格，接着是一个值，最后是一个CRLF首部是由一个空行(CRLF)结束的，表示了头部列表的结束和实体主体部分的开始
-7. 实体的主体部分(entity-body)：实体的主体部分包含一个由任意数据组成的数据块，并不是所有的报文都包含实体的主体部分，有时，报文只是以一个CRLF结束。
+5. 原因短语(reason-phrase)：数字状态码的可读版本，包含行终止序列之前的所有文本。原因短语只对人类有意义，因此，尽管响应行 HTTP/1.0 200 NOT OK 和 HTTP/1.0 200 OK 中原因短语的含义不同，但同样都会被当作成功指示处理
+6. 头部(header)：可以有零个或多个头部，每个首部都包含一个名字，后面跟着一个冒号(:)，然后是一个可选的空格，接着是一个值，最后是一个 CRLF 首部是由一个空行(CRLF)结束的，表示了头部列表的结束和实体主体部分的开始
+7. 实体的主体部分(entity-body)：实体的主体部分包含一个由任意数据组成的数据块，并不是所有的报文都包含实体的主体部分，有时，报文只是以一个 CRLF 结束。
 
 #### 常用头部
 
->通用头部：既可以出现在请求报文中，也可以出现在响应报文中，它提供了与报文相关的最基本的信息
+> 通用头部：既可以出现在请求报文中，也可以出现在响应报文中，它提供了与报文相关的最基本的信息
 
-- Connection：允许客户端和服务器指定与请求/响应连接有关的选项，http1.1默认是keep-alive
+- Connection：允许客户端和服务器指定与请求/响应连接有关的选项，http1.1 默认是 keep-alive
 - Date：提供日期和时间标志，说明报文是什么时间创建的
 - Transfer-Encoding：告知接收端为了保证报文的可靠传输，对报文采用了什么编码方式
 - Cache-Control：用于随报文传送缓存指示
 
->请求头部：请求头部是只在请求报文中有意义的头部。用于说明是谁或什么在发送请求、请求源自何处，或者客户端的喜好及能力
+> 请求头部：请求头部是只在请求报文中有意义的头部。用于说明是谁或什么在发送请求、请求源自何处，或者客户端的喜好及能力
 
 - Host：给出了接收请求的服务器的主机名和端口号
-- Referer：提供了包含当前请求URI的文档的URL
+- Referer：提供了包含当前请求 URI 的文档的 URL
 - User-Agent：将发起请求的应用程序名称告知服务器
 - Accept：告诉服务器能够发送哪些媒体类型
 - Accept-Encoding：告诉服务器能够发送哪些编码方式
@@ -171,18 +187,18 @@ TCP协议简单来说是一种位于传输层的，面向连接的、可靠的�
 - Authorization：包含了客户端提供给服务器，以便对其自身进行认证的数据
 - Cookie：客户端用它向服务器传送数据
 
->响应头部：响应头部为客户端提供了一些额外信息，比如谁在发送响应、响应者的功能，甚至与响应相关的一些特殊指令
+> 响应头部：响应头部为客户端提供了一些额外信息，比如谁在发送响应、响应者的功能，甚至与响应相关的一些特殊指令
 
 - Age：(从最初创建开始)响应持续时间
 - Server：服务器应用程序软件的名称和版本
 - Accept-Ranges：对此资源来说，服务器可接受的范围类型
 - Set-Cookie：在客户端设置数据，以便服务器对客户端进行标识
 
->实体首部：描述主体的长度和内容，或者资源自身
+> 实体首部：描述主体的长度和内容，或者资源自身
 
 - Allow：列出了可以对此实体执行的请求方法
 - Location：告知客户端实体实际上位于何处，用于将接收端定向到资源的位置(URL)上去
-- Content-Base：解析主体中的相对URL时使用的基础URL
+- Content-Base：解析主体中的相对 URL 时使用的基础 URL
 - Content-Encoding：对主体执行的任意编码方式
 - Content-Language：理解主体时最适宜使用的自然语言
 - Content-Length：主体的长度
@@ -192,27 +208,27 @@ TCP协议简单来说是一种位于传输层的，面向连接的、可靠的�
 
 ### DNS
 
-域名系统（Domain Name System缩写DNS，Domain Name被译为域名）是因特网的一项核心服务，它作为可以将域名和IP地址相互映射的一个分布式数据库，能够使人更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。
+域名系统（Domain Name System 缩写 DNS，Domain Name 被译为域名）是因特网的一项核心服务，它作为可以将域名和 IP 地址相互映射的一个分布式数据库，能够使人更方便的访问互联网，而不用去记住能够被机器直接读取的 IP 数串。
 
-域名系统(Domain Name System,DNS)是Internet上解决网上机器命名的一种系统。就像拜访朋友要先知道别人家怎么走一样，Internet上当一台主机要访问另外一台主机时，必须首先获知其地址，TCP/IP中的IP地址是由四段以“.”分开的数字组成，记起来总是不如名字那么方便，所以，就采用了域名系统来管理名字和IP的对应关系。
+域名系统(Domain Name System,DNS)是 Internet 上解决网上机器命名的一种系统。就像拜访朋友要先知道别人家怎么走一样，Internet 上当一台主机要访问另外一台主机时，必须首先获知其地址，TCP/IP 中的 IP 地址是由四段以“.”分开的数字组成，记起来总是不如名字那么方便，所以，就采用了域名系统来管理名字和 IP 的对应关系。
 
 ## AST
 
 在计算机科学中，抽象语法树（Abstract Syntax Tree，AST），或简称语法树（Syntax tree），是源代码语法结构的一种抽象表示。它以树状的形式表现编程语言的语法结构，树上的每个节点都表示源代码中的一种结构。
 
-抽象语法树（AST）是代码运行最核心的知识点，是js里最底层的部分，再往下拆解就是转换和编译的知识了。
+抽象语法树（AST）是代码运行最核心的知识点，是 js 里最底层的部分，再往下拆解就是转换和编译的知识了。
 
 举个例子：
 
-``` js
+```js
 function add(a, b) {
-    return a + b
+  return a + b;
 }
 ```
 
-这段代码拆解为AST应该是这样：
+这段代码拆解为 AST 应该是这样：
 
-``` js
+```js
 FunctionDeclaration {
     type: 'FunctionDeclaration',
     name: 'add'
@@ -240,13 +256,13 @@ FunctionDeclaration {
 }
 ```
 
-这只是最简单的样式，但是实际AST中包含很多信息。而这些标准都可以在[MDN/Parser API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API#Node_objects)以及[The ESTree Spec](https://github.com/estree/estree)中查找到。
+这只是最简单的样式，但是实际 AST 中包含很多信息。而这些标准都可以在[MDN/Parser API](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API#Node_objects)以及[The ESTree Spec](https://github.com/estree/estree)中查找到。
 
 如果想看详细的案例，也可以在[AST Explorer](https://astexplorer.net/)中查看。
 
 ### parser
 
-parser即解释器，通过解释器就可以将js源码转换为AST结构。
+parser 即解释器，通过解释器就可以将 js 源码转换为 AST 结构。
 
 常见的解释器有：
 
@@ -257,7 +273,7 @@ parser即解释器，通过解释器就可以将js源码转换为AST结构。
 
 ## HTML
 
-### Web存储
+### Web 存储
 
 localStorage 和 sessionStorage：
 
@@ -269,7 +285,7 @@ localStorage 和 sessionStorage：
 
 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。
 
-### Web缓存
+### Web 缓存
 
 #### Manifest
 
@@ -285,12 +301,12 @@ HTML5 \<canvas> 标签用于绘制图像（通过脚本，通常是 JavaScript�
 
 ### 文章
 
-- [掘金-老姚 你未必知道的49个知识点](https://juejin.im/post/5d3eca78e51d4561cb5dde12)
+- [掘金-老姚 你未必知道的 49 个知识点](https://juejin.im/post/5d3eca78e51d4561cb5dde12)
 - [掘金-老姚 你未必知道的知识点(第二季)](https://juejin.im/post/5d9ec8b0518825651b1dffa3)
 
 ### 盒模型
 
-盒模型分为IE盒模型和标准盒模型。
+盒模型分为 IE 盒模型和标准盒模型。
 
 1. 标准盒模型：
 2. IE 盒模型：
@@ -327,18 +343,18 @@ CSS 布局模式，有时简称为布局，是一种基于盒子与其兄弟和�
 
 什么是进程
 
-我们都知道，CPU是计算机的核心，承担所有的计算任务
+我们都知道，CPU 是计算机的核心，承担所有的计算任务
 
-官网说法，进程是CPU资源分配的最小单位
+官网说法，进程是 CPU 资源分配的最小单位
 
 字面意思就是进行中的程序，我将它理解为一个可以独立运行且拥有自己的资源空间的任务程序
 
 进程包括运行中的程序和程序所使用到的内存和系统资源
 
-CPU可以有很多进程，我们的电脑每打开一个软件就会产生一个或多个进程，为什么电脑运行的软件多就会卡，是因为CPU给每个进程分配资源空间，但是一个CPU一共就那么多资源，分出去越多，越卡，每个进程之间是相互独立的，CPU在运行一个进程时，其他的进程处于非运行状态，CPU使用 时间片轮转调度算法 来实现同时运行多个进程
+CPU 可以有很多进程，我们的电脑每打开一个软件就会产生一个或多个进程，为什么电脑运行的软件多就会卡，是因为 CPU 给每个进程分配资源空间，但是一个 CPU 一共就那么多资源，分出去越多，越卡，每个进程之间是相互独立的，CPU 在运行一个进程时，其他的进程处于非运行状态，CPU 使用 时间片轮转调度算法 来实现同时运行多个进程
 什么是线程
 
-线程是CPU调度的最小单位
+线程是 CPU 调度的最小单位
 
 线程是建立在进程的基础上的一次程序运行单位，通俗点解释线程就是程序中的一个执行流，一个进程可以有多个线程
 
@@ -363,15 +379,15 @@ CPU可以有很多进程，我们的电脑每打开一个软件就会产生一�
 
 多线程：多线程是指程序中包含多个执行流，即在一个程序中可以同时运行多个不同的线程来执行不同的任务，也就是说允许单个程序创建多个并行执行的线程来完成各自的任务
 
-#### JS为什么是单线程
+#### JS 为什么是单线程
 
-JS的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？
+JS 的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？
 
-还有人说js还有Worker线程，对的，为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程是完 全受主线程控制的，而且不得操作DOM
+还有人说 js 还有 Worker 线程，对的，为了利用多核 CPU 的计算能力，HTML5 提出 Web Worker 标准，允许 JavaScript 脚本创建多个线程，但是子线程是完 全受主线程控制的，而且不得操作 DOM
 
-所以，这个标准并没有改变JavaScript是单线程的本质
+所以，这个标准并没有改变 JavaScript 是单线程的本质
 
-了解了进程和线程之后，接下来看看浏览器解析，浏览器之间也是有些许差距的，不过大致是差不多的，下文我们皆用市场占有比例最大的Chrome为例
+了解了进程和线程之后，接下来看看浏览器解析，浏览器之间也是有些许差距的，不过大致是差不多的，下文我们皆用市场占有比例最大的 Chrome 为例
 
 作者：isboyjc
 链接：[链接](https://juejin.im/post/5e22b391f265da3e204d8c14)
@@ -402,68 +418,68 @@ JavaScript 函数作用域: 作用域在函数内修改。
 
 下面的表将所有运算符按照优先级的不同从高（20）到低（1）排列。
 
-|优先级|运算类型|关联性|运算符|
-|:--|:--|:--|:--|
-|20|圆括号|n/a（不相关）|( … )|
-|19|成员访问|从左到右|… . …|
-||需计算的成员访问|从左到右|… [ … ]|
-||new (带参数列表)|n/a|new … ( … )|
-||函数调用|从左到右|… ( … )|
-||可选链（Optional chaining）|从左到右|?.|
-|18|new (无参数列表)|从右到左|new …|
-|17|后置递增(运算符在后)|n/a|… ++|
-||后置递减(运算符在后)|n/a|… --|
-|16|逻辑非|从右到左|! …|
-||按位非|从右到左|~ …|
-||一元加法|从右到左|+ …|
-||一元减法|从右到左|- …|
-||前置递增|从右到左|++ …|
-||前置递减|从右到左|-- …|
-||typeof|从右到左|typeof …|
-||void|从右到左|void …|
-||delete|从右到左|delete …|
-||await|从右到左|await …|
-|15|幂|从右到左|… ** …|
-|14|乘法|从左到右|… * …|
-||除法|从左到右|… / …|
-||取模|从左到右|… % …|
-|13|加法|从左到右|… + …|
-||减法|从左到右|… - …|
-|12|按位左移|从左到右|… << …|
-||按位右移|从左到右|… >> …|
-||无符号右移|从左到右|… >>> …|
-|11|小于|从左到右|… < …|
-||小于等于|从左到右|… <= …|
-||大于|从左到右|… > …|
-||大于等于|从左到右|… >= …|
-||in|从左到右|… in …|
-||instanceof|从左到右|… instanceof …|
-|10|等号|从左到右|… == …|
-||非等号|从左到右|… != …|
-||全等号|从左到右|… === …|
-||非全等号|从左到右|… !== …|
-|9|按位与|从左到右|… & …|
-|8|按位异或|从左到右|… ^ …|
-|7|按位或|从左到右|… | …|
-|6|逻辑与|从左到右|… && …|
-|5|逻辑或|从左到右|… || …|
-|4|条件运算符|从右到左|… ? … : …|
-|3|赋值|从右到左|… = …|
-|||从右到左|… += …|
-|||从右到左|… -= …|
-|||从右到左|… *= …|
-|||从右到左|… /= …|
-|||从右到左|… %= …|
-|||从右到左|… <<= …|
-|||从右到左|… >>= …|
-|||从右到左|… >>>= …|
-|||从右到左|… &= …|
-|||从右到左|… ^= …|
-|||从右到左|… |= …|
-|2|yield|从右到左|yield …|
-||yield*|从右到左|yield* …|
-|1|展开运算符|n/a|... …|
-|0|逗号|从左到右|… , …|
+| 优先级 | 运算类型                    | 关联性        | 运算符         |
+| :----- | :-------------------------- | :------------ | :------------- |
+| 20     | 圆括号                      | n/a（不相关） | ( … )          |
+| 19     | 成员访问                    | 从左到右      | … . …          |
+|        | 需计算的成员访问            | 从左到右      | … [ … ]        |
+|        | new (带参数列表)            | n/a           | new … ( … )    |
+|        | 函数调用                    | 从左到右      | … ( … )        |
+|        | 可选链（Optional chaining） | 从左到右      | ?.             |
+| 18     | new (无参数列表)            | 从右到左      | new …          |
+| 17     | 后置递增(运算符在后)        | n/a           | … ++           |
+|        | 后置递减(运算符在后)        | n/a           | … --           |
+| 16     | 逻辑非                      | 从右到左      | ! …            |
+|        | 按位非                      | 从右到左      | ~ …            |
+|        | 一元加法                    | 从右到左      | + …            |
+|        | 一元减法                    | 从右到左      | - …            |
+|        | 前置递增                    | 从右到左      | ++ …           |
+|        | 前置递减                    | 从右到左      | -- …           |
+|        | typeof                      | 从右到左      | typeof …       |
+|        | void                        | 从右到左      | void …         |
+|        | delete                      | 从右到左      | delete …       |
+|        | await                       | 从右到左      | await …        |
+| 15     | 幂                          | 从右到左      | … \*\* …       |
+| 14     | 乘法                        | 从左到右      | … \* …         |
+|        | 除法                        | 从左到右      | … / …          |
+|        | 取模                        | 从左到右      | … % …          |
+| 13     | 加法                        | 从左到右      | … + …          |
+|        | 减法                        | 从左到右      | … - …          |
+| 12     | 按位左移                    | 从左到右      | … << …         |
+|        | 按位右移                    | 从左到右      | … >> …         |
+|        | 无符号右移                  | 从左到右      | … >>> …        |
+| 11     | 小于                        | 从左到右      | … < …          |
+|        | 小于等于                    | 从左到右      | … <= …         |
+|        | 大于                        | 从左到右      | … > …          |
+|        | 大于等于                    | 从左到右      | … >= …         |
+|        | in                          | 从左到右      | … in …         |
+|        | instanceof                  | 从左到右      | … instanceof … |
+| 10     | 等号                        | 从左到右      | … == …         |
+|        | 非等号                      | 从左到右      | … != …         |
+|        | 全等号                      | 从左到右      | … === …        |
+|        | 非全等号                    | 从左到右      | … !== …        |
+| 9      | 按位与                      | 从左到右      | … & …          |
+| 8      | 按位异或                    | 从左到右      | … ^ …          |
+| 7      | 按位或                      | 从左到右      | …              | … |
+| 6      | 逻辑与                      | 从左到右      | … && …         |
+| 5      | 逻辑或                      | 从左到右      | …              |  | … |
+| 4      | 条件运算符                  | 从右到左      | … ? … : …      |
+| 3      | 赋值                        | 从右到左      | … = …          |
+|        |                             | 从右到左      | … += …         |
+|        |                             | 从右到左      | … -= …         |
+|        |                             | 从右到左      | … \*= …        |
+|        |                             | 从右到左      | … /= …         |
+|        |                             | 从右到左      | … %= …         |
+|        |                             | 从右到左      | … <<= …        |
+|        |                             | 从右到左      | … >>= …        |
+|        |                             | 从右到左      | … >>>= …       |
+|        |                             | 从右到左      | … &= …         |
+|        |                             | 从右到左      | … ^= …         |
+|        |                             | 从右到左      | …              | = … |
+| 2      | yield                       | 从右到左      | yield …        |
+|        | yield\*                     | 从右到左      | yield\* …      |
+| 1      | 展开运算符                  | n/a           | ... …          |
+| 0      | 逗号                        | 从左到右      | … , …          |
 
 ### 原型和继承
 
@@ -475,18 +491,18 @@ JavaScript 函数作用域: 作用域在函数内修改。
 
 JavaScript 对象是动态的属性“包”（指其自己的属性）。JavaScript 对象有一个指向一个原型对象的链。当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾。
 
->遵循ECMAScript标准，someObject.[[Prototype]] 符号是用于指向 someObject 的原型。从 ECMAScript 6 开始，[[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来访问。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 __proto__。
+> 遵循 ECMAScript 标准，someObject.[[Prototype]] 符号是用于指向 someObject 的原型。从 ECMAScript 6 开始，[[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来访问。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 **proto**。
 >
->但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 [[prototype]] 指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
+> 但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 [[prototype]] 指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
 
 这里演示当尝试访问属性时会发生什么：
 
 ```js
 // 让我们从一个自身拥有属性a和b的函数里创建一个对象o：
-let f = function () {
-   this.a = 1;
-   this.b = 2;
-}
+let f = function() {
+  this.a = 1;
+  this.b = 2;
+};
 /* 这么写也一样
 function f() {
   this.a = 1;
@@ -541,7 +557,7 @@ JavaScript 并没有其他基于类的语言所定义的“方法”。在 JavaS
 ```js
 var o = {
   a: 2,
-  m: function(){
+  m: function() {
     return this.a + 1;
   }
 };
@@ -563,18 +579,18 @@ console.log(p.m()); // 5
 
 接下去，来仔细分析一下这些应用场景下， JavaScript 在背后做了哪些事情。
 
-正如之前提到的，在 JavaScript 中，函数（function）是允许拥有属性的。所有的函数会有一个特别的属性 —— prototype 。请注意，以下的代码是独立的（出于严谨，假定页面没有其他的JavaScript代码）。为了最佳的学习体验，我们强烈建议阁下打开浏览器的控制台（在Chrome和火狐浏览器中，按Ctrl+Shift+I即可），进入“console”选项卡，然后把如下的JavaScript代码复制粘贴到窗口中，最后通过按下回车键运行代码。
+正如之前提到的，在 JavaScript 中，函数（function）是允许拥有属性的。所有的函数会有一个特别的属性 —— prototype 。请注意，以下的代码是独立的（出于严谨，假定页面没有其他的 JavaScript 代码）。为了最佳的学习体验，我们强烈建议阁下打开浏览器的控制台（在 Chrome 和火狐浏览器中，按 Ctrl+Shift+I 即可），进入“console”选项卡，然后把如下的 JavaScript 代码复制粘贴到窗口中，最后通过按下回车键运行代码。
 
 ```js
-function doSomething(){}
-console.log( doSomething.prototype );
+function doSomething() {}
+console.log(doSomething.prototype);
 // 和声明函数的方式无关，
 // JavaScript 中的函数永远有一个默认原型属性。
-var doSomething = function(){};
-console.log( doSomething.prototype );
+var doSomething = function() {};
+console.log(doSomething.prototype);
 ```
 
-在控制台显示的JavaScript代码块中，我们可以看到doSomething函数的一个默认属性prototype。而这段代码运行之后，控制台应该显示类似如下的结果：
+在控制台显示的 JavaScript 代码块中，我们可以看到 doSomething 函数的一个默认属性 prototype。而这段代码运行之后，控制台应该显示类似如下的结果：
 
 ```js
 {
@@ -591,12 +607,12 @@ console.log( doSomething.prototype );
 }
 ```
 
-我们可以给doSomething函数的原型对象添加新属性，如下：
+我们可以给 doSomething 函数的原型对象添加新属性，如下：
 
 ```js
-function doSomething(){}
+function doSomething() {}
 doSomething.prototype.foo = "bar";
-console.log( doSomething.prototype );
+console.log(doSomething.prototype);
 ```
 
 可以看到运行后的结果如下：
@@ -617,16 +633,16 @@ console.log( doSomething.prototype );
 }
 ```
 
-现在我们可以通过new操作符来创建基于这个原型对象的doSomething实例。使用new操作符，只需在调用doSomething函数语句之前添加new。这样，便可以获得这个函数的一个实例对象。一些属性就可以添加到该原型对象中。
+现在我们可以通过 new 操作符来创建基于这个原型对象的 doSomething 实例。使用 new 操作符，只需在调用 doSomething 函数语句之前添加 new。这样，便可以获得这个函数的一个实例对象。一些属性就可以添加到该原型对象中。
 
 请尝试运行以下代码：
 
 ```js
-function doSomething(){}
+function doSomething() {}
 doSomething.prototype.foo = "bar"; // add a property onto the prototype
 var doSomeInstancing = new doSomething();
 doSomeInstancing.prop = "some value"; // add a property onto the object
-console.log( doSomeInstancing );
+console.log(doSomeInstancing);
 ```
 
 运行的结果类似于以下的语句。
@@ -650,18 +666,18 @@ console.log( doSomeInstancing );
 }
 ```
 
-如上所示, doSomeInstancing 中的__proto__是 doSomething.prototype. 但这是做什么的呢？当你访问doSomeInstancing 中的一个属性，浏览器首先会查看doSomeInstancing 中是否存在这个属性。
+如上所示, doSomeInstancing 中的**proto**是 doSomething.prototype. 但这是做什么的呢？当你访问 doSomeInstancing 中的一个属性，浏览器首先会查看 doSomeInstancing 中是否存在这个属性。
 
-如果 doSomeInstancing 不包含属性信息, 那么浏览器会在 doSomeInstancing 的 __proto__ 中进行查找(同 doSomething.prototype). 如属性在 doSomeInstancing 的 __proto__ 中查找到，则使用 doSomeInstancing 中 __proto__ 的属性。
+如果 doSomeInstancing 不包含属性信息, 那么浏览器会在 doSomeInstancing 的 **proto** 中进行查找(同 doSomething.prototype). 如属性在 doSomeInstancing 的 **proto** 中查找到，则使用 doSomeInstancing 中 **proto** 的属性。
 
-否则，如果 doSomeInstancing 中 __proto__ 不具有该属性，则检查doSomeInstancing 的 __proto__ 的  __proto__ 是否具有该属性。默认情况下，任何函数的原型属性 __proto__ 都是 window.Object.prototype. 因此, 通过doSomeInstancing 的 __proto__ 的  __proto__  ( 同 doSomething.prototype 的 __proto__ (同  Object.prototype)) 来查找要搜索的属性。
+否则，如果 doSomeInstancing 中 **proto** 不具有该属性，则检查 doSomeInstancing 的 **proto** 的 **proto** 是否具有该属性。默认情况下，任何函数的原型属性 **proto** 都是 window.Object.prototype. 因此, 通过 doSomeInstancing 的 **proto** 的 **proto** ( 同 doSomething.prototype 的 **proto** (同 Object.prototype)) 来查找要搜索的属性。
 
-如果属性不存在 doSomeInstancing 的 __proto__ 的  __proto__ 中， 那么就会在doSomeInstancing 的 __proto__ 的  __proto__ 的  __proto__ 中查找。然而, 这里存在个问题：doSomeInstancing 的 __proto__ 的  __proto__ 的  __proto__ 其实不存在。因此，只有这样，在 __proto__ 的整个原型链被查看之后，这里没有更多的 __proto__ ， 浏览器断言该属性不存在，并给出属性值为 undefined 的结论。
+如果属性不存在 doSomeInstancing 的 **proto** 的 **proto** 中， 那么就会在 doSomeInstancing 的 **proto** 的 **proto** 的 **proto** 中查找。然而, 这里存在个问题：doSomeInstancing 的 **proto** 的 **proto** 的 **proto** 其实不存在。因此，只有这样，在 **proto** 的整个原型链被查看之后，这里没有更多的 **proto** ， 浏览器断言该属性不存在，并给出属性值为 undefined 的结论。
 
 让我们在控制台窗口中输入更多的代码，如下：
 
 ```js
-function doSomething(){}
+function doSomething() {}
 doSomething.prototype.foo = "bar";
 var doSomeInstancing = new doSomething();
 doSomeInstancing.prop = "some value";
@@ -689,7 +705,7 @@ doSomething.prototype.foo:  bar
 使用语法结构创建的对象
 
 ```js
-var o = {a: 1};
+var o = { a: 1 };
 
 // o 这个对象继承了 Object.prototype 上面的所有属性
 // o 自身没有名为 hasOwnProperty 的属性
@@ -706,7 +722,7 @@ var a = ["yo", "whadup", "?"];
 // 原型链如下:
 // a ---> Array.prototype ---> Object.prototype ---> null
 
-function f(){
+function f() {
   return 2;
 }
 
@@ -727,7 +743,7 @@ function Graph() {
 }
 
 Graph.prototype = {
-  addVertex: function(v){
+  addVertex: function(v) {
     this.vertices.push(v);
   }
 };
@@ -742,7 +758,7 @@ var g = new Graph();
 ECMAScript 5 中引入了一个新方法：Object.create()。可以调用这个方法来创建一个新对象。新对象的原型就是调用 create 方法时传入的第一个参数：
 
 ```js
-var a = {a: 1};
+var a = { a: 1 };
 // a ---> Object.prototype ---> null
 
 var b = Object.create(a);
@@ -794,28 +810,28 @@ var square = new Square(2);
 遍历对象的属性时，原型链上的每个可枚举属性都会被枚举出来。要检查对象是否具有自己定义的属性，而不是其原型链上的某个属性，则必须使用所有对象从 Object.prototype 继承的 hasOwnProperty 方法。下面给出一个具体的例子来说明它：
 
 ```js
-console.log(g.hasOwnProperty('vertices'));
+console.log(g.hasOwnProperty("vertices"));
 // true
 
-console.log(g.hasOwnProperty('nope'));
+console.log(g.hasOwnProperty("nope"));
 // false
 
-console.log(g.hasOwnProperty('addVertex'));
+console.log(g.hasOwnProperty("addVertex"));
 // false
 
-console.log(g.__proto__.hasOwnProperty('addVertex'));
+console.log(g.__proto__.hasOwnProperty("addVertex"));
 // true
 ```
 
 hasOwnProperty 是 JavaScript 中唯一一个处理属性并且不会遍历原型链的方法。（译者注：原文如此。另一种这样的方法：Object.keys()）
 
->注意：检查属性是否为 undefined 是不能够检查其是否存在的。该属性可能已存在，但其值恰好被设置成了 undefined。
+> 注意：检查属性是否为 undefined 是不能够检查其是否存在的。该属性可能已存在，但其值恰好被设置成了 undefined。
 
 ### this
 
 与其他语言相比，函数的 this 关键字在 JavaScript 中的表现略有不同，此外，在严格模式和非严格模式之间也会有一些差别。
 
-在绝大多数情况下，函数的调用方式决定了this的值。this不能在执行期间被赋值，并且在每次函数被调用时this的值也可能会不同。ES5引入了bind方法来设置函数的this值，而不用考虑函数如何被调用的，ES2015 引入了支持this词法解析的箭头函数（它在闭合的执行环境内设置this的值）。
+在绝大多数情况下，函数的调用方式决定了 this 的值。this 不能在执行期间被赋值，并且在每次函数被调用时 this 的值也可能会不同。ES5 引入了 bind 方法来设置函数的 this 值，而不用考虑函数如何被调用的，ES2015 引入了支持 this 词法解析的箭头函数（它在闭合的执行环境内设置 this 的值）。
 
 this：当前执行代码的环境对象。
 
@@ -831,33 +847,33 @@ a = 37;
 console.log(window.a); // 37
 
 this.b = "MDN";
-console.log(window.b)  // "MDN"
-console.log(b)         // "MDN"
+console.log(window.b); // "MDN"
+console.log(b); // "MDN"
 ```
 
 #### 函数（运行内）环境
 
-在函数内部，this的值取决于函数被调用的方式。
+在函数内部，this 的值取决于函数被调用的方式。
 
 简单调用
 
 因为下面的代码不在严格模式下，且 this 的值不是由该调用设置的，所以 this 的值默认指向全局对象。
 
 ```js
-function f1(){
+function f1() {
   return this;
 }
 //在浏览器中：
-f1() === window;   //在浏览器中，全局对象是window
+f1() === window; //在浏览器中，全局对象是window
 
 //在Node中：
 f1() === global;
 ```
 
-然而，在严格模式下，this将保持他进入执行环境时的值，所以下面的this将会默认为undefined。
+然而，在严格模式下，this 将保持他进入执行环境时的值，所以下面的 this 将会默认为 undefined。
 
 ```js
-function f2(){
+function f2() {
   "use strict"; // 这里是严格模式
   return this;
 }
@@ -867,34 +883,34 @@ f2() === undefined; // true
 
 所以，在严格模式下，如果 this 没有被执行环境（execution context）定义，那它将保持为 undefined。
 
->在第二个例子中，this的确应该是undefined，因为f2是被直接调用的，而不是作为对象的属性或方法调用的（如 window.f2()）。有一些浏览器最初在支持严格模式时没有正确实现这个功能，于是它们错误地返回了window对象。
+> 在第二个例子中，this 的确应该是 undefined，因为 f2 是被直接调用的，而不是作为对象的属性或方法调用的（如 window.f2()）。有一些浏览器最初在支持严格模式时没有正确实现这个功能，于是它们错误地返回了 window 对象。
 
-如果要想把 this 的值从一个环境传到另一个，就要用 call 或者apply 方法。
+如果要想把 this 的值从一个环境传到另一个，就要用 call 或者 apply 方法。
 
 ```js
 // 将一个对象作为call和apply的第一个参数，this会被绑定到这个对象。
-var obj = {a: 'Custom'};
+var obj = { a: "Custom" };
 
 // 这个属性是在global对象定义的。
-var a = 'Global';
+var a = "Global";
 
 function whatsThis(arg) {
-  return this.a;  // this的值取决于函数的调用方式
+  return this.a; // this的值取决于函数的调用方式
 }
 
-whatsThis();          // 'Global'
-whatsThis.call(obj);  // 'Custom'
+whatsThis(); // 'Global'
+whatsThis.call(obj); // 'Custom'
 whatsThis.apply(obj); // 'Custom'
 ```
 
-当一个函数在其主体中使用 this 关键字时，可以通过使用函数继承自Function.prototype 的 call 或 apply 方法将 this 值绑定到调用中的特定对象。
+当一个函数在其主体中使用 this 关键字时，可以通过使用函数继承自 Function.prototype 的 call 或 apply 方法将 this 值绑定到调用中的特定对象。
 
 ```js
 function add(c, d) {
   return this.a + this.b + c + d;
 }
 
-var o = {a: 1, b: 3};
+var o = { a: 1, b: 3 };
 
 // 第一个参数是作为‘this’使用的对象
 // 后续参数作为参数传递给函数调用
@@ -916,41 +932,41 @@ function bar() {
 bar.call(7); // [object Number]
 ```
 
-bind方法
+bind 方法
 
-ECMAScript 5 引入了 Function.prototype.bind。调用f.bind(someObject)会创建一个与f具有相同函数体和作用域的函数，但是在这个新函数中，this将永久地被绑定到了bind的第一个参数，无论这个函数是如何被调用的。
+ECMAScript 5 引入了 Function.prototype.bind。调用 f.bind(someObject)会创建一个与 f 具有相同函数体和作用域的函数，但是在这个新函数中，this 将永久地被绑定到了 bind 的第一个参数，无论这个函数是如何被调用的。
 
 ```js
-function f(){
+function f() {
   return this.a;
 }
 
-var g = f.bind({a:"azerty"});
+var g = f.bind({ a: "azerty" });
 console.log(g()); // azerty
 
-var h = g.bind({a:'yoo'}); // bind只生效一次！
+var h = g.bind({ a: "yoo" }); // bind只生效一次！
 console.log(h()); // azerty
 
-var o = {a:37, f:f, g:g, h:h};
+var o = { a: 37, f: f, g: g, h: h };
 console.log(o.f(), o.g(), o.h()); // 37, azerty, azerty
 ```
 
 箭头函数
 
-在箭头函数中，this与封闭词法环境的this保持一致。在全局代码中，它将被设置为全局对象：
+在箭头函数中，this 与封闭词法环境的 this 保持一致。在全局代码中，它将被设置为全局对象：
 
 ```js
 var globalObject = this;
-var foo = (() => this);
+var foo = () => this;
 console.log(foo() === globalObject); // true
 ```
 
->注意：如果将this传递给call、bind、或者apply，它将被忽略。不过你仍然可以为调用添加参数，不过第一个参数（thisArg）应该设置为null。
+> 注意：如果将 this 传递给 call、bind、或者 apply，它将被忽略。不过你仍然可以为调用添加参数，不过第一个参数（thisArg）应该设置为 null。
 
 ```js
 // 接着上面的代码
 // 作为对象的一个方法调用
-var obj = {foo: foo};
+var obj = { foo: foo };
 console.log(obj.foo() === globalObject); // true
 
 // 尝试使用call来设定this
@@ -961,7 +977,7 @@ foo = foo.bind(obj);
 console.log(foo() === globalObject); // true
 ```
 
-无论如何，foo 的 this 被设置为他被创建时的环境（在上面的例子中，就是全局对象）。这同样适用于在其他函数内创建的箭头函数：这些箭头函数的this被设置为封闭的词法环境的。
+无论如何，foo 的 this 被设置为他被创建时的环境（在上面的例子中，就是全局对象）。这同样适用于在其他函数内创建的箭头函数：这些箭头函数的 this 被设置为封闭的词法环境的。
 
 ```js
 // 创建一个含有bar方法的obj对象，
@@ -972,7 +988,7 @@ console.log(foo() === globalObject); // true
 // bar的值可以在调用中设置，这反过来又设置了返回函数的值。
 var obj = {
   bar: function() {
-    var x = (() => this);
+    var x = () => this;
     return x;
   }
 };
@@ -993,13 +1009,13 @@ var fn2 = obj.bar;
 console.log(fn2()() == window); // true
 ```
 
-在上面的例子中，一个赋值给了 obj.bar的函数（称为匿名函数 A），返回了另一个箭头函数（称为匿名函数 B）。因此，在 A 调用时，函数B的this被永久设置为obj.bar（函数A）的this。当返回的函数（函数B）被调用时，它this始终是最初设置的。在上面的代码示例中，函数B的this被设置为函数A的this，即obj，所以即使被调用的方式通常将其设置为 undefined 或全局对象（或者如前面示例中的其他全局执行环境中的方法），它的 this 也仍然是 obj 。
+在上面的例子中，一个赋值给了 obj.bar 的函数（称为匿名函数 A），返回了另一个箭头函数（称为匿名函数 B）。因此，在 A 调用时，函数 B 的 this 被永久设置为 obj.bar（函数 A）的 this。当返回的函数（函数 B）被调用时，它 this 始终是最初设置的。在上面的代码示例中，函数 B 的 this 被设置为函数 A 的 this，即 obj，所以即使被调用的方式通常将其设置为 undefined 或全局对象（或者如前面示例中的其他全局执行环境中的方法），它的 this 也仍然是 obj 。
 
 作为对象的方法
 
 当函数作为对象里的方法被调用时，它们的 this 是调用该函数的对象。
 
-下面的例子中，当 o.f()被调用时，函数内的this将绑定到o对象。
+下面的例子中，当 o.f()被调用时，函数内的 this 将绑定到 o 对象。
 
 ```js
 var o = {
@@ -1012,10 +1028,10 @@ var o = {
 console.log(o.f()); // logs 37
 ```
 
-请注意，这样的行为，根本不受函数定义方式或位置的影响。在前面的例子中，我们在定义对象o的同时，将函数内联定义为成员 f 。但是，我们也可以先定义函数，然后再将其附属到o.f。这样做会导致相同的行为：
+请注意，这样的行为，根本不受函数定义方式或位置的影响。在前面的例子中，我们在定义对象 o 的同时，将函数内联定义为成员 f 。但是，我们也可以先定义函数，然后再将其附属到 o.f。这样做会导致相同的行为：
 
 ```js
-var o = {prop: 37};
+var o = { prop: 37 };
 
 function independent() {
   return this.prop;
@@ -1026,23 +1042,23 @@ o.f = independent;
 console.log(o.f()); // logs 37
 ```
 
-这表明函数是从o的f成员调用的才是重点。
+这表明函数是从 o 的 f 成员调用的才是重点。
 
-同样，this 的绑定只受最靠近的成员引用的影响。在下面的这个例子中，我们把一个方法g当作对象o.b的函数调用。在这次执行期间，函数中的this将指向o.b。事实证明，这与他是对象 o 的成员没有多大关系，最靠近的引用才是最重要的。
+同样，this 的绑定只受最靠近的成员引用的影响。在下面的这个例子中，我们把一个方法 g 当作对象 o.b 的函数调用。在这次执行期间，函数中的 this 将指向 o.b。事实证明，这与他是对象 o 的成员没有多大关系，最靠近的引用才是最重要的。
 
 ```js
-o.b = {g: independent, prop: 42};
+o.b = { g: independent, prop: 42 };
 console.log(o.b.g()); // 42
 ```
 
 原型链中的 this
 
-对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么this指向的是调用这个方法的对象，就像该方法在对象上一样。
+对于在对象原型链上某处定义的方法，同样的概念也适用。如果该方法存在于一个对象的原型链上，那么 this 指向的是调用这个方法的对象，就像该方法在对象上一样。
 
 var o = {
-  f: function() {
-    return this.a + this.b;
-  }
+f: function() {
+return this.a + this.b;
+}
 };
 var p = Object.create(o);
 p.a = 1;
@@ -1050,7 +1066,7 @@ p.b = 4;
 
 console.log(p.f()); // 5
 
-在这个例子中，对象p没有属于它自己的f属性，它的f属性继承自它的原型。虽然在对 f 的查找过程中，最终是在 o 中找到 f 属性的，这并没有关系；查找过程首先从 p.f 的引用开始，所以函数中的 this 指向p。也就是说，因为f是作为p的方法调用的，所以它的this指向了p。这是 JavaScript 的原型继承中的一个有趣的特性。
+在这个例子中，对象 p 没有属于它自己的 f 属性，它的 f 属性继承自它的原型。虽然在对 f 的查找过程中，最终是在 o 中找到 f 属性的，这并没有关系；查找过程首先从 p.f 的引用开始，所以函数中的 this 指向 p。也就是说，因为 f 是作为 p 的方法调用的，所以它的 this 指向了 p。这是 JavaScript 的原型继承中的一个有趣的特性。
 
 getter 与 setter 中的 this
 
@@ -1070,17 +1086,20 @@ var o = {
   }
 };
 
-Object.defineProperty(o, 'sum', {
-    get: sum, enumerable: true, configurable: true});
+Object.defineProperty(o, "sum", {
+  get: sum,
+  enumerable: true,
+  configurable: true
+});
 
 console.log(o.average, o.sum); // logs 2, 6
 ```
 
 作为构造函数
 
-当一个函数用作构造函数时（使用new关键字），它的this被绑定到正在构造的新对象。
+当一个函数用作构造函数时（使用 new 关键字），它的 this 被绑定到正在构造的新对象。
 
->虽然构造器返回的默认值是this所指的那个对象，但它仍可以手动返回其他的对象（如果返回值不是一个对象，则返回this对象）。
+> 虽然构造器返回的默认值是 this 所指的那个对象，但它仍可以手动返回其他的对象（如果返回值不是一个对象，则返回 this 对象）。
 
 ```js
 /*
@@ -1099,73 +1118,68 @@ console.log(o.average, o.sum); // logs 2, 6
  * }
  */
 
-function C(){
+function C() {
   this.a = 37;
 }
 
 var o = new C();
 console.log(o.a); // logs 37
 
-
-function C2(){
+function C2() {
   this.a = 37;
-  return {a:38};
+  return { a: 38 };
 }
 
 o = new C2();
 console.log(o.a); // logs 38
 ```
 
-在刚刚的例子中（C2），因为在调用构造函数的过程中，手动的设置了返回对象，与this绑定的默认对象被丢弃了。（这基本上使得语句 “this.a = 37;”成了“僵尸”代码，实际上并不是真正的“僵尸”，这条语句执行了，但是对于外部没有任何影响，因此完全可以忽略它）。
+在刚刚的例子中（C2），因为在调用构造函数的过程中，手动的设置了返回对象，与 this 绑定的默认对象被丢弃了。（这基本上使得语句 “this.a = 37;”成了“僵尸”代码，实际上并不是真正的“僵尸”，这条语句执行了，但是对于外部没有任何影响，因此完全可以忽略它）。
 
-作为一个DOM事件处理函数
+作为一个 DOM 事件处理函数
 
-当函数被用作事件处理函数时，它的this指向触发事件的元素（一些浏览器在使用非addEventListener的函数动态添加监听函数时不遵守这个约定）。
+当函数被用作事件处理函数时，它的 this 指向触发事件的元素（一些浏览器在使用非 addEventListener 的函数动态添加监听函数时不遵守这个约定）。
 
 ```js
 // 被调用时，将关联的元素变成蓝色
-function bluify(e){
+function bluify(e) {
   console.log(this === e.currentTarget); // 总是 true
 
   // 当 currentTarget 和 target 是同一个对象时为 true
   console.log(this === e.target);
-  this.style.backgroundColor = '#A5D9F3';
+  this.style.backgroundColor = "#A5D9F3";
 }
 
 // 获取文档中的所有元素的列表
-var elements = document.getElementsByTagName('*');
+var elements = document.getElementsByTagName("*");
 
 // 将bluify作为元素的点击监听函数，当元素被点击时，就会变成蓝色
-for(var i=0 ; i<elements.length ; i++){
-  elements[i].addEventListener('click', bluify, false);
+for (var i = 0; i < elements.length; i++) {
+  elements[i].addEventListener("click", bluify, false);
 }
 ```
 
 作为一个内联事件处理函数
 
-当代码被内联on-event 处理函数调用时，它的this指向监听器所在的DOM元素：
+当代码被内联 on-event 处理函数调用时，它的 this 指向监听器所在的 DOM 元素：
 
 ```js
-<button onclick="alert(this.tagName.toLowerCase());">
-  Show this
-</button>
+<button onclick="alert(this.tagName.toLowerCase());">Show this</button>
 ```
 
-上面的 alert 会显示button。注意只有外层代码中的this是这样设置的：
+上面的 alert 会显示 button。注意只有外层代码中的 this 是这样设置的：
 
 ```js
-<button onclick="alert((function(){return this})());">
-  Show inner this
-</button>
+<button onclick="alert((function(){return this})());">Show inner this</button>
 ```
 
-在这种情况下，没有设置内部函数的this，所以它指向 global/window 对象（即非严格模式下调用的函数未设置this时指向的默认对象）。
+在这种情况下，没有设置内部函数的 this，所以它指向 global/window 对象（即非严格模式下调用的函数未设置 this 时指向的默认对象）。
 
 ### 执行上下文（EC）
 
 ### 正则表达式
 
-正则表达式（英语：Regular Expression，在代码中常简写为regex、regexp或RE）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。
+正则表达式（英语：Regular Expression，在代码中常简写为 regex、regexp 或 RE）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。
 
 搜索模式可用于文本搜索和文本替换。
 
@@ -1182,74 +1196,74 @@ for(var i=0 ; i<elements.length ; i++){
 
 方括号用于查找某个范围内的字符：
 
-|表达式|描述|
-|--|--|
-|[abc]|查找方括号之间的任何字符。|
-|[^abc]|查找任何不在方括号之间的字符。|
-|[0-9]|查找任何从 0 至 9 的数字。|
-|[a-z]|查找任何从小写 a 到小写 z 的字符。|
-|[A-Z]|查找任何从大写 A 到大写 Z 的字符。|
-|[A-z]|查找任何从大写 A 到小写 z 的字符。|
-|[adgk]|查找给定集合内的任何字符。|
-|[^adgk]|查找给定集合外的任何字符。|
-|(red\|blue\|green)|查找任何指定的选项。|
+| 表达式             | 描述                               |
+| ------------------ | ---------------------------------- |
+| [abc]              | 查找方括号之间的任何字符。         |
+| [^abc]             | 查找任何不在方括号之间的字符。     |
+| [0-9]              | 查找任何从 0 至 9 的数字。         |
+| [a-z]              | 查找任何从小写 a 到小写 z 的字符。 |
+| [A-Z]              | 查找任何从大写 A 到大写 Z 的字符。 |
+| [A-z]              | 查找任何从大写 A 到小写 z 的字符。 |
+| [adgk]             | 查找给定集合内的任何字符。         |
+| [^adgk]            | 查找给定集合外的任何字符。         |
+| (red\|blue\|green) | 查找任何指定的选项。               |
 
 元字符是拥有特殊含义的字符：
 
-|元字符|描述|
-|--|--|
-|.|查找单个字符，除了换行和行结束符。|
-|\w|查找单词字符。|
-|\W|查找非单词字符。|
-|\d|查找数字。|
-|\D|查找非数字字符。|
-|\s|查找空白字符。|
-|\S|查找非空白字符。|
-|\b|匹配单词边界。|
-|\B|匹配非单词边界。|
-|\0|查找 NUL 字符。|
-|\n|查找换行符。|
-|\f|查找换页符。|
-|\r|查找回车符。|
-|\t|查找制表符。|
-|\v|查找垂直制表符。|
-|\xxx|查找以八进制数 xxx 规定的字符。|
-|\xdd|查找以十六进制数 dd 规定的字符。|
-|\uxxxx|查找以十六进制数 xxxx 规定的 Unicode 字符。|
+| 元字符 | 描述                                        |
+| ------ | ------------------------------------------- |
+| .      | 查找单个字符，除了换行和行结束符。          |
+| \w     | 查找单词字符。                              |
+| \W     | 查找非单词字符。                            |
+| \d     | 查找数字。                                  |
+| \D     | 查找非数字字符。                            |
+| \s     | 查找空白字符。                              |
+| \S     | 查找非空白字符。                            |
+| \b     | 匹配单词边界。                              |
+| \B     | 匹配非单词边界。                            |
+| \0     | 查找 NUL 字符。                             |
+| \n     | 查找换行符。                                |
+| \f     | 查找换页符。                                |
+| \r     | 查找回车符。                                |
+| \t     | 查找制表符。                                |
+| \v     | 查找垂直制表符。                            |
+| \xxx   | 查找以八进制数 xxx 规定的字符。             |
+| \xdd   | 查找以十六进制数 dd 规定的字符。            |
+| \uxxxx | 查找以十六进制数 xxxx 规定的 Unicode 字符。 |
 
 量词:
 
-|量词|描述|
-|--|--|
-|n+|匹配任何包含至少一个 n 的字符串。|
-|n*|匹配任何包含零个或多个 n 的字符串。|
-|n?|匹配任何包含零个或一个 n 的字符串。|
-|n{X}|匹配包含 X 个 n 的序列的字符串。|
-|n{X,Y}|匹配包含 X 至 Y 个 n 的序列的字符串。|
-|n{X,}|匹配包含至少 X 个 n 的序列的字符串。|
-|n$|匹配任何结尾为 n 的字符串。|
-|^n|匹配任何开头为 n 的字符串。|
-|?=n|匹配任何其后紧接指定字符串 n 的字符串。|
-|?!n|匹配任何其后没有紧接指定字符串 n 的字符串。|
+| 量词   | 描述                                        |
+| ------ | ------------------------------------------- |
+| n+     | 匹配任何包含至少一个 n 的字符串。           |
+| n\*    | 匹配任何包含零个或多个 n 的字符串。         |
+| n?     | 匹配任何包含零个或一个 n 的字符串。         |
+| n{X}   | 匹配包含 X 个 n 的序列的字符串。            |
+| n{X,Y} | 匹配包含 X 至 Y 个 n 的序列的字符串。       |
+| n{X,}  | 匹配包含至少 X 个 n 的序列的字符串。        |
+| n\$    | 匹配任何结尾为 n 的字符串。                 |
+| ^n     | 匹配任何开头为 n 的字符串。                 |
+| ?=n    | 匹配任何其后紧接指定字符串 n 的字符串。     |
+| ?!n    | 匹配任何其后没有紧接指定字符串 n 的字符串。 |
 
 RegExp 对象属性:
 
-|属性|描述|
-|--|--|
-|global|RegExp 对象是否具有标志 g。|
-|ignoreCase|RegExp 对象是否具有标志 i。|
-|lastIndex|一个整数，标示开始下一次匹配的字符位置。|
-|multiline|RegExp 对象是否具有标志 m。|
-|source|正则表达式的源文本。|
+| 属性       | 描述                                     |
+| ---------- | ---------------------------------------- |
+| global     | RegExp 对象是否具有标志 g。              |
+| ignoreCase | RegExp 对象是否具有标志 i。              |
+| lastIndex  | 一个整数，标示开始下一次匹配的字符位置。 |
+| multiline  | RegExp 对象是否具有标志 m。              |
+| source     | 正则表达式的源文本。                     |
 
 支持正则表达式的 String 对象的方法:
 
-|方法|描述|
-|--|--|
-|search|检索与正则表达式相匹配的值。|
-|match|找到一个或多个正则表达式的匹配。|
-|replace|替换与正则表达式匹配的子串。|
-|split|把字符串分割为字符串数组。|
+| 方法    | 描述                             |
+| ------- | -------------------------------- |
+| search  | 检索与正则表达式相匹配的值。     |
+| match   | 找到一个或多个正则表达式的匹配。 |
+| replace | 替换与正则表达式匹配的子串。     |
+| split   | 把字符串分割为字符串数组。       |
 
 ### 事件循环
 
@@ -1309,9 +1323,9 @@ while (queue.waitForMessage()) {
 
 ##### "执行至完成"
 
-每一个消息完整地执行后，其它消息才会被执行。这为程序的分析提供了一些优秀的特性，包括：一个函数执行时，它永远不会被抢占，并且在其他代码运行之前完全运行（且可以修改此函数操作的数据）。这与C语言不同，例如，如果函数在线程中运行，它可能在任何位置被终止，然后在另一个线程中运行其他代码。
+每一个消息完整地执行后，其它消息才会被执行。这为程序的分析提供了一些优秀的特性，包括：一个函数执行时，它永远不会被抢占，并且在其他代码运行之前完全运行（且可以修改此函数操作的数据）。这与 C 语言不同，例如，如果函数在线程中运行，它可能在任何位置被终止，然后在另一个线程中运行其他代码。
 
-这个模型的一个缺点在于当一个消息需要太长时间才能处理完毕时，Web应用就无法处理用户的交互，例如点击或滚动。浏览器用“程序需要过长时间运行”的对话框来缓解这个问题。一个很好的做法是缩短消息处理，并在可能的情况下将一个消息裁剪成多个消息。
+这个模型的一个缺点在于当一个消息需要太长时间才能处理完毕时，Web 应用就无法处理用户的交互，例如点击或滚动。浏览器用“程序需要过长时间运行”的对话框来缓解这个问题。一个很好的做法是缩短消息处理，并在可能的情况下将一个消息裁剪成多个消息。
 
 ##### 添加消息
 
@@ -1329,8 +1343,8 @@ setTimeout(function() {
   console.log("Ran after " + (new Date().getSeconds() - s) + " seconds");
 }, 500);
 
-while(true) {
-  if(new Date().getSeconds() - s >= 2) {
+while (true) {
+  if (new Date().getSeconds() - s >= 2) {
     console.log("Good, looped for 2 seconds");
     break;
   }
@@ -1347,21 +1361,19 @@ while(true) {
 
 ```js
 (function() {
-
-  console.log('这是开始');
+  console.log("这是开始");
 
   setTimeout(function cb() {
-    console.log('这是来自第一个回调的消息');
+    console.log("这是来自第一个回调的消息");
   });
 
-  console.log('这是一条消息');
+  console.log("这是一条消息");
 
   setTimeout(function cb1() {
-    console.log('这是来自第二个回调的消息');
+    console.log("这是来自第二个回调的消息");
   }, 0);
 
-  console.log('这是结束');
-
+  console.log("这是结束");
 })();
 
 // "这是开始"
@@ -1388,33 +1400,33 @@ while(true) {
 
 #### 起源
 
-|Vue|React|
-|:--|:--|
-|Google 前工程师尤雨溪于 2014 年创建了这个框架。Vue是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。|与 Vue 不同，react 库是由 Facebook 创建的。最初是为了 Facebook 广告流量管理创建的。那时 Facebook 遇到了维护和编码方面的问题。它以动态创建和交互式 UI 的能力而闻名。|
+| Vue                                                                                                                                                                                                                       | React                                                                                                                                                               |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Google 前工程师尤雨溪于 2014 年创建了这个框架。Vue 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。 | 与 Vue 不同，react 库是由 Facebook 创建的。最初是为了 Facebook 广告流量管理创建的。那时 Facebook 遇到了维护和编码方面的问题。它以动态创建和交互式 UI 的能力而闻名。 |
 
 #### 介绍
 
-|Vue|React|
-|:--|:--|
-|Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。|React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。|
+| Vue                                                                                                                                                                                                                                                                                                   | React                                                                                                                                                       |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。与其它大型框架不同的是，Vue 被设计为可以自底向上逐层应用。Vue 的核心库只关注视图层，不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与现代化的工具链以及各种支持类库结合使用时，Vue 也完全能够为复杂的单页应用提供驱动。 | React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作“组件”。 |
 
 #### 运行时性能
 
-|Vue|React|
-|:--|:--|
-|在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。你可以理解为每一个组件都已经自动获得了 shouldComponentUpdate，并且没有React的子树问题限制。|在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。如要避免不必要的子组件的重渲染，你需要在所有可能的地方使用 PureComponent，或是手动实现 houldComponentUpdate 方法。同时你可能会需要使用不可变的数据结构来使得你的组件更容易被优化。然而，使用 PureComponent 和 shouldComponentUpdate 时，需要保证该组件的整个子树的渲染输出都是由该组件的 props 所决定的。如果不符合这个情况，那么此类优化就会导致难以察觉的渲染结果不一致。这使得 React 中的组件优化伴随着相当的心智负担。|
+| Vue                                                                                                                                                                                          | React                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 在 Vue 应用中，组件的依赖是在渲染过程中自动追踪的，所以系统能精确知晓哪个组件确实需要被重渲染。你可以理解为每一个组件都已经自动获得了 shouldComponentUpdate，并且没有 React 的子树问题限制。 | 在 React 应用中，当某个组件的状态发生变化时，它会以该组件为根，重新渲染整个组件子树。如要避免不必要的子组件的重渲染，你需要在所有可能的地方使用 PureComponent，或是手动实现 houldComponentUpdate 方法。同时你可能会需要使用不可变的数据结构来使得你的组件更容易被优化。然而，使用 PureComponent 和 shouldComponentUpdate 时，需要保证该组件的整个子树的渲染输出都是由该组件的 props 所决定的。如果不符合这个情况，那么此类优化就会导致难以察觉的渲染结果不一致。这使得 React 中的组件优化伴随着相当的心智负担。 |
 
 #### 核心思想
 
-|Vue|React|
-|:--|:--|
-|Vue 也提供了渲染函数，甚至支持 JSX。然而，我们默认推荐的还是模板。任何合乎规范的 HTML 都是合法的 Vue 模板，这也带来了一些特有的优势：对于很多习惯了 HTML 的开发者来说，模板比起 JSX 读写起来更自然。这里当然有主观偏好的成分，但如果这种区别会导致开发效率的提升，那么它就有客观的价值存在。基于 HTML 的模板使得将已有的应用逐步迁移到 Vue 更为容易。这也使得设计师和新人开发者更容易理解和参与到项目中。你甚至可以使用其他模板预处理器，比如 Pug 来书写 Vue 的模板。|在 React 中，所有的组件的渲染功能都依靠 JSX。JSX 是使用 XML 语法编写 JavaScript 的一种语法糖。使用 JSX 的渲染函数有下面这些优势：你可以使用完整的编程语言 JavaScript 功能来构建你的视图页面。比如你可以使用临时变量、JS 自带的流程控制、以及直接引用当前 JS 作用域中的值等等。开发工具对 JSX 的支持相比于现有可用的其他 Vue 模板还是比较先进的 (比如，linting、类型检查、编辑器的自动完成)。|
+| Vue                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | React                                                                                                                                                                                                                                                                                                                                                                                        |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vue 也提供了渲染函数，甚至支持 JSX。然而，我们默认推荐的还是模板。任何合乎规范的 HTML 都是合法的 Vue 模板，这也带来了一些特有的优势：对于很多习惯了 HTML 的开发者来说，模板比起 JSX 读写起来更自然。这里当然有主观偏好的成分，但如果这种区别会导致开发效率的提升，那么它就有客观的价值存在。基于 HTML 的模板使得将已有的应用逐步迁移到 Vue 更为容易。这也使得设计师和新人开发者更容易理解和参与到项目中。你甚至可以使用其他模板预处理器，比如 Pug 来书写 Vue 的模板。 | 在 React 中，所有的组件的渲染功能都依靠 JSX。JSX 是使用 XML 语法编写 JavaScript 的一种语法糖。使用 JSX 的渲染函数有下面这些优势：你可以使用完整的编程语言 JavaScript 功能来构建你的视图页面。比如你可以使用临时变量、JS 自带的流程控制、以及直接引用当前 JS 作用域中的值等等。开发工具对 JSX 的支持相比于现有可用的其他 Vue 模板还是比较先进的 (比如，linting、类型检查、编辑器的自动完成)。 |
 
 #### 组件
 
 ##### vue
 
-vue组件定义使用xx.vue文件来表示，vue组件将html、css、js组合到一起，模板部分使用数据使用{{}}，形式如下：
+vue 组件定义使用 xx.vue 文件来表示，vue 组件将 html、css、js 组合到一起，模板部分使用数据使用{{}}，形式如下：
 
 ```js
 // 模板(html)
@@ -1448,20 +1460,20 @@ export default {
 
 ##### react
 
-react推荐使用jsx或者js文件来表示组件，react支持class组件和function组件2种形式，react使用{}包裹变量，这点需要注意。
+react 推荐使用 jsx 或者 js 文件来表示组件，react 支持 class 组件和 function 组件 2 种形式，react 使用{}包裹变量，这点需要注意。
 
->注意： 组件名称必须以大写字母开头。React 会将以小写字母开头的组件视为原生 DOM 标签。例如，<div /> 代表 HTML 的 div 标签，而 <Welcome /> 则代表一个组件，并且需在作用域内使用 Welcome。
+> 注意： 组件名称必须以大写字母开头。React 会将以小写字母开头的组件视为原生 DOM 标签。例如，<div /> 代表 HTML 的 div 标签，而 <Welcome /> 则代表一个组件，并且需在作用域内使用 Welcome。
 
-（1）class组件
+（1）class 组件
 
 ```js
-import React from 'react';
+import React from "react";
 
 class NewComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'xx'
+      name: "xx"
     };
   }
   render() {
@@ -1472,16 +1484,16 @@ class NewComponent extends React.Component {
 export default NewComponent;
 ```
 
-（2）function组件
+（2）function 组件
 
-hooks的出现赋予了function组件管理state的能力。
+hooks 的出现赋予了 function 组件管理 state 的能力。
 
 ```js
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function NewComponent() {
-  const [name, setName] = useState('');
-  return (<div>{name}</div>);
+  const [name, setName] = useState("");
+  return <div>{name}</div>;
 }
 
 export default NewComponent;
@@ -1489,7 +1501,7 @@ export default NewComponent;
 
 #### 数据管理
 
-vue与react都是单向数据流，这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
+vue 与 react 都是单向数据流，这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
 
 ##### vue
 
@@ -1507,7 +1519,7 @@ props:
 
 ##### vue
 
-props/$emit:
+props/\$emit:
 
 ##### react
 
@@ -1533,7 +1545,7 @@ props/回调:
 
 ### Next.js
 
-## UI框架
+## UI 框架
 
 ### Ant-design
 
@@ -1561,7 +1573,7 @@ props/回调:
 
 ### Prettier
 
-## CSS预编译器
+## CSS 预编译器
 
 ### Less
 
