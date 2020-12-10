@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "d3",
         "electron-angular",
         "electron-vue",
         "amap",
