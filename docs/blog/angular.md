@@ -144,3 +144,5 @@ import { FormsModule } from '@angular/forms';
 |ngAfterViewInit()|当 Angular 初始化完组件视图及其子视图之后调用。<br/>第一次 ngAfterContentChecked() 之后调用，只调用一次。|
 |ngAfterViewChecked()|每当 Angular 做完组件视图和子视图的变更检测之后调用。<br/>ngAfterViewInit() 和每次ngAfterContentChecked() 之后调用。|
 |ngOnDestroy()|每当 Angular 每次销毁指令/组件之前调用并清扫。 在这儿反订阅可观察对象和分离事件处理器，以防内存泄漏。<br/>在 Angular 销毁指令/组件之前调用。
+
+<Valine></Valine>

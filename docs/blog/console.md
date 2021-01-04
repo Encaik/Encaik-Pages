@@ -114,3 +114,5 @@ console.log("This is %cMy stylish message", "color: yellow; font-style: italic; 
 ::: tip 注意
 注意: 控制台信息的默认行为与行内元素相似。为了应用 padding, margin 这类效果，你应当这样设置display: inline-block.。
 :::
+
+<Valine></Valine>

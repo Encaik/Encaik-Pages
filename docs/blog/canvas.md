@@ -157,3 +157,5 @@ function text(ctx, x, y, lineHeight, contentArray, fillColor) {
 }
 text(ctx, width/2-rectWidth/2+20, height/2-rectHeight/2+60, lineHeight, contentArray, 'rgb(97,175,239)');
 ```
+
+<Valine></Valine>

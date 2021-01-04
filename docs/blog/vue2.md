@@ -489,3 +489,5 @@ export function getOuterHTML (el) {
 ## observer(观察者)
 
 ## vdom
+
+<Valine></Valine>

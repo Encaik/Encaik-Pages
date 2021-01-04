@@ -21,3 +21,5 @@ func main() {
 第三行,import "fmt"为引入标准库;
 
 第五至七行,为main方法,方法体为标准输出一句"Hello World!"。
+
+<Valine></Valine>

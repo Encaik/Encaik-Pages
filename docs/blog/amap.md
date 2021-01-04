@@ -239,3 +239,5 @@ handler：事件回调函数（必填）
 context：事件回调中的上下文（可选，缺省时，handler 中 this 为调用 on 方法的对象本身，否则 this 指向 context 引用的对象）
 
 注意：多次绑定时，当 eventName、handler 函数对象、context 对象有任意一个不一样就会再次绑定。
+
+<Valine></Valine>

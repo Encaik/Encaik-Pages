@@ -157,3 +157,5 @@ npm install --save-dev jest-serializer-vue
     "snapshotSerializers": ["jest-serializer-vue"]
   }
 }
+
+<Valine></Valine>

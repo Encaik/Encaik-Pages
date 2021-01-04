@@ -101,3 +101,5 @@ myChart.setOption(option);
 - \*series——数据
 - textStyle——文本样式
 - color——色彩样式
+
+<Valine></Valine>

@@ -89,3 +89,5 @@ app.js 和 agent.js 用于自定义启动时的初始化工作，可选，具体
 app/public/** 用于放置静态资源，可选，具体参见内置插件 egg-static。
 
 app/schedule/** 用于定时任务，可选，具体参见定时任务。
+
+<Valine></Valine>

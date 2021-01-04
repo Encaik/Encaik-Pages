@@ -129,3 +129,5 @@ console.table(times)
 ::: tip 注意
 `t.navigationStart || t.fetchStart`为我所使用的chrome浏览器获取后无navigationStart属性，文档说明无上个文档与fetchStart相同，因为写成了这种形式。
 :::
+
+<Valine></Valine>
