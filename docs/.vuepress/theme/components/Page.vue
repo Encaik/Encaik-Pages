@@ -51,4 +51,9 @@ export default {
   max-width: 740px;
   margin: 3.6rem auto 0 auto;
 }
+
+#valine-vuepress-comment {
+  max-width: 740px;
+  margin: auto;
+}
 </style>
