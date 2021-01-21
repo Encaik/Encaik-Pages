@@ -4,7 +4,7 @@
 
 ## 基础
 
-![语法](/img/blog/git-1.png)
+![语法](/img/blog/git/1.png)
 
 ### commit
 

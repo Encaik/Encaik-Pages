@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "socketio",
         "mapbox",
         "d3",
         "electron-angular",
@@ -75,7 +76,6 @@ module.exports = {
         "webpack",
         "echarts",
         "csspre",
-        "socketio",
         "taro",
         "deno",
         "ast",

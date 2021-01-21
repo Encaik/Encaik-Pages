@@ -25,7 +25,7 @@ const ctx = canvas.getContext('2d');
 
 以下为已完成图示效果：
 
-![canvas图示](/img/blog/canvas-1.png)
+![canvas图示](/img/blog/canvas/1.png)
 
 ### 定义需要的常量及变量
 
