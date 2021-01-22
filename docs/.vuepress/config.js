@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "svelte",
         "socketio",
         "mapbox",
         "d3",
