@@ -8,7 +8,7 @@
 
 因为偶然想起 leecode，上去做了个打卡题，虽然通过但是应该还有优化空间，于是想留个优化的记录，方便之后思考。
 
-## 2020-7-24 打卡
+## 2020-7-24 1025.除数博弈
 
 1025.除数博弈
 
@@ -88,7 +88,7 @@ var divisorGame = function(N) {
 };
 ```
 
-## 2020-7-27 打卡
+## 2020-7-27 392.判断子序列
 
 392.判断子序列
 
@@ -132,7 +132,7 @@ var isSubsequence = function(s, t) {
 };
 ```
 
-## 2020-7-28 打卡
+## 2020-7-28 104.二叉树的最大深度
 
 104.二叉树的最大深度
 
@@ -162,7 +162,7 @@ var maxDepth = function(root) {
 };
 ```
 
-## 2020-7-30 打卡
+## 2020-7-30 343.整数拆分
 
 343.整数拆分
 
@@ -226,7 +226,7 @@ var integerBreak = function(n) {
 };
 ```
 
-## 2020-7-31 打卡
+## 2020-7-31 面试题 08.03.魔术索引
 
 面试题 08.03.魔术索引
 
@@ -265,7 +265,7 @@ var findMagicIndex = function(nums) {
 };
 ```
 
-## 2020-8-3 打卡
+## 2020-8-3 415.字符串相加
 
 415.字符串相加
 
@@ -299,7 +299,7 @@ var addStrings = function(num1, num2) {
 };
 ```
 
-## 2020-8-4 打卡
+## 2020-8-4 207.课程表
 
 207.课程表
 
@@ -352,7 +352,7 @@ var canFinish = function(numCourses, prerequisites) {
 
 可以看出来题目是想要在有向图中寻找有无通路，但因为数据结构基础差，所以先用本办法做了出来
 
-## 2020-8-6 打卡
+## 2020-8-6 336.回文对
 
 336.回文对
 
@@ -393,7 +393,7 @@ var palindromePairs = function(words) {
 
 此次是通过暴力破解的办法完成此题目，但是可以有优化的地方
 
-## 2020-8-10 打卡
+## 2020-8-10 696.计数二进制子串
 
 696.计数二进制子串
 
@@ -418,7 +418,7 @@ var countBinarySubstrings = function(s) {
 };
 ```
 
-## 2020-10-26 打卡
+## 2020-10-26 1365.有多少小于当前数字的数字
 
 1365.有多少小于当前数字的数字
 
@@ -443,7 +443,7 @@ var smallerNumbersThanCurrent = function(nums) {
 };
 ```
 
-## 2020-10-27 打卡
+## 2020-10-27 144.二叉树的前序遍历
 
 144.二叉树的前序遍历
 
@@ -482,7 +482,7 @@ var preorderTraversal = function(root) {
 
 题目提出进阶版为迭代算法，但因为我不会迭代，只能先查看题解学习。
 
-## 2020-10-28 打卡
+## 2020-10-28 1207.独一无二的出现次数
 
 1207.独一无二的出现次数
 
@@ -520,7 +520,7 @@ var uniqueOccurrences = function(arr) {
 };
 ```
 
-## 2020-10-30 打卡
+## 2020-10-30 463.岛屿的周长
 
 463.岛屿的周长
 
@@ -562,7 +562,7 @@ var islandPerimeter = function(grid) {
 };
 ```
 
-## 2020-11-02 打卡
+## 2020-11-02 349.两个数组的交集
 
 349.两个数组的交集
 
@@ -589,7 +589,7 @@ var intersection = function(nums1, nums2) {
 };
 ```
 
-## 2020-11-03 打卡
+## 2020-11-03 941.有效的山脉数组
 
 941.有效的山脉数组
 
@@ -627,6 +627,52 @@ var validMountainArray = function(A) {
     return true;
   } else {
     return false;
+  }
+};
+```
+
+## 2021-03-20 150.逆波兰表达式求值
+
+150.逆波兰表达式求值
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string[]} tokens
+ * @return {number}
+ */
+var evalRPN = function(tokens) {
+  let numbers = [];
+  let operatorList = ["+", "-", "*", "/"];
+  let tokensLen = tokens.length;
+  for (let i = 0; i < tokensLen; i++) {
+    if (operatorList.includes(tokens[i])) {
+      let rightNumber = numbers.pop();
+      let leftNumber = numbers.pop();
+      numbers.push(
+        calculate(Number(leftNumber), Number(rightNumber), tokens[i])
+      );
+    } else {
+      numbers.push(tokens[i]);
+    }
+  }
+  return numbers[0];
+  function calculate(leftNumber, rightNumber, operator) {
+    switch (operator) {
+      case "+":
+        return leftNumber + rightNumber;
+      case "-":
+        return leftNumber - rightNumber;
+      case "*":
+        return leftNumber * rightNumber;
+      case "/":
+        return parseInt(leftNumber / rightNumber);
+    }
   }
 };
 ```
