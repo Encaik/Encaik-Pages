@@ -677,4 +677,45 @@ var evalRPN = function(tokens) {
 };
 ```
 
+## 2021-05-26 1190. 反转每对括号间的子串
+
+1190. 反转每对括号间的子串
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/reverse-substrings-between-each-pair-of-parentheses/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseParentheses = function(s) {
+  let startPosStack = [];
+  let str = s;
+  let sLen = s.length;
+  for (let i = 0; i < sLen; i++) {
+    switch (s[i]) {
+      case "(":
+        startPosStack.push(i);
+        break;
+      case ")":
+        let positon = startPosStack.pop();
+        let preStr = str.substring(0, positon);
+        let nextStr = str.substring(i);
+        let curStr = str
+          .substring(positon, i)
+          .split("")
+          .reverse()
+          .join("");
+        str = `${preStr}${curStr}${nextStr}`;
+        break;
+    }
+  }
+  return str.split(/[()]/g).join("");
+};
+```
+
 <Valine></Valine>
