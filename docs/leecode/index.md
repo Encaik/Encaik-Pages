@@ -677,9 +677,9 @@ var evalRPN = function(tokens) {
 };
 ```
 
-## 2021-05-26 1190. 反转每对括号间的子串
+## 2021-05-26 1190.反转每对括号间的子串
 
-1190. 反转每对括号间的子串
+1190.反转每对括号间的子串
 
 难度：中等
 
@@ -715,6 +715,40 @@ var reverseParentheses = function(s) {
     }
   }
   return str.split(/[()]/g).join("");
+};
+```
+
+## 2021-05-31 342.4 的幂
+
+342.4 的幂
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/power-of-four/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfFour = function(n) {
+  return !(Math.pow(4, Math.round((n.toString(2).length - 1) / 2)) ^ n);
+};
+```
+
+我的思路是算出 n 的二进制位数长度，然后算出是 4 的几次幂，计算出结果与 n 对比是否一致，一致则是 4 的幂。根据官方题解，有更简洁的思路，即先确定 n>0,然后通过(n&(n-1))===0 确定 n 的二进制是 1000...这种形式,然后通过(n&0xaaaaaaaa)===0 确定 n 的二进制是奇数长度，从而确定 n 是 4 的幂。
+
+根据题解优化后代码：
+
+```js
+/**
+ * @param {number} n
+ * @return {boolean}
+ */
+var isPowerOfFour = function(n) {
+  return n > 0 && (n & (n - 1)) === 0 && (n & 0xaaaaaaaa) === 0;
 };
 ```
 
