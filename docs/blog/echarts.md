@@ -66,7 +66,7 @@ myChart.setOption(option);
 1. 通过 id 找到容易，声明 echarts 的初始化
 2. 使用 setOption 方法将配置项给图表
 
-::: tips 注意
+::: tip 注意
 主流的框架中，使用 echarts 需要在 dom 挂载完成后，否则初始化时无法找到 dom 将会报错
 :::
 

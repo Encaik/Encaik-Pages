@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
 <input type="text" [(ngModel)]="[变量名]" />
 ```
 
-:::warning
+::: warning 注意
 
 使用表单，需要在主文件中引入表单模块，如下：
 

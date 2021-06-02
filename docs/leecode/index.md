@@ -752,4 +752,140 @@ var isPowerOfFour = function(n) {
 };
 ```
 
+## 2021-06-01 1744.你能在你最喜欢的那天吃到你最喜欢的糖果吗？
+
+1744.你能在你最喜欢的那天吃到你最喜欢的糖果吗？
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/can-you-eat-your-favorite-candy-on-your-favorite-day/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} candiesCount
+ * @param {number[][]} queries
+ * @return {boolean[]}
+ */
+var canEat = function(candiesCount, queries) {
+  let beforeFavTypeCountToFavType = new Map();
+  // 每个问题求解
+  return queries.map(i => {
+    let beforeFavTypeCount; //距离吃到喜欢的糖需要吃多少个不喜欢的
+    if (!i[0]) {
+      return !(candiesCount[0] < i[1] + 1);
+    } else if (beforeFavTypeCountToFavType.has(i[0])) {
+      beforeFavTypeCount = beforeFavTypeCountToFavType.get(i[0]);
+    } else {
+      beforeFavTypeCount = 0;
+      for (let idx = 1; idx <= i[0]; idx++) {
+        if (beforeFavTypeCountToFavType.has(idx)) {
+          beforeFavTypeCount = beforeFavTypeCountToFavType.get(idx);
+        } else {
+          beforeFavTypeCount += candiesCount[idx - 1];
+          beforeFavTypeCountToFavType.set(idx, beforeFavTypeCount);
+        }
+      }
+    }
+    return !(
+      beforeFavTypeCount >= i[2] * (i[1] + 1) ||
+      beforeFavTypeCount + candiesCount[i[0]] < i[1] + 1
+    );
+  });
+};
+```
+
+## 2021-06-02 523.连续的子数组和
+
+523.连续的子数组和
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/continuous-subarray-sum/)
+
+初次完成代码：
+
+平平无奇暴力遍历加和判断
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var checkSubarraySum = function(nums, k) {
+  for (let i = 0; i < nums.length; i++) {
+    let sum = nums[i];
+    for (let j = i + 1; j < nums.length; j++) {
+      sum += nums[j];
+      if (!(sum % k)) return true;
+    }
+  }
+  return false;
+};
+```
+
+但是超出时长限制了，于是想到用减法减少运算量
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var checkSubarraySum = function(nums, k) {
+  let sums = [];
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (i) {
+      for (let n = i; n < sums.length; n++) {
+        sums[n] -= nums[i - 1];
+        if (!(sums[n] % k)) return true;
+      }
+    } else {
+      let sum = nums[i];
+      for (let j = i + 1; j < nums.length; j++) {
+        sum += nums[j];
+        if (!(sum % k)) return true;
+        sums[j - 1] = sum;
+      }
+    }
+  }
+  return false;
+};
+```
+
+还是超出时间限制，于是学习题解思路，发现关键在于同余定理，通过这个定理可以省略很多计算步骤
+
+::: tip 注意
+同余定理：如果两个整数 m、n 满足 n-m 能被 k 整除，那么 n 和 m 对 k 同余
+:::
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var checkSubarraySum = function(nums, k) {
+  const numsLen = nums.length;
+  if (numsLen < 2) {
+    //数组少于2位，不满足题目要求直接返回false
+    return false;
+  }
+  const map = new Map();
+  map.set(0, -1); //之后出现0则证明前缀和被整除，所以需要加上首位数字
+  let sum = 0;
+  for (let i = 0; i < numsLen; i++) {
+    sum = (sum + nums[i]) % k; //求前缀和余数
+    if (map.has(sum)) {
+      if (i - map.get(sum) >= 2) return true; //同余情况求两数位置是否大于等于2
+    } else {
+      map.set(sum, i);
+    }
+  }
+  return false;
+};
+```
+
 <Valine></Valine>
