@@ -888,4 +888,117 @@ var checkSubarraySum = function(nums, k) {
 };
 ```
 
+## 2021-06-03 525.连续数组
+
+525.连续数组
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/contiguous-array/)
+
+初次完成代码：
+
+没有想到解题思路，所以学习题解得出以下解
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findMaxLength = function(nums) {
+  let maxLength = 0;
+  const map = new Map();
+  let counter = 0;
+  map.set(counter, -1);
+  const n = nums.length;
+  for (let i = 0; i < n; i++) {
+    const num = nums[i];
+    if (num == 1) {
+      counter++;
+    } else {
+      counter--;
+    }
+    if (map.has(counter)) {
+      const prevIndex = map.get(counter);
+      maxLength = Math.max(maxLength, i - prevIndex);
+    } else {
+      map.set(counter, i);
+    }
+  }
+  return maxLength;
+};
+```
+
+## 2021-06-04 160.相交链表
+
+160.相交链表
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/intersection-of-two-linked-lists/)
+
+初次完成代码：
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+  let map = new Map();
+  while (headA) {
+    if (!map.has(headA)) map.set(headA);
+    headA = headA.next;
+  }
+  while (headB) {
+    if (map.has(headB)) {
+      return headB;
+    }
+    headB = headB.next;
+  }
+  return null;
+};
+```
+
+没什么好思路，就是遍历链表 A，然后把每个节点存 map 里，然后遍历链表 B，判断 map 里已存在 B 的某个节点，证明在此处相交。然后参考题解学习双指针解法，得出以下解。
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} headA
+ * @param {ListNode} headB
+ * @return {ListNode}
+ */
+var getIntersectionNode = function(headA, headB) {
+  let aPoint = headA;
+  let bPoint = headB;
+  if (headA === null || headB === null) {
+    return null;
+  }
+  while (aPoint !== bPoint) {
+    aPoint = aPoint ? aPoint.next : headB;
+    bPoint = bPoint ? bPoint.next : headA;
+  }
+  return aPoint;
+};
+```
+
+此处需要注意的是不能忽略 null 节点，如果判断 next 为 null 就接另一条链表，将无法判断出两个指针同时指向 null 的情况，即链表不想交的情况，然后会导致链表无限循环。
+
 <Valine></Valine>
