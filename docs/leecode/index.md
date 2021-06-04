@@ -907,27 +907,23 @@ var checkSubarraySum = function(nums, k) {
  */
 var findMaxLength = function(nums) {
   let maxLength = 0;
-  const map = new Map();
-  let counter = 0;
-  map.set(counter, -1);
-  const n = nums.length;
-  for (let i = 0; i < n; i++) {
-    const num = nums[i];
-    if (num == 1) {
-      counter++;
+  let map = new Map();
+  let sum = 0;
+  map.set(0, -1);
+  const numsLen = nums.length;
+  for (let i = 0; i < numsLen; i++) {
+    nums[i] ? sum++ : sum--;
+    if (map.has(sum)) {
+      maxLength = Math.max(maxLength, i - map.get(sum));
     } else {
-      counter--;
-    }
-    if (map.has(counter)) {
-      const prevIndex = map.get(counter);
-      maxLength = Math.max(maxLength, i - prevIndex);
-    } else {
-      map.set(counter, i);
+      map.set(sum, i);
     }
   }
   return maxLength;
 };
 ```
+
+思路是计算前缀和，1 就加一，0 就减一，然后把值与 index 存入 map，当前缀和在 map 中存在时，则证明上一次至此次之间的 0 和 1 的个数相等，和为 0，然后与已有长度取最大值。
 
 ## 2021-06-04 160.相交链表
 
