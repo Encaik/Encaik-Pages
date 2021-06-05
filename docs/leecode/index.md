@@ -997,4 +997,47 @@ var getIntersectionNode = function(headA, headB) {
 
 此处需要注意的是不能忽略 null 节点，如果判断 next 为 null 就接另一条链表，将无法判断出两个指针同时指向 null 的情况，即链表不想交的情况，然后会导致链表无限循环。
 
+## 2021-06-05 203.移除链表元素
+
+203.移除链表元素
+
+难度：简单
+
+[题目链接](https://leetcode-cn.com/problems/remove-linked-list-elements/)
+
+初次完成代码：
+
+```js
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} val
+ * @return {ListNode}
+ */
+var removeElements = function(head, val) {
+  let newHead, newPoint, point;
+  if (!head) return head;
+  point = head;
+  while (point) {
+    if (point.val !== val) {
+      if (newHead) {
+        newPoint.next = new ListNode(point.val);
+        newPoint = newPoint.next;
+      } else {
+        newHead = new ListNode(point.val);
+        newPoint = newHead;
+      }
+    }
+    point = point.next;
+  }
+  return newHead || null;
+};
+```
+
 <Valine></Valine>
