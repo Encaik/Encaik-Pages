@@ -1077,4 +1077,30 @@ var findTargetSumWays = function(nums, target) {
 };
 ```
 
+然后发现重复切割数组对于时间的消耗非常大，于是优化此处代码，改为直接取原数组下标
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var findTargetSumWays = function(nums, target) {
+  let count = 0;
+  findTarget(nums.length - 1, 0);
+  return count;
+
+  function findTarget(index, subTarget) {
+    if (index >= 0) {
+      findTarget(index - 1, subTarget + nums[index]);
+      findTarget(index - 1, subTarget - nums[index]);
+    } else {
+      if (target == subTarget) {
+        count++;
+      }
+    }
+  }
+};
+```
+
 <Valine></Valine>
