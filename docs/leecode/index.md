@@ -1040,4 +1040,41 @@ var removeElements = function(head, val) {
 };
 ```
 
+## 2021-06-07 494.目标和
+
+494.目标和
+
+难度：中等
+
+[题目链接](https://leetcode-cn.com/problems/target-sum/)
+
+初次完成代码：
+
+```js
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var findTargetSumWays = function(nums, target) {
+  let count = 0;
+  findTarget(nums, 0);
+  return count;
+
+  function findTarget(subNums, subTarget) {
+    let numsLen = subNums.length;
+    if (numsLen) {
+      let nextNums = subNums.slice(0, numsLen - 1);
+      let nextTarget = subNums.slice(numsLen - 1)[0];
+      findTarget(nextNums, subTarget + nextTarget);
+      findTarget(nextNums, subTarget - nextTarget);
+    } else {
+      if (target == subTarget) {
+        count++;
+      }
+    }
+  }
+};
+```
+
 <Valine></Valine>
