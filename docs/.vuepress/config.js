@@ -61,6 +61,7 @@ module.exports = {
     sidebar: {
       "/blog/": [
         "",
+        "harmony",
         "vscode-extension",
         "svelte",
         "socketio",
